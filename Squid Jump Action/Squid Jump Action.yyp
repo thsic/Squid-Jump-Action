@@ -1,6 +1,19 @@
 {
   "resources": [
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"oDebugMgr","path":"objects/oDebugMgr/oDebugMgr.yy",},"order":4,},
+    {"id":{"name":"changeGameState","path":"scripts/changeGameState/changeGameState.yy",},"order":0,},
+    {"id":{"name":"oGameMgr","path":"objects/oGameMgr/oGameMgr.yy",},"order":0,},
+    {"id":{"name":"zapToEnemy","path":"scripts/zapToEnemy/zapToEnemy.yy",},"order":3,},
+    {"id":{"name":"oOctopus","path":"objects/oOctopus/oOctopus.yy",},"order":5,},
+    {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":1,},
+    {"id":{"name":"sTestBackGround","path":"sprites/sTestBackGround/sTestBackGround.yy",},"order":0,},
+    {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":1,},
+    {"id":{"name":"oBootMgr","path":"objects/oBootMgr/oBootMgr.yy",},"order":2,},
+    {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"order":3,},
+    {"id":{"name":"sOctopus","path":"sprites/sOctopus/sOctopus.yy",},"order":2,},
+    {"id":{"name":"sdm","path":"scripts/sdm/sdm.yy",},"order":2,},
+    {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":2,},
+    {"id":{"name":"rBoot","path":"rooms/rBoot/rBoot.yy",},"order":1,},
   ],
   "Options": [
     {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},
@@ -20,7 +33,8 @@
     "children": [],
   },
   "RoomOrder": [
-    {"name":"Room1","path":"rooms/Room1/Room1.yy",},
+    {"name":"rBoot","path":"rooms/rBoot/rBoot.yy",},
+    {"name":"rMain","path":"rooms/rMain/rMain.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
