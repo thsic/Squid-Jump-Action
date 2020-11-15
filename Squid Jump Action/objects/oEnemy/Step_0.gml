@@ -13,7 +13,7 @@ if(!global.gameStop){
 		instance_destroy();
 	}
 	
-	hSpeed -= global.flySpeed;
+	hSpeed = -global.flySpeed
 	
 	executionEnemyMove();
 }

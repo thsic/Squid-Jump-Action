@@ -1,5 +1,5 @@
 
-instance_create_layer(100, 200, "GameObjects", oPlayer);
+instance_create_layer(300, 200, "GameObjects", oPlayer);
 global.gameState = GAMESTATE.STAGESTART;
 global.nextState = noone;
 global.gameStop = true;

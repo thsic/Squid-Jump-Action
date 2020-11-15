@@ -6,7 +6,7 @@
     "path": "folders/Scripts/system.yy",
   },
   "resourceVersion": "1.0",
-  "name": "changeGameState",
+  "name": "database",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -3,8 +3,9 @@ function manageGameState(){
 	switch(global.gameState){
 	case GAMESTATE.STAGESTART:
 		changeGameState(GAMESTATE.MAIN);
-		global.flySpeed = 2;
+		//global.flySpeed = 2;
 		global.gameStop = true;
+		global.playerHp = playerHpDefault;
 		
 	break
 	case GAMESTATE.MAIN:
@@ -18,6 +19,7 @@ function manageGameState(){
 	break
 	}
 }
+
 
 manageGameState();
 

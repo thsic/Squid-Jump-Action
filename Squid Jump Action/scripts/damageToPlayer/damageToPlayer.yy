@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "system",
-    "path": "folders/Scripts/system.yy",
+    "name": "player",
+    "path": "folders/Scripts/player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "changeGameState",
+  "name": "damageToPlayer",
   "tags": [],
   "resourceType": "GMScript",
 }

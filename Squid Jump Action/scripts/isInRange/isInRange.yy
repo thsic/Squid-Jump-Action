@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "system",
-    "path": "folders/Scripts/system.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "changeGameState",
+  "name": "isInRange",
   "tags": [],
   "resourceType": "GMScript",
 }
