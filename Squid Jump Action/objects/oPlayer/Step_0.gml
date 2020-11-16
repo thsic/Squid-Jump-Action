@@ -60,20 +60,33 @@ function lengthForEnemyList(){
 }
 function stompEnemy(){
 	//一番近い敵が踏める範囲に居るかどうか
-	var _enemyDis = ds_grid_get(dsEnemyParam, ENEMYPARAM.DISTANCE, 0);
-	var _enemyId = ds_grid_get(dsEnemyParam, ENEMYPARAM.ID, 0);
-	if(_enemyDis < stompRange){
-		//踏む
-		zapToEnemy(_enemyId);
-		//上昇
-		vSpeed = -5;
+	
+	var _enemyDis, _enemyId;
+	var _enemyNum = instance_number(oEnemy);
+	for(var i=0; i<_enemyNum; i++){
+		_enemyDis = ds_grid_get(dsEnemyParam, ENEMYPARAM.DISTANCE, i);
+		if(_enemyDis <= stompRange){
+			_enemyId = ds_grid_get(dsEnemyParam, ENEMYPARAM.ID, i);
+			
+			//敵が踏みつけ可能か確認
+			if(_enemyId.canStomp){
+				//踏む
+				zapToEnemy(_enemyId);
+				//バリアカウント減少
+				decreaseBarrierCount(1);
+				
+				//上昇
+				vSpeed = -5;
 		
-		//いろいろ回復
-		remainJumpCount = jumpCountBase;
-		remainDashCount = dashCountBase;
-		//敵を踏むとhSpeedはもとに戻る
-		hSpeed = 0;
+				//いろいろ回復
+				remainJumpCount = jumpCountBase;
+				remainDashCount = dashCountBase;
+				//敵を踏むとhSpeedはもとに戻る
+				hSpeed = 0;
+			}
+		}
 	}
+
 }
 function dashManage(){
 	
@@ -170,12 +183,14 @@ function playerHpManage(){
 			_enemyId = ds_grid_get(dsEnemyParam, ENEMYPARAM.ID, i);
 			if(_enemyId.spike = true){
 				//敵に攻撃判定がある
-				setPlayerInvinsibleTime(invinsibleTimeBase);
-				
 				if(!invinsibleEnable){
 					//無敵時間でないならプレイヤーにダメージ
 					damageToPlayer(1);
 				}
+				
+				//無敵時間にする
+				setPlayerInvinsibleTime(invinsibleTimeBase);
+				
 			}
 		}
 		else{
@@ -191,11 +206,11 @@ function playerHpManage(){
 	else{
 		invinsibleEnable = false;
 	}
-	
+
 }
 function fellIntoTheSea(){
 	//海に落ちた
-	if(y < 0){
+	if(y > room_height){
 		gameoverScript();
 	}
 }

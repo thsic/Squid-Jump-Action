@@ -1,7 +1,6 @@
 
 vSpeed = 0;
 hSpeed = 0;
-stompRange = 64;
 swipeStartPointX = noone;
 swipeStartPointY = noone;
 remainDashCount = dashCountBase;

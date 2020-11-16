@@ -9,6 +9,11 @@ else{
 
 draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, _alpha);
 
+if(global.playerHp == 2){
+	//バリアがある場合はバリアを描画
+	draw_sprite_ext(sBarrier, 0, x, y, 1, 1, 0, c_white, 0.5);
+}
+
 if(chargeingDash){
 	
 	draw_circle(swipeStartPointX, swipeStartPointY, 10, false);
@@ -19,7 +24,7 @@ if(chargeingDash){
 }
 
 //残りダッシュ回数など描画
-var _spriteX = bbox_left+8;
+var _spriteX = bbox_left + 8;
 var _spriteY = bbox_top - 8;
 for(var i=0; i<remainDashCount; i++){
 	
