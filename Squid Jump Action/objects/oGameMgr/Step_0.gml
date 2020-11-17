@@ -39,6 +39,7 @@ function manageGameState(){
 		global.gameStop = true;
 		global.playerHp = playerHpDefault;
 		setBarrierCount();
+		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
 		
 		
 	break

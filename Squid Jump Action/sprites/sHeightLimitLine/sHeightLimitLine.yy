@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f6558dec-0e24-4bd4-b9bd-3f00fc3f071c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Squid Jump Action",
-    "path": "Squid Jump Action.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sHeightLimitLine",
