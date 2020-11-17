@@ -8,6 +8,29 @@ function itemManage(){
 	
 }
 
+function heightLimitManage(){
+	
+	if(oPlayer.y < heightLimit){
+		//高さ上限ラインを超えている
+		overHeightLimitTime++
+		if(overHeightLimitTime >= overHeightLimitTimeBase){
+			//上限ライン気終えてから一定時間経過
+			
+		}
+	}
+	else{
+		if(overHeightLimitTime > 0){
+			overHeightLimitTime -= 2;
+		}
+		else{
+			overHeightLimitTime = 0;
+		}
+		
+	}
+	
+	
+}
+
 function manageGameState(){
 	switch(global.gameState){
 	case GAMESTATE.STAGESTART:
@@ -22,6 +45,7 @@ function manageGameState(){
 	case GAMESTATE.MAIN:
 		global.gameStop = false;
 		itemManage();
+		heightLimitManage();
 		
 	break
 	case GAMESTATE.PAUSE:

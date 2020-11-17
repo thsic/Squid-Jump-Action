@@ -6,7 +6,7 @@ var _riseRatio = animcurve_channel_evaluate(_channel, _timeRatio);
 
 //時間が流れるほど上に上がる
 y = offsetY - riseHeight * _riseRatio;
-sdm(_timeRatio)
+
 remainLifeTime--;
 
 if(remainLifeTime <= 0){

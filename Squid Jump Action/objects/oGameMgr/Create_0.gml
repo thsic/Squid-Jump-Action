@@ -1,5 +1,6 @@
 
 instance_create_layer(300, 200, "GameObjects", oPlayer);
+instance_create_layer(0, 0, "Instances", oCamera);
 global.gameState = GAMESTATE.STAGESTART;
 global.nextState = noone;
 global.gameStop = true;
@@ -7,6 +8,8 @@ global.gameStop = true;
 if(debug_mode){
 	instance_create_layer(0, 0, "Instances", oDebugMgr);
 }
+
+overHeightLimitTime = 0;
 
 enum GAMESTATE{
 	MAIN,
