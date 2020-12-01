@@ -27,8 +27,21 @@ function heightLimitManage(){
 		}
 		
 	}
-	
-	
+}
+
+function levelManage(){
+	if(global.levelPoint > levelUpPointBase){
+		//レベル上昇処理
+		global.levelPoint -= levelUpPointBase;
+		global.nowLevel++;
+		sdm(global.nowLevel)
+		
+		var _cameraWidth = camera_get_view_width(oCamera.camera);
+		var _cameraHeight = camera_get_view_height(oCamera.camera);
+		var _sqX = camera_get_view_x(oCamera.camera) + _cameraWidth/2;
+		var _sqY = camera_get_view_x(oCamera.camera) + _cameraHeight/2;
+		createTextEffect(_sqX, _sqY, sqLevelUpEffect, 0, true, "LevelUp!", c_green, noone);
+	}
 }
 
 function manageGameState(){
@@ -38,6 +51,8 @@ function manageGameState(){
 		//global.flySpeed = 2;
 		global.gameStop = true;
 		global.playerHp = playerHpDefault;
+		global.nowLevel = 1;
+		global.levelPoint = 0;
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
 		
@@ -47,6 +62,7 @@ function manageGameState(){
 		global.gameStop = false;
 		itemManage();
 		heightLimitManage();
+		levelManage();
 		
 	break
 	case GAMESTATE.PAUSE:

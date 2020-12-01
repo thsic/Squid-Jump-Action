@@ -1,0 +1,100 @@
+{
+  "spriteId": null,
+  "timeUnits": 1,
+  "playback": 0,
+  "playbackSpeed": 60.0,
+  "playbackSpeedType": 0,
+  "autoRecord": true,
+  "volume": 1.0,
+  "length": 120.0,
+  "events": {
+    "Keyframes": [],
+    "resourceVersion": "1.0",
+    "resourceType": "KeyframeStore<MessageEventKeyframe>",
+  },
+  "moments": {
+    "Keyframes": [],
+    "resourceVersion": "1.0",
+    "resourceType": "KeyframeStore<MomentsEventKeyframe>",
+  },
+  "tracks": [
+    {"keyframes":{"Keyframes":[
+          {"id":"b829e279-5ec2-42c2-8309-ac6781882e87","Key":0.0,"Length":120.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"oTextEffect","path":"objects/oTextEffect/oTextEffect.yy",},"resourceVersion":"1.0","resourceType":"AssetInstanceKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<AssetInstanceKeyframe>",},
+        ],"resourceVersion":"1.0","resourceType":"KeyframeStore<AssetInstanceKeyframe>",},"trackColour":4287842546,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[
+        {"trackColour":4287842546,"builtinName":10,"name":"blend_multiply","keyframes":{"Keyframes":[
+              {"id":"71867c0f-0874-4d22-aa33-b40d9a36359f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":null,"Colour":16777215,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"ColourKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<ColourKeyframe>",},
+              {"id":"85f54033-2157-42a1-8c80-fbcd0cf6bff1","Key":30.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":null,"Colour":4294967295,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"ColourKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<ColourKeyframe>",},
+              {"id":"4d3ff53b-e0b8-4cb2-b454-f1958cac064a","Key":90.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":null,"Colour":4294967295,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"ColourKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<ColourKeyframe>",},
+              {"id":"24179521-771d-4165-ae38-957e4cf6032b","Key":119.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":null,"Colour":16777215,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"ColourKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<ColourKeyframe>",},
+            ],"resourceVersion":"1.0","resourceType":"KeyframeStore<ColourKeyframe>",},"inheritsTrackColour":true,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMColourTrack",},
+        {"keyframes":{"Keyframes":[
+              {"id":"85210514-f63e-49c3-b198-bddeae3dc2d0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":true,"Channels":{"0":{"EmbeddedAnimCurve":null,"RealValue":0.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},"1":{"EmbeddedAnimCurve":null,"RealValue":0.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<RealKeyframe>",},
+            ],"resourceVersion":"1.0","resourceType":"KeyframeStore<RealKeyframe>",},"trackColour":4287842546,"inheritsTrackColour":true,"builtinName":16,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":true,"resourceVersion":"1.0","name":"origin","tags":[],"resourceType":"GMRealTrack",},
+        {"keyframes":{"Keyframes":[
+              {"id":"c88e7051-643a-417a-8f6a-a9b0d42a0f82","Key":0.0,"Length":120.0,"Stretch":true,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":{"function":1,"channels":[
+                        {"colour":4290799884,"visible":true,"points":[
+                            {"th0":0.0,"th1":0.0151801733,"tv0":0.0,"tv1":0.0,"x":0.0,"y":859.0,},
+                            {"th0":-0.0151801733,"th1":0.0248198267,"tv0":0.0,"tv1":0.0,"x":0.111936904,"y":489.509033,},
+                            {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.257057071,"y":281.029846,},
+                            {"th0":-0.09333334,"th1":0.05333333,"tv0":0.0,"tv1":0.0,"x":0.7507507,"y":-62.4925461,},
+                            {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.8963964,"y":-425.158966,},
+                            {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":1.0,"y":-976.308,},
+                            {"th0":-0.0133333327,"th1":0.0,"tv0":0.0,"tv1":0.0,"x":1.0,"y":-993.0,},
+                          ],"resourceVersion":"1.0","name":"x","tags":[],"resourceType":"GMAnimCurveChannel",},
+                        {"colour":4281083598,"visible":true,"points":[
+                            {"th0":0.0,"th1":0.0400000028,"tv0":0.0,"tv1":0.0,"x":0.0,"y":-198.0,},
+                            {"th0":-0.0400000028,"th1":0.09333334,"tv0":0.0,"tv1":0.0,"x":0.2,"y":-198.0,},
+                            {"th0":-0.09333334,"th1":0.05333333,"tv0":0.0,"tv1":0.0,"x":0.6666667,"y":-198.0,},
+                            {"th0":-0.05333333,"th1":0.0133333327,"tv0":0.0,"tv1":0.0,"x":0.933333337,"y":-198.0,},
+                            {"th0":-0.0133333327,"th1":0.0,"tv0":0.0,"tv1":0.0,"x":1.0,"y":-198.0,},
+                          ],"resourceVersion":"1.0","name":"y","tags":[],"resourceType":"GMAnimCurveChannel",},
+                      ],"parent":{"name":"position","path":"sequences/sqLevelUpEffect/sqLevelUpEffect.yy",},"resourceVersion":"1.2","name":"Position","tags":[],"resourceType":"GMAnimCurve",},"RealValue":0.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},"1":{"EmbeddedAnimCurve":{"function":1,"channels":[
+                        {"colour":4290799884,"visible":true,"points":[
+                            {"th0":0.0,"th1":0.0151801733,"tv0":0.0,"tv1":0.0,"x":0.0,"y":859.0,},
+                            {"th0":-0.0151801733,"th1":0.0248198267,"tv0":0.0,"tv1":0.0,"x":0.111936904,"y":489.509033,},
+                            {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.257057071,"y":281.029846,},
+                            {"th0":-0.09333334,"th1":0.05333333,"tv0":0.0,"tv1":0.0,"x":0.7507507,"y":-62.4925461,},
+                            {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.8963964,"y":-425.158966,},
+                            {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":1.0,"y":-976.308,},
+                            {"th0":-0.0133333327,"th1":0.0,"tv0":0.0,"tv1":0.0,"x":1.0,"y":-993.0,},
+                          ],"resourceVersion":"1.0","name":"x","tags":[],"resourceType":"GMAnimCurveChannel",},
+                        {"colour":4281083598,"visible":true,"points":[
+                            {"th0":0.0,"th1":0.0400000028,"tv0":0.0,"tv1":0.0,"x":0.0,"y":-198.0,},
+                            {"th0":-0.0400000028,"th1":0.09333334,"tv0":0.0,"tv1":0.0,"x":0.2,"y":-198.0,},
+                            {"th0":-0.09333334,"th1":0.05333333,"tv0":0.0,"tv1":0.0,"x":0.6666667,"y":-198.0,},
+                            {"th0":-0.05333333,"th1":0.0133333327,"tv0":0.0,"tv1":0.0,"x":0.933333337,"y":-198.0,},
+                            {"th0":-0.0133333327,"th1":0.0,"tv0":0.0,"tv1":0.0,"x":1.0,"y":-198.0,},
+                          ],"resourceVersion":"1.0","name":"y","tags":[],"resourceType":"GMAnimCurveChannel",},
+                      ],"parent":{"name":"position","path":"sequences/sqLevelUpEffect/sqLevelUpEffect.yy",},"resourceVersion":"1.2","name":null,"tags":[],"resourceType":"GMAnimCurve",},"RealValue":0.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<RealKeyframe>",},
+            ],"resourceVersion":"1.0","resourceType":"KeyframeStore<RealKeyframe>",},"trackColour":4287842546,"inheritsTrackColour":true,"builtinName":14,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","name":"position","tags":[],"resourceType":"GMRealTrack",},
+        {"keyframes":{"Keyframes":[
+              {"id":"8b594793-fafe-475a-8362-277efd0a426e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":true,"Channels":{"0":{"EmbeddedAnimCurve":null,"RealValue":0.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<RealKeyframe>",},
+            ],"resourceVersion":"1.0","resourceType":"KeyframeStore<RealKeyframe>",},"trackColour":4287842546,"inheritsTrackColour":true,"builtinName":8,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":true,"resourceVersion":"1.0","name":"rotation","tags":[],"resourceType":"GMRealTrack",},
+        {"keyframes":{"Keyframes":[
+              {"id":"b2f76ab3-2fb8-4d43-8fad-b395c81c97f5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":true,"Channels":{"0":{"EmbeddedAnimCurve":null,"RealValue":1.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},"1":{"EmbeddedAnimCurve":null,"RealValue":1.0,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"RealKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<RealKeyframe>",},
+            ],"resourceVersion":"1.0","resourceType":"KeyframeStore<RealKeyframe>",},"trackColour":4287842546,"inheritsTrackColour":true,"builtinName":15,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":true,"resourceVersion":"1.0","name":"scale","tags":[],"resourceType":"GMRealTrack",},
+      ],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","name":"oTextEffect","tags":[],"resourceType":"GMInstanceTrack",},
+  ],
+  "visibleRange": null,
+  "lockOrigin": false,
+  "showBackdrop": true,
+  "showBackdropImage": false,
+  "backdropImagePath": "",
+  "backdropImageOpacity": 0.5,
+  "backdropWidth": 1366,
+  "backdropHeight": 768,
+  "backdropXOffset": 0.0,
+  "backdropYOffset": 0.0,
+  "xorigin": 0,
+  "yorigin": 0,
+  "eventToFunction": {},
+  "eventStubScript": null,
+  "parent": {
+    "name": "Sequences",
+    "path": "folders/Sequences.yy",
+  },
+  "resourceVersion": "1.3",
+  "name": "sqLevelUpEffect",
+  "tags": [],
+  "resourceType": "GMSequence",
+}

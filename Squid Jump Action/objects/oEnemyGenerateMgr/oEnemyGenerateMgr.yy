@@ -24,8 +24,8 @@
   ],
   "properties": [
     {"varType":1,"value":"20","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"octopusGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"1000","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"insideUrchinGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"10","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"outsideUrchinGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"60","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"insideUrchinGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"120","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"outsideUrchinGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"32","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"generateSpaceInterval","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],

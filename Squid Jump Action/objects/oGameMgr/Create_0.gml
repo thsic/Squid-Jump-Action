@@ -10,6 +10,7 @@ if(debug_mode){
 }
 
 overHeightLimitTime = 0;
+levelUpSequenceElement = noone;
 
 enum GAMESTATE{
 	MAIN,

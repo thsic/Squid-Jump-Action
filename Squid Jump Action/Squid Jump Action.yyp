@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"database","path":"scripts/database/database.yy",},"order":1,},
+    {"id":{"name":"sqLevelUpEffect","path":"sequences/sqLevelUpEffect/sqLevelUpEffect.yy",},"order":0,},
     {"id":{"name":"setPlayerInvinsibleTime","path":"scripts/setPlayerInvinsibleTime/setPlayerInvinsibleTime.yy",},"order":0,},
     {"id":{"name":"oDebugMgr","path":"objects/oDebugMgr/oDebugMgr.yy",},"order":4,},
     {"id":{"name":"acGeneralInCurve","path":"animcurves/acGeneralInCurve/acGeneralInCurve.yy",},"order":3,},
@@ -10,6 +11,7 @@
     {"id":{"name":"changeGameState","path":"scripts/changeGameState/changeGameState.yy",},"order":0,},
     {"id":{"name":"oGameMgr","path":"objects/oGameMgr/oGameMgr.yy",},"order":0,},
     {"id":{"name":"zapToEnemy","path":"scripts/zapToEnemy/zapToEnemy.yy",},"order":1,},
+    {"id":{"name":"addLevelPoint","path":"scripts/addLevelPoint/addLevelPoint.yy",},"order":3,},
     {"id":{"name":"sHeightLimitLine","path":"sprites/sHeightLimitLine/sHeightLimitLine.yy",},"order":5,},
     {"id":{"name":"gameoverScript","path":"scripts/gameoverScript/gameoverScript.yy",},"order":2,},
     {"id":{"name":"acDashSpeed","path":"animcurves/acDashSpeed/acDashSpeed.yy",},"order":1,},
@@ -22,11 +24,13 @@
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},
     {"id":{"name":"sTestBackGround","path":"sprites/sTestBackGround/sTestBackGround.yy",},"order":0,},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":1,},
+    {"id":{"name":"acLevelUpTextAlpha","path":"animcurves/acLevelUpTextAlpha/acLevelUpTextAlpha.yy",},"order":4,},
     {"id":{"name":"isInRange","path":"scripts/isInRange/isInRange.yy",},"order":2,},
     {"id":{"name":"oBootMgr","path":"objects/oBootMgr/oBootMgr.yy",},"order":2,},
     {"id":{"name":"sRemainJump","path":"sprites/sRemainJump/sRemainJump.yy",},"order":3,},
     {"id":{"name":"sRemainDash","path":"sprites/sRemainDash/sRemainDash.yy",},"order":2,},
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"order":3,},
+    {"id":{"name":"oTextEffect","path":"objects/oTextEffect/oTextEffect.yy",},"order":12,},
     {"id":{"name":"sOctopus","path":"sprites/sOctopus/sOctopus.yy",},"order":1,},
     {"id":{"name":"sUrchin","path":"sprites/sUrchin/sUrchin.yy",},"order":2,},
     {"id":{"name":"sdm","path":"scripts/sdm/sdm.yy",},"order":0,},
@@ -34,6 +38,7 @@
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":2,},
     {"id":{"name":"setBarrierCount","path":"scripts/setBarrierCount/setBarrierCount.yy",},"order":2,},
     {"id":{"name":"sBarrier","path":"sprites/sBarrier/sBarrier.yy",},"order":0,},
+    {"id":{"name":"createTextEffect","path":"scripts/createTextEffect/createTextEffect.yy",},"order":1,},
     {"id":{"name":"oEnemyGenerateMgr","path":"objects/oEnemyGenerateMgr/oEnemyGenerateMgr.yy",},"order":11,},
     {"id":{"name":"oRiseNumberEffect","path":"objects/oRiseNumberEffect/oRiseNumberEffect.yy",},"order":0,},
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"order":10,},
@@ -58,9 +63,9 @@
     "name": "Default",
     "children": [],
   },
-  "RoomOrder": [
-    {"name":"rBoot","path":"rooms/rBoot/rBoot.yy",},
-    {"name":"rMain","path":"rooms/rMain/rMain.yy",},
+  "RoomOrderNodes": [
+    {"roomId":{"name":"rBoot","path":"rooms/rBoot/rBoot.yy",},},
+    {"roomId":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
@@ -91,13 +96,13 @@
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
   ],
   "TextureGroups": [
-    {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"targets":461609314234257646,"resourceVersion":"1.0","name":"Default","resourceType":"GMTextureGroup",},
+    {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":461609314234257646,"resourceVersion":"1.0","name":"Default","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2.3.0.529",
+    "IDEVersion": "2.3.1.536",
   },
-  "resourceVersion": "1.3",
+  "resourceVersion": "1.4",
   "name": "Squid Jump Action",
   "tags": [],
   "resourceType": "GMProject",

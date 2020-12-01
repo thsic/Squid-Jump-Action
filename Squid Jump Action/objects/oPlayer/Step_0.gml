@@ -33,8 +33,7 @@ function executionMove(){
 	
 	y += vSpeed;
 	global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
-	
-	//x += hSpeed;
+	addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算
 }
 function lengthForEnemyList(){
 	//リスト初期化
@@ -58,6 +57,7 @@ function lengthForEnemyList(){
 	//ソート
 	ds_grid_sort(dsEnemyParam, ENEMYPARAM.DISTANCE, true);
 }
+
 function stompEnemy(){
 	//一番近い敵が踏める範囲に居るかどうか
 	
@@ -74,6 +74,8 @@ function stompEnemy(){
 				zapToEnemy(_enemyId);
 				//バリアカウント減少
 				decreaseBarrierCount(1);
+				//レベルポイント上昇
+				addLevelPoint(3);
 				
 				//上昇
 				vSpeed = -5;
@@ -171,7 +173,7 @@ function resetPlayerParam(){
 	hSpeedTemp = 0;
 }
 function playerHpManage(){
-	
+	//hp管理
 	var _enemyId, _enemyDis;
 	var _enemyNum = instance_number(oEnemy);
 	for(var i=0; i<_enemyNum; i++){
