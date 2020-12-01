@@ -34,6 +34,7 @@
     {"id":{"name":"sOctopus","path":"sprites/sOctopus/sOctopus.yy",},"order":1,},
     {"id":{"name":"sUrchin","path":"sprites/sUrchin/sUrchin.yy",},"order":2,},
     {"id":{"name":"sdm","path":"scripts/sdm/sdm.yy",},"order":0,},
+    {"id":{"name":"gainScore","path":"scripts/gainScore/gainScore.yy",},"order":4,},
     {"id":{"name":"oItem","path":"objects/oItem/oItem.yy",},"order":0,},
     {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":2,},
     {"id":{"name":"setBarrierCount","path":"scripts/setBarrierCount/setBarrierCount.yy",},"order":2,},

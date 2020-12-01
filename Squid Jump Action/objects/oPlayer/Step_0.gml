@@ -34,6 +34,9 @@ function executionMove(){
 	y += vSpeed;
 	global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
 	addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算
+	
+	playerDirection = point_direction(0, 0, hSpeed + dashHspeed, vSpeed);
+	sdm(playerDirection)
 }
 function lengthForEnemyList(){
 	//リスト初期化
@@ -76,6 +79,8 @@ function stompEnemy(){
 				decreaseBarrierCount(1);
 				//レベルポイント上昇
 				addLevelPoint(3);
+				//スコア上昇
+				gainScore(1000);
 				
 				//上昇
 				vSpeed = -5;

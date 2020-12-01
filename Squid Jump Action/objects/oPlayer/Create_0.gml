@@ -13,6 +13,9 @@ dashEnable = false;
 dashTime = 0;
 dashHspeedBase = 0;
 
+//移動
+playerDirection = 0;
+
 //無敵時間
 invinsibleTime = 0;
 invinsibleEnable = false;

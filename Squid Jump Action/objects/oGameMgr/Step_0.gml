@@ -44,6 +44,10 @@ function levelManage(){
 	}
 }
 
+function scoreManage(){
+	//スコア関連	
+}
+
 function manageGameState(){
 	switch(global.gameState){
 	case GAMESTATE.STAGESTART:
@@ -53,6 +57,8 @@ function manageGameState(){
 		global.playerHp = playerHpDefault;
 		global.nowLevel = 1;
 		global.levelPoint = 0;
+		global.gameScore = 0;
+		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
 		
@@ -63,6 +69,7 @@ function manageGameState(){
 		itemManage();
 		heightLimitManage();
 		levelManage();
+		scoreManage();
 		
 	break
 	case GAMESTATE.PAUSE:
@@ -80,6 +87,7 @@ function manageGameState(){
 	break
 	}
 }
+
 
 
 manageGameState();

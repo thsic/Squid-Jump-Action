@@ -7,7 +7,7 @@ else{
 	var _alpha = 1;
 }
 
-draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, _alpha);
+draw_sprite_ext(sprite_index, 0, x, y, 1, 1, playerDirection, c_white, _alpha);
 
 if(global.playerHp == 2){
 	//バリアがある場合はバリアを描画
