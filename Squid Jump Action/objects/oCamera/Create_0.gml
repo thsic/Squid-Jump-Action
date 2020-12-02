@@ -1,7 +1,7 @@
 
-resWidth = 990;
-resHeight = 540;
-resScale = 1;
+resWidth = 248;//990
+resHeight = 135;//540
+resScale = 4;
 
 cameraSmooth = 0.1;
 

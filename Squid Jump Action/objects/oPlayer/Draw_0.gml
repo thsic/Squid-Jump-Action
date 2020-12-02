@@ -16,9 +16,6 @@ if(global.playerHp == 2){
 
 if(chargeingDash){
 	
-	draw_circle(swipeStartPointX, swipeStartPointY, 10, false);
-	draw_circle(mouse_x, mouse_y, 10, false);
-	
 	draw_sprite_ext(sArrow, 0, x+40, y, 1, 1, dashDirection, c_white, 1);
 	
 }

@@ -34,7 +34,7 @@ function levelManage(){
 		//レベル上昇処理
 		global.levelPoint -= levelUpPointBase;
 		global.nowLevel++;
-		sdm(global.nowLevel)
+		
 		
 		var _cameraWidth = camera_get_view_width(oCamera.camera);
 		var _cameraHeight = camera_get_view_height(oCamera.camera);

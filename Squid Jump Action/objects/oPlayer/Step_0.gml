@@ -34,9 +34,7 @@ function executionMove(){
 	y += vSpeed;
 	global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
 	addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算
-	
 	playerDirection = point_direction(0, 0, hSpeed + dashHspeed, vSpeed);
-	sdm(playerDirection)
 }
 function lengthForEnemyList(){
 	//リスト初期化
@@ -98,13 +96,15 @@ function stompEnemy(){
 function dashManage(){
 	
 	chargeingDash = false
+	var _mx = window_mouse_get_x();
+	var _my = window_mouse_get_y();
 	if(mouse_check_button_pressed(mb_left)){
-		swipeStartPointX = mouse_x;
-		swipeStartPointY = mouse_y;
+		swipeStartPointX = _mx;
+		swipeStartPointY = _my;
 	}
 	
-	var _swipeDir = point_direction(swipeStartPointX, swipeStartPointY, mouse_x, mouse_y);
-	var _swipeDis = point_distance(swipeStartPointX, swipeStartPointY, mouse_x, mouse_y);
+	var _swipeDir = point_direction(swipeStartPointX, swipeStartPointY, _mx, _my);
+	var _swipeDis = point_distance(swipeStartPointX, swipeStartPointY, _mx, _my);
 		
 	if(_swipeDis > 32 and remainDashCount > 0){
 		if(mouse_check_button(mb_left)){
@@ -138,10 +138,11 @@ function dashManage(){
 			remainDashCount--;
 			
 			dashHspeedBase = lengthdir_x(dashSpeed, dashDirection);
+			dashVspeedBase = lengthdir_y(dashSpeed, dashDirection);
 			
 			//vspeedはダッシュ時にはリセット
 			vSpeed = 0;
-			vSpeed = lengthdir_y(dashSpeed, dashDirection);
+			//vSpeed = lengthdir_y(dashSpeed, dashDirection);
 			
 			//加速
 			var _dirRatio = (dashDirection-90)/180;
@@ -158,15 +159,29 @@ function dashManage(){
 	if(dashEnable){
 		if(dashTime <= 0){
 			//ダッシュ終わり
+			if(vSpeed > 0){//ダッシュが下向きの時はダッシュ後もそのままvspeedが引き継がれる
+				vSpeed = dashVspeedBase;
+			}
+
 			dashEnable = false;
 			dashHspeed = 0;
+			dashVspeed = 0;
+			
 		}
 		else{
 			var _dashTimeRatio = 1-dashTime/dashTimeBase;
 			var _channel = animcurve_get_channel(acDashSpeed, 0);
 			var _dashRatio = animcurve_channel_evaluate(_channel, _dashTimeRatio);
-			dashHspeed = dashHspeedBase*_dashRatio;
 			dashTime--;
+			
+			dashHspeed = dashHspeedBase*_dashRatio;
+			
+			if(dashVspeedBase > 0){//ダッシュが下向きの場合はvspeedが減少しない
+				vSpeed = dashVspeedBase;
+			}
+			else{
+				vSpeed = dashVspeedBase*_dashRatio;
+			}
 		}
 	}
 }
