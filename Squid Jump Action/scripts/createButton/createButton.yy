@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "usefulfunction",
-    "path": "folders/Scripts/usefulfunction.yy",
+    "name": "system",
+    "path": "folders/Scripts/system.yy",
   },
   "resourceVersion": "1.0",
-  "name": "drawSetDefault",
+  "name": "createButton",
   "tags": [],
   "resourceType": "GMScript",
 }

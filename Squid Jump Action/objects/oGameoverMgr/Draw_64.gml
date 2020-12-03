@@ -3,9 +3,9 @@ var _cameraW = camera_get_view_width(oCamera.camera);
 var _cameraH = camera_get_view_height(oCamera.camera);
 
 var _winWidth = _cameraW*0.66;
-var _winHeight = _cameraH*0.66;
+var _winHeight = _cameraH*0.5;
 var _winX = _cameraW/2-_winWidth/2;
-var _winYFinally = _cameraH/2 + _winHeight/2;
+var _winYFinally = _cameraH/2 - _winHeight/2;
 var _winYDefault = _cameraH;
 var _winY = _winYDefault;
 
@@ -18,7 +18,7 @@ and gameoverTime < _gameoverWindowRiseStopTime){
 	
 	var _windowRiseTotalTime = _gameoverWindowRiseStopTime - _gameoverWindowRiseStartTime;
 	//var _riseTimePercent = 1-(_gameoverWindowRiseStopTime-_gameoverWindowRiseStartTime) / (gameoverTime-_gameoverWindowRiseStartTime)
-	var _risePixelPerSecond = _winYFinally / _windowRiseTotalTime;
+	var _risePixelPerSecond = (_winYDefault - _winYFinally) / _windowRiseTotalTime;
 	//_winY = _winYDefault - (_winYDefault - _winYFinally) * _riseTimePercent;
 	_winY = _winYDefault + (_gameoverWindowRiseStartTime - gameoverTime)*_risePixelPerSecond;
 

@@ -6,7 +6,7 @@
     "path": "folders/Scripts/usefulfunction.yy",
   },
   "resourceVersion": "1.0",
-  "name": "drawSetDefault",
+  "name": "isInPlace",
   "tags": [],
   "resourceType": "GMScript",
 }

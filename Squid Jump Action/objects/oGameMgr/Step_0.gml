@@ -81,9 +81,6 @@ function manageGameState(){
 			instance_create_layer(0, 0, "UI", oGameoverMgr);
 		}
 		
-		if(mouse_check_button(mb_left)){
-			room_restart();
-		}
 		gameoverElapsedTime++;
 		
 		

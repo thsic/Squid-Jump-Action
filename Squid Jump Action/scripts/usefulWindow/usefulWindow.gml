@@ -46,6 +46,5 @@ function usefulWindow(_spritePath, _windowNumber, _winX, _winY, _width, _height,
 	else//既に作られているなら
 	{
 		draw_surface(global.usefulwindow_surface[_windowNumber],_winX,_winY);
-		sdm("aaa")
 	}
 }

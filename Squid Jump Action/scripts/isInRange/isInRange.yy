@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "usefulfunction",
+    "path": "folders/Scripts/usefulfunction.yy",
   },
   "resourceVersion": "1.0",
   "name": "isInRange",

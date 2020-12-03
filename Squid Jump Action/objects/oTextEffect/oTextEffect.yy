@@ -26,8 +26,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "effect",
+    "path": "folders/Objects/effect.yy",
   },
   "resourceVersion": "1.0",
   "name": "oTextEffect",
