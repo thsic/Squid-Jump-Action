@@ -77,6 +77,9 @@ function manageGameState(){
 	break
 	case GAMESTATE.GAMEOVER:
 		global.gameStop = true;
+		if(!instance_exists(oGameoverMgr)){
+			instance_create_layer(0, 0, "UI", oGameoverMgr);
+		}
 		
 		if(mouse_check_button(mb_left)){
 			room_restart();

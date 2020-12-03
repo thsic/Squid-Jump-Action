@@ -12,6 +12,10 @@ if(debug_mode){
 overHeightLimitTime = 0;
 levelUpSequenceElement = noone;
 
+//usefulwindow
+global.usefulwindow_surface[0] = noone
+
+
 enum GAMESTATE{
 	MAIN,
 	STAGESTART,

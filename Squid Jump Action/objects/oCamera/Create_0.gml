@@ -1,7 +1,7 @@
 
 resWidth = 990;//990
 resHeight = 540;//540
-resScale = 4;
+resScale = 2;
 
 cameraSmooth = 0.1;
 
@@ -12,7 +12,7 @@ view_enabled = true;
 view_visible[0] = true;
 
 //camera生成(表示する範囲)
-camera = camera_create_view(0, 0, resWidth, resHeight);
+camera = camera_create_view(0, 0, resWidth/resScale, resHeight/resScale);
 
 //viewと紐付け
 view_set_camera(0, camera);
