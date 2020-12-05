@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Title.yy",
   },
   "resourceVersion": "1.0",
-  "name": "pressedAchievementButton",
+  "name": "pressedStatsButton",
   "tags": [],
   "resourceType": "GMScript",
 }

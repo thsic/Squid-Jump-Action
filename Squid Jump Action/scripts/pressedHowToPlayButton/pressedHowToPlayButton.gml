@@ -2,6 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function pressedHowToPlayButton(){
 	if(!oTitleMgr.buttonActive){
-		oTitleMgr.pressedButton = PRESSEDTITLEBUTTON.HOWTOPLAY; 
+		oTitleMgr.pressedButton = PRESSEDTITLEBUTTON.HOWTOPLAY;
+		oTitleMgr.windowState = DRAWINGTITLEWINDOW.DRAWSTART; 
 	}
 }
