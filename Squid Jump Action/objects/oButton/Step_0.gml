@@ -1,6 +1,12 @@
 //カメラに追従
-x = camera_get_view_x(oCamera.camera) + buttonScreenX;
-y = camera_get_view_y(oCamera.camera) + buttonScreenY;
+if(instance_exists(oCamera)){
+	x = camera_get_view_x(oCamera.camera) + buttonScreenX;
+	y = camera_get_view_y(oCamera.camera) + buttonScreenY;
+}
+else{
+	x = buttonScreenX;
+	y = buttonScreenY;
+}
 
 //ボタンの範囲にマウスがあるかどうか
 

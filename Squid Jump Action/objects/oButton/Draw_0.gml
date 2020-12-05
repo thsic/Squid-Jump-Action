@@ -1,8 +1,7 @@
 
-if(buttonSprite != noone){
+if(buttonDrawEvent == DRAWEVENT.DRAW){
+	draw_set_alpha(buttonAlpha);
 	draw_sprite(buttonSprite, subimage, x, y);
-}
-else{
-	errorSdm("buttonSpriteの取得に失敗しました")
+	drawSetDefault();
 }
 

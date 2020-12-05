@@ -1,7 +1,7 @@
 
-resWidth = 990;//990
-resHeight = 540;//540
-resScale = 2;
+resWidth = WINDOWWIDTH;//990
+resHeight = WINDOWHEIGHT;//540
+resScale = CAMERASCALE;
 
 cameraSmooth = 0.1;
 
