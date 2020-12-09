@@ -1,6 +1,7 @@
 
 instance_create_layer(100, 200, "GameObjects", oPlayer);
 instance_create_layer(0, 0, "Instances", oCamera);
+instance_create_layer(0, 0, "Instances", oBackGroundMgr);
 global.gameState = GAMESTATE.STAGESTART;
 global.nextState = noone;
 global.gameStop = true;

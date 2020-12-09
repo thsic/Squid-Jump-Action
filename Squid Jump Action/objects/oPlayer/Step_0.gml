@@ -22,6 +22,7 @@ function gravityManage(){
 		}
 	}
 }
+
 function executionMove(){
 	//hSpeedTemp *= hSpeedAcceleration;
 	
@@ -33,9 +34,22 @@ function executionMove(){
 	
 	y += vSpeed;
 	global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
+	
+	//地面についた
+	if(GROUNDPOS-1 < y){
+		y = GROUNDPOS;
+		grounded = true;
+		global.flySpeed /= 2;
+	}
+	else{
+		graunded = false;
+	}
+	
+	global.swimLength += global.flySpeed;//泳いだ距離
 	addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算
 	playerDirection = point_direction(0, 0, hSpeed + dashHspeed, vSpeed);
 }
+
 function lengthForEnemyList(){
 	//リスト初期化
 	ds_grid_clear(dsEnemyParam, 10000);
@@ -237,6 +251,18 @@ function fellIntoTheSea(){
 	}
 }
 
+function playerParamManage(){
+	
+	intoSeaPrev = intoSea;
+	if(y < SEALEVEL){
+		intoSea = false;
+	}
+	else{
+		intoSea = true;
+	}
+	
+}
+
 #endregion
 
 resetPlayerParam();
@@ -254,7 +280,9 @@ playerHpManage();
 
 //ゲームシステム関連
 fellIntoTheSea();
+playerParamManage();
 
 
 //移動の実行
 executionMove();
+

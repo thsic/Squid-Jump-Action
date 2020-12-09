@@ -4,9 +4,9 @@ function generateEnemy(_enemy, _x, _y){
 }
 
 function generateTimeManage(){
-	octopusGenerateTime--;
-	insideUrchinGenerateTime--;
-	outsideUrchinGenerateTime--;
+	octopusGenerateTime -= global.flySpeed;
+	insideUrchinGenerateTime -= global.flySpeed;
+	outsideUrchinGenerateTime -= global.flySpeed;
 	
 }
 
@@ -20,25 +20,30 @@ function generateEnemyRightside(_enemy, _minY, _maxY){
 
 function octopusGenerateManage(){
 	//たこ
-	if(octopusGenerateTime == 0){
-		octopusGenerateTime = octopusGenerateSpan;
-		generateEnemyRightside(oOctopus, heightLimit, room_height);
+	if(octopusGenerateTime <= 0){
+		
+		var _spriteHeight = sprite_get_height(object_get_sprite(oOctopus));
+		octopusGenerateTime = octopusGenerateSpan + octopusGenerateTime;
+		generateEnemyRightside(oOctopus, heightLimit, GROUNDPOS - _spriteHeight/2);
 	}
 }
 
 function urchinGenerateManage(){
 	//うに
-	if(insideUrchinGenerateTime == 0){
+	if(insideUrchinGenerateTime <= 0){
 		//カメラ内にうに生成
-		insideUrchinGenerateTime = insideUrchinGenerateSpan;
+		insideUrchinGenerateTime = insideUrchinGenerateSpan + insideUrchinGenerateTime;
+		
+		var _spriteHeight = sprite_get_height(object_get_sprite(oUrchin));
 		var _minY = camera_get_view_y(oCamera.camera);
-		var _maxY = camera_get_view_height(oCamera.camera) + _minY;
+		var _maxY = clamp(camera_get_view_height(oCamera.camera) + _minY, 0, GROUNDPOS - _spriteHeight/2);
+		
 		generateEnemyRightside(oUrchin, _minY, _maxY);
 	}
 	
-	if(outsideUrchinGenerateTime == 0){
+	if(outsideUrchinGenerateTime <= 0){
 		//カメラ外にうに生成
-		outsideUrchinGenerateTime = outsideUrchinGenerateSpan;
+		outsideUrchinGenerateTime = outsideUrchinGenerateSpan + insideUrchinGenerateTime;
 		var _cameraHeight = camera_get_view_height(oCamera.camera);
 		var _cameraY = camera_get_view_y(oCamera.camera);
 		
@@ -55,7 +60,8 @@ function urchinGenerateManage(){
 		}
 		else{
 			//カメラ範囲より下に生成する
-			generateEnemyRightside(oUrchin, _cameraY+_cameraHeight, room_height);
+			var _spriteHeight = sprite_get_height(object_get_sprite(oUrchin));
+			generateEnemyRightside(oUrchin, _cameraY+_cameraHeight, GROUNDPOS - _spriteHeight/2);
 		}
 	}
 }

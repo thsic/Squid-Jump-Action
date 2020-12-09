@@ -37,5 +37,4 @@ function drawHeightLimit(){
 	}
 }
 
-
-drawHeightLimit();
+//drawHeightLimit();

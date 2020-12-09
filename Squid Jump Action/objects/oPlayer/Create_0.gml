@@ -17,6 +17,11 @@ dashVspeedBase = 0;
 
 //移動
 playerDirection = 0;
+grounded = false;
+
+//海
+intoSea = true;
+intoSeaPrev = intoSea;
 
 //無敵時間
 invinsibleTime = 0;

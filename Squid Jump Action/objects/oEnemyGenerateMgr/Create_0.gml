@@ -7,4 +7,4 @@ octopusGenerateTime = octopusGenerateSpanBase;
 insideUrchinGenerateTime = insideUrchinGenerateSpanBase;
 outsideUrchinGenerateTime = outsideUrchinGenerateSpanBase;
 
-heightLimit = oGameMgr.heightLimit;
+heightLimit = 0;//oGameMgr.heightLimit;
