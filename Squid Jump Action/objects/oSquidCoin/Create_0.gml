@@ -1,0 +1,2 @@
+
+gettedCoin = false;

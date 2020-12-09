@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 0,
-  "bbox_right": 30,
-  "bbox_top": 11,
-  "bbox_bottom": 20,
+  "bbox_left": 6,
+  "bbox_right": 25,
+  "bbox_top": 0,
+  "bbox_bottom": 31,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"d695a5c9-0216-4680-82e5-624c2280c620","path":"sprites/sBackgroundFish/sBackgroundFish.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"d695a5c9-0216-4680-82e5-624c2280c620","path":"sprites/sBackgroundFish/sBackgroundFish.yy",},"LayerId":{"name":"a9215c3c-07b9-494e-b349-2cd0ee605c92","path":"sprites/sBackgroundFish/sBackgroundFish.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sBackgroundFish","path":"sprites/sBackgroundFish/sBackgroundFish.yy",},"resourceVersion":"1.0","name":"d695a5c9-0216-4680-82e5-624c2280c620","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"d2a4bae8-9158-40f7-9c12-0ade0bb5df16","path":"sprites/sSquidCoin/sSquidCoin.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"d2a4bae8-9158-40f7-9c12-0ade0bb5df16","path":"sprites/sSquidCoin/sSquidCoin.yy",},"LayerId":{"name":"3bd610fc-3aa2-48ef-9a9b-faffffeab287","path":"sprites/sSquidCoin/sSquidCoin.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sSquidCoin","path":"sprites/sSquidCoin/sSquidCoin.yy",},"resourceVersion":"1.0","name":"d2a4bae8-9158-40f7-9c12-0ade0bb5df16","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sBackgroundFish","path":"sprites/sBackgroundFish/sBackgroundFish.yy",},
+    "spriteId": {"name":"sSquidCoin","path":"sprites/sSquidCoin/sSquidCoin.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f95a68a3-e7af-437e-913c-144e84073a9b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d695a5c9-0216-4680-82e5-624c2280c620","path":"sprites/sBackgroundFish/sBackgroundFish.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"da5769fd-2f5c-46d4-bc79-11d2457bb484","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d2a4bae8-9158-40f7-9c12-0ade0bb5df16","path":"sprites/sSquidCoin/sSquidCoin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sBackgroundFish","path":"sprites/sBackgroundFish/sBackgroundFish.yy",},
+    "parent": {"name":"sSquidCoin","path":"sprites/sSquidCoin/sSquidCoin.yy",},
     "resourceVersion": "1.3",
-    "name": "sBackgroundFish",
+    "name": "sSquidCoin",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a9215c3c-07b9-494e-b349-2cd0ee605c92","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3bd610fc-3aa2-48ef-9a9b-faffffeab287","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Sprites",
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sBackgroundFish",
+  "name": "sSquidCoin",
   "tags": [],
   "resourceType": "GMSprite",
 }

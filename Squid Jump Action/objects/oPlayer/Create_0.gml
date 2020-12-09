@@ -27,6 +27,9 @@ intoSeaPrev = intoSea;
 invinsibleTime = 0;
 invinsibleEnable = false;
 
+//描画
+subimage = 0;
+
 dsEnemyParam = ds_grid_create(10, 99);
 
 enum ENEMYPARAM{

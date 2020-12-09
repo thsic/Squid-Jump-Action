@@ -79,6 +79,7 @@ function manageGameState(){
 		global.levelPoint = 0;
 		global.gameScore = 0;
 		global.swimLength = 0;
+		global.squidCoin = 0;
 		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);

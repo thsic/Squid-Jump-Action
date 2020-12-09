@@ -18,11 +18,13 @@ if(keyboard_check_pressed(ord("Q"))){
 	debugInvinsible = !debugInvinsible;
 }
 
-
-if(debugInfinityJump){
-	oPlayer.remainJumpCount = oPlayer.jumpCountBase;
-	oPlayer.remainDashCount = oPlayer.dashCountBase;
-}
-if(debugInvinsible){
-	setPlayerInvinsibleTime(3);
+if(instance_exists(oPlayer)){
+	if(debugInfinityJump){
+	
+		oPlayer.remainJumpCount = oPlayer.jumpCountBase;
+		oPlayer.remainDashCount = oPlayer.dashCountBase;
+	}
+	if(debugInvinsible){
+		setPlayerInvinsibleTime(3);
+	}
 }

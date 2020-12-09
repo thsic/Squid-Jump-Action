@@ -1,11 +1,18 @@
 
 #region function
 function jumpManage(){
-	if(mouse_check_button_pressed(mb_left) and remainJumpCount > 0){
+	/*if(mouse_check_button_pressed(mb_left) and remainJumpCount > 0){
 		//ジャンプの実行
 		vSpeed = -5;
 		remainJumpCount --;
+	}*/
+	//ダッシュが0の時にタップしたらちょっとだけ浮く
+	if(mouse_check_button_pressed(mb_left)
+	and remainDashCount = 0
+	and sign(vSpeed) = 1){
+		vSpeed *= 0.7;
 	}
+	
 }
 function gravityManage(){
 	if(vSpeed < 0){
@@ -33,13 +40,23 @@ function executionMove(){
 	
 	
 	y += vSpeed;
-	global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
+	if(dashEnable){
+		global.flySpeed = dashHspeed;//ダッシュ中はダッシュの加速も追加
+	}
+	else{
+		global.flySpeed = hSpeed;//ダッシュ中はダッシュの加速も追加
+	}
 	
 	//地面についた
 	if(GROUNDPOS-1 < y){
 		y = GROUNDPOS;
 		grounded = true;
 		global.flySpeed /= 2;
+		
+		//ダッシュが無い時に地面に落ちるとダッシュ１復活
+		if(remainDashCount = 0){
+			remainDashCount += 1;
+		}
 	}
 	else{
 		graunded = false;
@@ -109,6 +126,7 @@ function stompEnemy(){
 }
 function dashManage(){
 	
+	subimage = 0;
 	chargeingDash = false
 	var _mx = window_mouse_get_x();
 	var _my = window_mouse_get_y();
@@ -143,6 +161,7 @@ function dashManage(){
 			if(isInRange(180, 270, dashDirection)){
 				dashDirection = 270;
 			}
+			subimage = 2;
 		}
 		
 		//手を離すとダッシュ
@@ -166,6 +185,11 @@ function dashManage(){
 		}
 	}
 	else{
+		if(_swipeDis < 32
+		and mouse_check_button(mb_left)
+		and remainDashCount > 0){//スワイプ距離が短い場合はsubimageを変える
+			subimage = 1;
+		}
 		dashDirection = noone;
 	}
 	
@@ -180,15 +204,18 @@ function dashManage(){
 			dashEnable = false;
 			dashHspeed = 0;
 			dashVspeed = 0;
+			subimage = 0;
 			
 		}
 		else{
+			//ダッシュ中
 			var _dashTimeRatio = 1-dashTime/dashTimeBase;
 			var _channel = animcurve_get_channel(acDashSpeed, 0);
 			var _dashRatio = animcurve_channel_evaluate(_channel, _dashTimeRatio);
 			dashTime--;
 			
 			dashHspeed = dashHspeedBase*_dashRatio;
+			subimage = 3;
 			
 			if(dashVspeedBase > 0){//ダッシュが下向きの場合はvspeedが減少しない
 				vSpeed = dashVspeedBase;
