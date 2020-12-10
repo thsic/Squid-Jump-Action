@@ -17,7 +17,9 @@ backgroundObjectSetStats(0, sCoral, true, 0, 0, 0.002);
 backgroundObjectSetStats(1, sSeaweed, true, 0, 0, 0.002);
 backgroundObjectSetStats(2, sBackgroundFish, false, 1, 2, 0.05);
 
-
+background_showcolor = true;
+background_color = backGroundColor;
+sdm(background_showcolor)
 
 enum BGOBJSTATS{
 	SPRITE,

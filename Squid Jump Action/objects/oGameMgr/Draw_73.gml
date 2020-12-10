@@ -26,21 +26,6 @@ function drawSeaLevel(){
 	}*/
 }
 
-function drawGround(){
-	var _spriteWidth = sprite_get_width(sGround);
-	var _spriteQuantity = ceil(room_height/_spriteWidth)+1;
-	var _spriteY = room_height - sprite_get_height(sGround);
-	var _leftX = global.swimLength mod _spriteWidth;
-	
-	for(var i=0; i<_spriteQuantity; i++){
-		var _spriteX = i * _spriteWidth - _leftX;
-		draw_sprite(sGround, 0, _spriteX, _spriteY);
-		
-	}
-	
-	
-}
 
-drawGround();
 
 

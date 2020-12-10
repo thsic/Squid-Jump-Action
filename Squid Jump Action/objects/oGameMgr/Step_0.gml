@@ -2,7 +2,10 @@ function itemManage(){
 	
 	//バリアアイテム生成
 	if(global.makeBarrierCount <= 0){
-		instance_create_layer(room_width, irandom(room_height), "GameObjects", oBarrier);
+		var _sprWidth = sprite_get_width(sBarrier);
+		var _cameraY = camera_get_view_y(oCamera.camera);
+		var _cameraHeight = camera_get_view_height(oCamera.camera);
+		instance_create_layer(room_width+_sprWidth, irandom_range(_cameraY, _cameraY+_cameraHeight), "GameObjects", oBarrier);
 		setBarrierCount();
 	}
 	
@@ -35,13 +38,29 @@ function levelManage(){
 		global.levelPoint -= levelUpPointBase;
 		global.nowLevel++;
 		
-		
+		sdm(global.nowLevel)
 		var _cameraWidth = camera_get_view_width(oCamera.camera);
 		var _cameraHeight = camera_get_view_height(oCamera.camera);
 		var _sqX = camera_get_view_x(oCamera.camera) + _cameraWidth/2;
-		var _sqY = camera_get_view_x(oCamera.camera) + _cameraHeight/2;
+		var _sqY = camera_get_view_y(oCamera.camera) + _cameraHeight/2;
 		createTextEffect(_sqX, _sqY, sqLevelUpEffect, 0, true, "LevelUp!", c_green, noone);
 	}
+}
+
+function sharkGenerateManage(){//サメ生成
+	
+	var _playerY = oPlayer.y;
+	sharkPoint += abs(_playerY - playerYPrev);//まえのフレームと比較して違いが大きいほどサメがでにくい
+	sharkPoint -= sharkPointPerFrame;
+	sharkPoint = clamp(sharkPoint, -100, sharkPointBase)
+	
+	
+	if(sharkPoint <= 0){
+		sharkPoint = sharkPointBase;
+		var _sprWidth = sprite_get_width(object_get_sprite(oCaution));
+		instance_create_layer(room_width - _sprWidth/2, oPlayer.y, "GameObjects", oCaution)
+	}
+	playerYPrev = _playerY;
 }
 
 function scoreManage(){
@@ -80,9 +99,14 @@ function manageGameState(){
 		global.gameScore = 0;
 		global.swimLength = 0;
 		global.squidCoin = 0;
+		global.flySpeed = 0;
+		
+		sharkPoint = sharkPointBase;
+		playerYPrev = oPlayer.y;
 		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
+		
 		
 		
 	break
@@ -92,10 +116,17 @@ function manageGameState(){
 		levelManage();
 		scoreManage();
 		createBubble();
+		sharkGenerateManage()
+		if(keyboard_check_pressed(vk_space)){
+			changeGameState(GAMESTATE.PAUSE);
+		}
 		
 	break
 	case GAMESTATE.PAUSE:
 		global.gameStop = true;
+		if(keyboard_check_pressed(vk_space)){
+			changeGameState(GAMESTATE.MAIN);
+		}
 	break
 	case GAMESTATE.GAMEOVER:
 		global.gameStop = true;

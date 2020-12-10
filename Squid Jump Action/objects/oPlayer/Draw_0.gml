@@ -9,7 +9,7 @@ else{
 
 var _drawDirection = playerDirection;
 if(chargeingDash){
-	_drawDirection = dashDirection;
+	_drawDirection = drawDashDirection;
 }
 
 draw_sprite_ext(sprite_index, subimage, x, y, 1, 1, _drawDirection, c_white, _alpha);

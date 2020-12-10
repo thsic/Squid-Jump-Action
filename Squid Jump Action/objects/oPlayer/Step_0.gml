@@ -41,10 +41,10 @@ function executionMove(){
 	
 	y += vSpeed;
 	if(dashEnable){
-		global.flySpeed = dashHspeed;//ダッシュ中はダッシュの加速も追加
+		global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
 	}
 	else{
-		global.flySpeed = hSpeed;//ダッシュ中はダッシュの加速も追加
+		global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
 	}
 	
 	//地面についた
@@ -61,6 +61,12 @@ function executionMove(){
 	else{
 		graunded = false;
 	}
+	
+	//画面より上へはいけない
+	if(0 > y){
+		y = 0;
+	}
+
 	
 	global.swimLength += global.flySpeed;//泳いだ距離
 	addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算
@@ -137,7 +143,10 @@ function dashManage(){
 	
 	var _swipeDir = point_direction(swipeStartPointX, swipeStartPointY, _mx, _my);
 	var _swipeDis = point_distance(swipeStartPointX, swipeStartPointY, _mx, _my);
-		
+	
+	//drawDashDirectionは表示する角度
+	//drawDashDirection = point_direction(swipeStartPointX, swipeStartPointY, _mx+hSpeed, _my) + 180;
+	
 	if(_swipeDis > 32 and remainDashCount > 0){
 		if(mouse_check_button(mb_left)){
 			//一定距離以上スワイプするとダッシュ可能状態に
@@ -154,6 +163,9 @@ function dashManage(){
 			dashDirection = _swipeDir + 180;
 			
 			dashDirection %= 360;
+			
+			
+			
 			//逆方向には進めない
 			if(isInRange(90, 180, dashDirection)){
 				dashDirection = 90;
@@ -161,6 +173,11 @@ function dashManage(){
 			if(isInRange(180, 270, dashDirection)){
 				dashDirection = 270;
 			}
+			
+			var _lendirX = lengthdir_x(_swipeDis, dashDirection);
+			var _lendirY = lengthdir_y(_swipeDis, dashDirection);
+			
+			drawDashDirection = point_direction(0, 0, _lendirX+flightSpeed, _lendirY);
 			subimage = 2;
 		}
 		
@@ -292,24 +309,25 @@ function playerParamManage(){
 
 #endregion
 
-resetPlayerParam();
-lengthForEnemyList();
+if(!global.gameStop){
+	resetPlayerParam();
+	lengthForEnemyList();
 
-//移動関連
-jumpManage();
-gravityManage();
-stompEnemy();
-dashManage();
-flightPlayer();
+	//移動関連
+	jumpManage();
+	gravityManage();
+	stompEnemy();
+	dashManage();
+	flightPlayer();
 
-//ライフ
-playerHpManage();
+	//ライフ
+	playerHpManage();
 
-//ゲームシステム関連
-fellIntoTheSea();
-playerParamManage();
+	//ゲームシステム関連
+	fellIntoTheSea();
+	playerParamManage();
 
 
-//移動の実行
-executionMove();
-
+	//移動の実行
+	executionMove();
+}

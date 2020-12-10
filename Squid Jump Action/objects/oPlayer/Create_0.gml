@@ -14,6 +14,7 @@ dashEnable = false;
 dashTime = 0;
 dashHspeedBase = 0;
 dashVspeedBase = 0;
+chargeingDash = false;
 
 //移動
 playerDirection = 0;

@@ -4,8 +4,6 @@ function executionEnemyMove(){
 	y += vSpeed;
 }
 
-hSpeed = 0;
-vSpeed = 0;
 if(!global.gameStop){
 	
 	if(zapped){
@@ -13,7 +11,7 @@ if(!global.gameStop){
 		instance_destroy();
 	}
 	
-	hSpeed = -global.flySpeed
+	hSpeed = -global.flySpeed - swimSpeed;
 	
 	executionEnemyMove();
 	
