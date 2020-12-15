@@ -2,10 +2,7 @@ function itemManage(){
 	
 	//バリアアイテム生成
 	if(global.makeBarrierCount <= 0){
-		var _sprWidth = sprite_get_width(sBarrier);
-		var _cameraY = camera_get_view_y(oCamera.camera);
-		var _cameraHeight = camera_get_view_height(oCamera.camera);
-		instance_create_layer(room_width+_sprWidth, irandom_range(_cameraY, _cameraY+_cameraHeight), "GameObjects", oBarrier);
+		createItem(oBarrier, true);
 		setBarrierCount();
 	}
 	
@@ -44,6 +41,8 @@ function levelManage(){
 		var _sqX = camera_get_view_x(oCamera.camera) + _cameraWidth/2;
 		var _sqY = camera_get_view_y(oCamera.camera) + _cameraHeight/2;
 		createTextEffect(_sqX, _sqY, sqLevelUpEffect, 0, true, "LevelUp!", c_green, noone);
+		createItem(oInfiniteJumpItem, false);
+		createItem(oSpeedUpItem, true);
 	}
 }
 
@@ -100,6 +99,8 @@ function manageGameState(){
 		global.swimLength = 0;
 		global.squidCoin = 0;
 		global.flySpeed = 0;
+		global.speedLevel = 1;
+		global.throughSpeedUpCount = 0;
 		
 		sharkPoint = sharkPointBase;
 		playerYPrev = oPlayer.y;

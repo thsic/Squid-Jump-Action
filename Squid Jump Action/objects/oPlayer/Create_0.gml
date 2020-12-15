@@ -15,6 +15,7 @@ dashTime = 0;
 dashHspeedBase = 0;
 dashVspeedBase = 0;
 chargeingDash = false;
+drawDashDirection = 0;
 
 //移動
 playerDirection = 0;
@@ -30,6 +31,10 @@ invinsibleEnable = false;
 
 //描画
 subimage = 0;
+
+//アイテム
+infiniteJumpTime = 0;
+infiniteJumpEnable = false;
 
 dsEnemyParam = ds_grid_create(10, 99);
 

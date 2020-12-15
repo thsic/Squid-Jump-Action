@@ -19,7 +19,9 @@ backgroundObjectSetStats(2, sBackgroundFish, false, 1, 2, 0.05);
 
 background_showcolor = true;
 background_color = backGroundColor;
-sdm(background_showcolor)
+bgId = layer_background_get_id(layer_get_id("BackGround"))
+layer_background_blend(bgId, backGroundColor)
+
 
 enum BGOBJSTATS{
 	SPRITE,

@@ -144,6 +144,8 @@ function dashManage(){
 	var _swipeDir = point_direction(swipeStartPointX, swipeStartPointY, _mx, _my);
 	var _swipeDis = point_distance(swipeStartPointX, swipeStartPointY, _mx, _my);
 	
+	
+	
 	//drawDashDirectionは表示する角度
 	//drawDashDirection = point_direction(swipeStartPointX, swipeStartPointY, _mx+hSpeed, _my) + 180;
 	
@@ -160,24 +162,50 @@ function dashManage(){
 			if(isInRange(180+20, 360, _swipeDir)){
 				dashDirection = 60;
 			}*/
-			dashDirection = _swipeDir + 180;
 			
-			dashDirection %= 360;
+			var _dashDir = _swipeDir + 180;
+			_dashDir %= 360;
 			
 			
+			var _dirMax = 90;
+			var _dirMin = 180;
 			
 			//逆方向には進めない
-			if(isInRange(90, 180, dashDirection)){
-				dashDirection = 90;
+			if(isInRange(_dirMax, 180, _dashDir)){
+				_dashDir = 90;
 			}
-			if(isInRange(180, 270, dashDirection)){
-				dashDirection = 270;
+			if(isInRange(180, _dirMin, _dashDir)){
+				_dashDir = 270;
 			}
 			
 			var _lendirX = lengthdir_x(_swipeDis, dashDirection);
 			var _lendirY = lengthdir_y(_swipeDis, dashDirection);
 			
-			drawDashDirection = point_direction(0, 0, _lendirX+flightSpeed, _lendirY);
+			dashDirection = _dashDir;
+			//描画関連
+			var _drawDashDir = 
+			
+			/*var _dashDir = (_swipeDir+180) mod 360;
+			var _dashHspeed = lengthdir_x(dashSpeed, _dashDir);
+			
+			if(_dashHspeed < hSpeed){
+				//ダッシュのhspeedがダッシュしてないときのhspeedより遅い場合はその方向にダッシュできない
+				var _vSpeed = hSpeed/dashSpeed;
+				var _dir = point_direction(0, 0, hSpeed, _vSpeed);
+				
+				_dir = 60
+				if(isInRange(_dir, 180, _dashDir)){
+					_dashDir = _dir;
+				}
+				if(isInRange(180, 360-_dir, _dashDir)){
+					_dashDir = 360-_dir;
+				}
+			}
+			drawDashDirection = _dashDir;*/
+			
+			
+			
+			//drawDashDirection = point_direction(0, 0, _lendirX+flightSpeed, _lendirY);
 			subimage = 2;
 		}
 		
@@ -244,8 +272,10 @@ function dashManage(){
 	}
 }
 function flightPlayer(){
-	//飛ぶ
-	hSpeedTemp += flightSpeed;
+	//飛ぶ スピードアップが乗ってるときはそれも加算
+	var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, global.speedLevel-1);
+	hSpeedTemp += flightSpeed * _speedUpRatio;
+	
 }
 function resetPlayerParam(){
 	hSpeedTemp = 0;
@@ -309,10 +339,24 @@ function playerParamManage(){
 
 #endregion
 
+function infiniteJumpManage(){
+	if(infiniteJumpTime > 0){
+		remainDashCount = dashCountBase;
+		infiniteJumpTime--;
+		infiniteJumpEnable = true;
+	}
+	else{
+		infiniteJumpEnable = false;
+	}
+}
+
 if(!global.gameStop){
 	resetPlayerParam();
 	lengthForEnemyList();
-
+	
+	//アイテム
+	infiniteJumpManage()
+	
 	//移動関連
 	jumpManage();
 	gravityManage();
@@ -326,7 +370,7 @@ if(!global.gameStop){
 	//ゲームシステム関連
 	fellIntoTheSea();
 	playerParamManage();
-
+	
 
 	//移動の実行
 	executionMove();

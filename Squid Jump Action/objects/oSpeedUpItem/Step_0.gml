@@ -21,8 +21,8 @@ if(!global.gameStop){
 	
 	//画面端に行くと消える
 	if(-sprite_width > x){
+		increaseThroughSpeedUpCount(1);//スルー回数+1
 		instance_destroy();
 	}
 	
 }
-
