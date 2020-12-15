@@ -5,7 +5,7 @@ function damageToPlayer(_damage){
 	setBarrierCount();
 	
 	//スピードアップを落とす
-	decreaseBarrierCount(DECREASESPEEDLEVEL);
+	decreaseSpeedLevel(DECREASESPEEDLEVEL);
 	
 	if(global.playerHp <= 0){
 		gameoverScript();

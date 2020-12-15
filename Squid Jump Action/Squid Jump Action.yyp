@@ -63,7 +63,7 @@
     {"id":{"name":"oTextEffect","path":"objects/oTextEffect/oTextEffect.yy",},"order":1,},
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":1,},
     {"id":{"name":"sSquidCoin","path":"sprites/sSquidCoin/sSquidCoin.yy",},"order":21,},
-    {"id":{"name":"sItemBalloon","path":"sprites/sItemBalloon/sItemBalloon.yy",},"order":15,},
+    {"id":{"name":"sItemBalloon","path":"sprites/sItemBalloon/sItemBalloon.yy",},"order":25,},
     {"id":{"name":"sSpeedUpItem","path":"sprites/sSpeedUpItem/sSpeedUpItem.yy",},"order":22,},
     {"id":{"name":"sOctopus","path":"sprites/sOctopus/sOctopus.yy",},"order":1,},
     {"id":{"name":"increaseThroughSpeedUpCount","path":"scripts/increaseThroughSpeedUpCount/increaseThroughSpeedUpCount.yy",},"order":6,},
