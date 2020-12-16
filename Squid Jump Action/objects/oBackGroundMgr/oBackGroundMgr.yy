@@ -21,10 +21,13 @@
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"oBackGroundMgr","path":"objects/oBackGroundMgr/oBackGroundMgr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"oBackGroundMgr","path":"objects/oBackGroundMgr/oBackGroundMgr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"oBackGroundMgr","path":"objects/oBackGroundMgr/oBackGroundMgr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":72,"eventType":8,"collisionObjectId":null,"parent":{"name":"oBackGroundMgr","path":"objects/oBackGroundMgr/oBackGroundMgr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":7,"value":"$FF4C361E","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"backGroundColor","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":7,"value":"$FF7EB2A4","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"groundColor","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":7,"value":"$FF4C3D2D","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"backGroundColor1","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":7,"value":"$FF19130C","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"backGroundColor2","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":7,"value":"$FF7F7C43","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"groundColor","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":7,"value":"$FF261C13","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"seaMountColor","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

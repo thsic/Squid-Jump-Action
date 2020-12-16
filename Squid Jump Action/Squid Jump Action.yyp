@@ -5,6 +5,7 @@
     {"id":{"name":"pressedPlayStartButton","path":"scripts/pressedPlayStartButton/pressedPlayStartButton.yy",},"order":0,},
     {"id":{"name":"sTitleLogo","path":"sprites/sTitleLogo/sTitleLogo.yy",},"order":12,},
     {"id":{"name":"sShark","path":"sprites/sShark/sShark.yy",},"order":18,},
+    {"id":{"name":"sSeaMount","path":"sprites/sSeaMount/sSeaMount.yy",},"order":26,},
     {"id":{"name":"acLevelUpText","path":"animcurves/acLevelUpText/acLevelUpText.yy",},"order":9,},
     {"id":{"name":"backToTitle","path":"scripts/backToTitle/backToTitle.yy",},"order":0,},
     {"id":{"name":"gameLevelUp","path":"scripts/gameLevelUp/gameLevelUp.yy",},"order":6,},

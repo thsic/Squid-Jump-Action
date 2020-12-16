@@ -6,7 +6,7 @@
 #macro GAMEWIDTH WINDOWWIDTH/CAMERASCALE
 #macro GAMEHEIGHT WINDOWHEIGHT/CAMERASCALE
 #macro SEALEVEL 100
-#macro GROUNDPOS room_height-32
+#macro GROUNDPOS (room_height-32)
 
 #macro MAINROOM rMain
 #macro TITLEROOM rTitle

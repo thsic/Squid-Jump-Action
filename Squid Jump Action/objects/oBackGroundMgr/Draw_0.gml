@@ -1,4 +1,6 @@
 
+
+
 for(var i=0; i<ds_grid_height(bgObjParam); i++){
 	if(bgObjParam[# BGOBJPARAM.ENABLED, i]){
 		var _sprite = bgObjParam[# BGOBJPARAM.SPRITE, i];

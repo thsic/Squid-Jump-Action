@@ -1,4 +1,12 @@
 
+function generateSeaMount(){
+	var _sprite = sSeaMount;
+	var _sprW = sprite_get_width(_sprite);
+	var _sprH = sprite_get_height(_sprite);
+	var _generateSpanMax = _sprW;
+	
+}
+
 //生成
 function generateBgObj(){
 	var _bgobjNum = ds_grid_height(bgObjStats);
