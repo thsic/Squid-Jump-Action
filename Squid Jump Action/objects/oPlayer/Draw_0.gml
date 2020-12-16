@@ -1,7 +1,9 @@
 
 //プレーヤー描画
 if(invinsibleEnable){
-	var _alpha = 0.4;
+	var _channel = animcurve_get_channel(acInvinsibleAlpha, 0);
+	var _timeRatio = 1-invinsibleTime / invinsibleTimeBase;
+	var _alpha = animcurve_channel_evaluate(_channel, _timeRatio);
 }
 else{
 	var _alpha = 1;

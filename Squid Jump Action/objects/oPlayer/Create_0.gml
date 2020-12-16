@@ -28,6 +28,7 @@ intoSeaPrev = intoSea;
 //無敵時間
 invinsibleTime = 0;
 invinsibleEnable = false;
+invinsibleCount = 0;
 
 //描画
 subimage = 0;

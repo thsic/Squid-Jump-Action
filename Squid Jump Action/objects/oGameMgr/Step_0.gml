@@ -41,6 +41,8 @@ function levelManage(){
 		var _sqX = camera_get_view_x(oCamera.camera) + _cameraWidth/2;
 		var _sqY = camera_get_view_y(oCamera.camera) + _cameraHeight/2;
 		createTextEffect(_sqX, _sqY, sqLevelUpEffect, 0, true, "LevelUp!", c_green, noone);
+		
+		//アイテム生成
 		createItem(oInfiniteJumpItem, false);
 		createItem(oSpeedUpItem, true);
 	}

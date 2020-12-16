@@ -145,7 +145,6 @@ function dashManage(){
 	var _swipeDis = point_distance(swipeStartPointX, swipeStartPointY, _mx, _my);
 	
 	
-	
 	//drawDashDirectionは表示する角度
 	//drawDashDirection = point_direction(swipeStartPointX, swipeStartPointY, _mx+hSpeed, _my) + 180;
 	
@@ -315,6 +314,7 @@ function playerHpManage(){
 	}
 	else{
 		invinsibleEnable = false;
+		invinsibleCount = 0;
 	}
 
 }
