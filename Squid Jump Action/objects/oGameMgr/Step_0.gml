@@ -30,17 +30,10 @@ function itemManage(){
 }*/
 
 function levelManage(){
-	if(global.levelPoint > levelUpPointBase){
+	if(global.levelPoint > levelUpPoint){
 		//レベル上昇処理
-		global.levelPoint -= levelUpPointBase;
-		global.nowLevel++;
-		
-		sdm(global.nowLevel)
-		var _cameraWidth = camera_get_view_width(oCamera.camera);
-		var _cameraHeight = camera_get_view_height(oCamera.camera);
-		var _sqX = camera_get_view_x(oCamera.camera) + _cameraWidth/2;
-		var _sqY = camera_get_view_y(oCamera.camera) + _cameraHeight/2;
-		createTextEffect(_sqX, _sqY, sqLevelUpEffect, 0, true, "LevelUp!", c_green, noone);
+		global.levelPoint -= levelUpPoint;
+		gameLevelUp();
 		
 		//アイテム生成
 		createItem(oInfiniteJumpItem, false);
@@ -106,6 +99,7 @@ function manageGameState(){
 		
 		sharkPoint = sharkPointBase;
 		playerYPrev = oPlayer.y;
+		levelUpPoint = levelUpPointBase;
 		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);

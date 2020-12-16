@@ -11,11 +11,14 @@
 #macro MAINROOM rMain
 #macro TITLEROOM rTitle
 
+//アイテム
 #macro MAXSPEEDLEVEL 10
 #macro MAXINFINITEJUMPTIME 600
 #macro SPEEDUPRATIOPERLEVEL 1.15
 #macro DECREASESPEEDLEVEL 3//ダメージを受けた時に減るスピードレベル
 #macro THROUGHSPEEDUPCOUNTLIMIT 3//スピードアップアイテムをスルーできる回数 これを超えてスルーするとスピードが減る
+
+//
 
 enum DRAWEVENT{
 	DRAWBEGIN,

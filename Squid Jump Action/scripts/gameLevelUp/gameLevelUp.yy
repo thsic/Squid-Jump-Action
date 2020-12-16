@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "effect",
-    "path": "folders/Scripts/effect.yy",
+    "name": "system",
+    "path": "folders/Scripts/system.yy",
   },
   "resourceVersion": "1.0",
-  "name": "createTextEffect",
+  "name": "gameLevelUp",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,15 +1,17 @@
 
 function drawScoreUi(){
+	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
-	draw_text(10, 10, "Score "+string(global.gameScore));
+	draw_text(10, 20, "Score "+string(global.gameScore));
 }
 function drawSpeedLevel(){
+	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
-	draw_text(130, 10, "Speed");
+	draw_text(250, 20, "Speed");
 	
 	var _sprWidth = sprite_get_width(sSpeedLevelIcon);
 	for(var i=0; i<global.speedLevel; i++){
-		var _x = 210 + _sprWidth*i
+		var _x = 310 + _sprWidth*i;
 		draw_sprite(sSpeedLevelIcon, 0, _x, 10);
 	}
 }
@@ -55,7 +57,22 @@ function drawOutOfScreenItem(){
 		}
 	}
 }
+function drawLevelBar(){
+	draw_set_valign(fa_middle);
+	var _barTotalW = 60;
+	var _barH = 8;
+	var _barX = 170;
+	var _barY = 20;
+	
+	var _barW = _barTotalW * (global.levelPoint / levelUpPoint);
+	draw_set_color(c_white);
+	draw_text(140, 20, "Exp ")
+	draw_set_color(c_lime);
+	draw_rectangle(_barX, _barY, _barX+_barW, _barY+_barH, false);
+	drawSetDefault();
+}
 
 drawScoreUi()
 drawSpeedLevel();
+drawLevelBar();
 drawOutOfScreenItem()
