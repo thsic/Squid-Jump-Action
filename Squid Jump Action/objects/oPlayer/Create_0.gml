@@ -16,6 +16,7 @@ dashHspeedBase = 0;
 dashVspeedBase = 0;
 chargeingDash = false;
 drawDashDirection = 0;
+dashSpeed = dashSpeedBase;
 
 //移動
 playerDirection = 0;

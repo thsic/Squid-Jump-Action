@@ -181,9 +181,28 @@ function dashManage(){
 			var _lendirY = lengthdir_y(_swipeDis, dashDirection);
 			
 			dashDirection = _dashDir;
-			//描画関連
-			var _drawDashDir = 
 			
+			//横移動スピードがダッシュスピードより早い場合ダッシュスピードを横移動スピードと同速に
+			
+			
+			//描画関連
+			var _dx = lengthdir_x(dashSpeed, 90);
+			var _dy = lengthdir_y(dashSpeed, 90);
+			var _drawDashDirMin = abs(angle_difference(point_direction(0, 0, _dx+hSpeed, _dy), 0));
+			var _drawDashDirMax = 360 - _drawDashDirMin;
+			
+			//var _dx = hSpeed;
+			//var _dy = sqrt(power(dashSpeed, 2) - power(hSpeed, 2));//三平方の定理をつかうらしい
+			//var _drawDashDirMin = abs(angle_difference(point_direction(0, 0, _dx, _dy), 0));//角度の差をもとめる
+			
+			if(isInRange(_drawDashDirMin, 180, _dashDir)){
+				_dashDir = _drawDashDirMin;
+			}
+			if(isInRange(180, _drawDashDirMax, _dashDir)){
+				_dashDir = _drawDashDirMax;
+			}
+			sdm(_drawDashDirMax)
+			drawDashDirection = _dashDir;
 			/*var _dashDir = (_swipeDir+180) mod 360;
 			var _dashHspeed = lengthdir_x(dashSpeed, _dashDir);
 			
@@ -213,6 +232,7 @@ function dashManage(){
 			dashTime = dashTimeBase;
 			dashEnable = true;
 			remainDashCount--;
+			
 			
 			dashHspeedBase = lengthdir_x(dashSpeed, dashDirection);
 			dashVspeedBase = lengthdir_y(dashSpeed, dashDirection);
