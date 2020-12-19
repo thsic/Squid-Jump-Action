@@ -3,8 +3,8 @@ octopusGenerateSpan = octopusGenerateSpanBase;
 insideUrchinGenerateSpan = insideUrchinGenerateSpanBase;
 outsideUrchinGenerateSpan = outsideUrchinGenerateSpanBase;
 
-octopusGenerateTime = octopusGenerateSpanBase;
-insideUrchinGenerateTime = insideUrchinGenerateSpanBase;
-outsideUrchinGenerateTime = outsideUrchinGenerateSpanBase;
+octopusGenerateCount = octopusGenerateSpanBase;
+insideUrchinGenerateCount = insideUrchinGenerateSpanBase;
+outsideUrchinGenerateCount = outsideUrchinGenerateSpanBase;
 
-heightLimit = 0;//oGameMgr.heightLimit;
+heightLimit = 16;//oGameMgr.heightLimit;

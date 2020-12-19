@@ -201,7 +201,6 @@ function dashManage(){
 			if(isInRange(180, _drawDashDirMax, _dashDir)){
 				_dashDir = _drawDashDirMax;
 			}
-			sdm(_drawDashDirMax)
 			drawDashDirection = _dashDir;
 			/*var _dashDir = (_swipeDir+180) mod 360;
 			var _dashHspeed = lengthdir_x(dashSpeed, _dashDir);

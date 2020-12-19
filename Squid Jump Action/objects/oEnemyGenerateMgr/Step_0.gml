@@ -1,68 +1,71 @@
 
-function generateEnemy(_enemy, _x, _y){
-	instance_create_layer(_x, _y, "GameObjects", _enemy);
+function generateEnemy(_enemy, _x, _y, _layer){
+	instance_create_layer(_x, _y, _layer, _enemy);
 }
 
 function generateTimeManage(){
-	octopusGenerateTime -= global.flySpeed;
-	insideUrchinGenerateTime -= global.flySpeed;
-	outsideUrchinGenerateTime -= global.flySpeed;
+	octopusGenerateCount -= global.flySpeed;
+	insideUrchinGenerateCount -= global.flySpeed;
+	outsideUrchinGenerateCount -= global.flySpeed;
 	
 }
 
-function generateEnemyRightside(_enemy, _minY, _maxY){
+function generateEnemyRightside(_enemy, _minY, _maxY, _layer){
 	//右側に敵を生成 ランダムなy
 	var _spriteWidth = sprite_get_width(object_get_sprite(_enemy));
 	var _max = (_maxY - _minY) / generateSpaceInterval;
 	var _generateY = irandom(_max)*generateSpaceInterval + _minY;
-	generateEnemy(_enemy, room_width+_spriteWidth, _generateY);
+	generateEnemy(_enemy, room_width+_spriteWidth, _generateY, _layer);
 }
 
 function octopusGenerateManage(){
 	//くらげ
-	if(octopusGenerateTime <= 0){
+	if(octopusGenerateCount <= 0){
 		
-		var _spriteHeight = sprite_get_height(object_get_sprite(oJellyfish));
-		octopusGenerateTime = octopusGenerateSpan + octopusGenerateTime;
-		generateEnemyRightside(oJellyfish, heightLimit, GROUNDPOS - _spriteHeight/2);
+		var _sprHeightHalf = sprite_get_height(object_get_sprite(oJellyfish))/2;
+		octopusGenerateCount = octopusGenerateSpan + octopusGenerateCount;
+		generateEnemyRightside(oJellyfish, heightLimit, GROUNDPOS, "GameObjects");
 	}
 }
 
 function urchinGenerateManage(){
 	//うに
-	if(insideUrchinGenerateTime <= 0){
-		//カメラ内にうに生成
-		insideUrchinGenerateTime = insideUrchinGenerateSpan + insideUrchinGenerateTime;
+	if(insideUrchinGenerateCount <= 0){
+		//中央らへんのうに生成
+		insideUrchinGenerateCount = insideUrchinGenerateSpan;
 		
-		var _spriteHeight = sprite_get_height(object_get_sprite(oUrchin));
-		var _minY = camera_get_view_y(oCamera.camera);
-		var _maxY = clamp(camera_get_view_height(oCamera.camera) + _minY, 0, GROUNDPOS - _spriteHeight/2);
+		var _sprHeightHalf = sprite_get_height(object_get_sprite(oUrchin))/2;
+		var _minY = insideLineMin + _sprHeightHalf;
+		var _maxY = insideLineMax;
 		
-		generateEnemyRightside(oUrchin, _minY, _maxY);
+		generateEnemyRightside(oUrchin, _minY, _maxY, "SpikeObjects");
 	}
 	
-	if(outsideUrchinGenerateTime <= 0){
-		//カメラ外にうに生成
-		outsideUrchinGenerateTime = outsideUrchinGenerateSpan + insideUrchinGenerateTime;
-		var _cameraHeight = camera_get_view_height(oCamera.camera);
-		var _cameraY = camera_get_view_y(oCamera.camera);
-		
+	if(outsideUrchinGenerateCount <= 0){
+		//外側らへんのうに生成
+		outsideUrchinGenerateCount = outsideUrchinGenerateSpan;
+		var _insideArea = insideLineMax - insideLineMin;
+		var _insideLineMin = insideLineMin;
 		//生成できる範囲上側 0より小さくはならない
-		var _upsideRange = clamp(_cameraY-heightLimit, 0, room_height);
+		var _upsideRange = clamp(_insideLineMin-heightLimit, 0, room_height);
 		//下側範囲 clamp無しでも0より小さくならない
-		var _downsideRange = room_height - (_cameraY+_cameraHeight);
+		var _downsideRange = room_height - (_insideLineMin+_insideArea);
 		
+		var _sprHeightHalf = sprite_get_height(object_get_sprite(oUrchin))/2;
 		var _generatePosition = random(1);//どっちに出すか乱数できめる 範囲が広いと確率が高く
-		var _upsidePositionRatio = _upsideRange / (_upsideRange+_downsideRange);
+		var _upsidePositionRatio = _upsideRange / (_upsideRange+_downsideRange);//スプライトの高さの半分
+		
+		
 		if(_upsidePositionRatio - _generatePosition > 0){
 			//カメラより上に生成する
-			generateEnemyRightside(oUrchin, heightLimit, _cameraY);
+			generateEnemyRightside(oUrchin, heightLimit, _insideLineMin, "SpikeObjects");
 		}
 		else{
 			//カメラ範囲より下に生成する
 			var _spriteHeight = sprite_get_height(object_get_sprite(oUrchin));
-			generateEnemyRightside(oUrchin, _cameraY+_cameraHeight, GROUNDPOS - _spriteHeight/2);
+			generateEnemyRightside(oUrchin, _insideLineMin+_insideArea+_sprHeightHalf, GROUNDPOS+_sprHeightHalf, "SpikeObjects");
 		}
+		sdm(_generatePosition)
 	}
 }
 
