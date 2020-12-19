@@ -10,6 +10,7 @@
     {"id":{"name":"backToTitle","path":"scripts/backToTitle/backToTitle.yy",},"order":0,},
     {"id":{"name":"gameLevelUp","path":"scripts/gameLevelUp/gameLevelUp.yy",},"order":6,},
     {"id":{"name":"usefulWindow","path":"scripts/usefulWindow/usefulWindow.yy",},"order":5,},
+    {"id":{"name":"acOctopusSwimSpeed","path":"animcurves/acOctopusSwimSpeed/acOctopusSwimSpeed.yy",},"order":10,},
     {"id":{"name":"database","path":"scripts/database/database.yy",},"order":1,},
     {"id":{"name":"sTitleButton","path":"sprites/sTitleButton/sTitleButton.yy",},"order":8,},
     {"id":{"name":"sOctopus","path":"sprites/sOctopus/sOctopus.yy",},"order":27,},

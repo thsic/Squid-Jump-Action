@@ -7,7 +7,7 @@ function generateTimeManage(){
 	octopusGenerateCount -= global.flySpeed;
 	insideUrchinGenerateCount -= global.flySpeed;
 	outsideUrchinGenerateCount -= global.flySpeed;
-	
+	jellyfishGenerateCount -= global.flySpeed;
 }
 
 function generateEnemyRightside(_enemy, _minY, _maxY, _layer){
@@ -18,13 +18,21 @@ function generateEnemyRightside(_enemy, _minY, _maxY, _layer){
 	generateEnemy(_enemy, room_width+_spriteWidth, _generateY, _layer);
 }
 
-function octopusGenerateManage(){
+function jellyfishGenerateManage(){
 	//くらげ
+	if(jellyfishGenerateCount <= 0){
+		
+		jellyfishGenerateCount = jellyfishGenerateSpan + jellyfishGenerateCount;
+		generateEnemyRightside(oJellyfish, heightLimit, GROUNDPOS, "GameObjects");
+	}
+}
+
+function octopusGenerateManage(){
+	//たこ
 	if(octopusGenerateCount <= 0){
 		
-		var _sprHeightHalf = sprite_get_height(object_get_sprite(oJellyfish))/2;
 		octopusGenerateCount = octopusGenerateSpan + octopusGenerateCount;
-		generateEnemyRightside(oJellyfish, heightLimit, GROUNDPOS, "GameObjects");
+		generateEnemyRightside(oOctopus, heightLimit, GROUNDPOS, "GameObjects");
 	}
 }
 
@@ -51,10 +59,9 @@ function urchinGenerateManage(){
 		//下側範囲 clamp無しでも0より小さくならない
 		var _downsideRange = room_height - (_insideLineMin+_insideArea);
 		
-		var _sprHeightHalf = sprite_get_height(object_get_sprite(oUrchin))/2;
+		
 		var _generatePosition = random(1);//どっちに出すか乱数できめる 範囲が広いと確率が高く
 		var _upsidePositionRatio = _upsideRange / (_upsideRange+_downsideRange);//スプライトの高さの半分
-		
 		
 		if(_upsidePositionRatio - _generatePosition > 0){
 			//カメラより上に生成する
@@ -62,7 +69,7 @@ function urchinGenerateManage(){
 		}
 		else{
 			//カメラ範囲より下に生成する
-			var _spriteHeight = sprite_get_height(object_get_sprite(oUrchin));
+			var _sprHeightHalf = sprite_get_height(object_get_sprite(oUrchin))/2;
 			generateEnemyRightside(oUrchin, _insideLineMin+_insideArea+_sprHeightHalf, GROUNDPOS+_sprHeightHalf, "SpikeObjects");
 		}
 		sdm(_generatePosition)
@@ -71,6 +78,7 @@ function urchinGenerateManage(){
 
 
 if(!global.gameStop){
+	jellyfishGenerateManage();
 	octopusGenerateManage();
 	urchinGenerateManage();
 	generateTimeManage();

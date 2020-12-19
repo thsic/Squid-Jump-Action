@@ -23,7 +23,8 @@
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"oEnemyGenerateMgr","path":"objects/oEnemyGenerateMgr/oEnemyGenerateMgr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
-    {"varType":1,"value":"60","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"octopusGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"60","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"jellyfishGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"2000","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"octopusGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"240","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"insideUrchinGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"120","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"outsideUrchinGenerateSpanBase","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"32","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"generateSpaceInterval","tags":[],"resourceType":"GMObjectProperty",},
