@@ -3,8 +3,8 @@
 function setPlayerInvinsibleTime(_time){
 	
 	var _time2 = _time / power(2, oPlayer.invinsibleCount);//[ベースの無敵時間 / 無敵時間発生回数の累乗]
-	if(!oPlayer.invinsibleEnable){
-		//無敵時間になってない状態から無敵時間になる
+	if(!oPlayer.invinsibleEnable or oPlayer.dodgeEnable){
+		//無敵時間になってない状態から無敵時間になる or ドッジ状態
 		oPlayer.invinsibleTime = _time
 		oPlayer.invinsibleEnable = true;
 		oPlayer.invinsibleCount++;

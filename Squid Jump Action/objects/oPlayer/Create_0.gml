@@ -34,6 +34,12 @@ invinsibleCount = 0;
 //描画
 subimage = 0;
 
+//回避
+prevTapTime = 1000;
+remainDodgeCount = dodgeCountBase;
+dodgeEnable = false;
+dodgeTime = 0;
+
 //アイテム
 infiniteJumpTime = 0;
 infiniteJumpEnable = false;

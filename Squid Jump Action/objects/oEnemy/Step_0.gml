@@ -12,6 +12,13 @@ if(!global.gameStop){
 	}
 	if(collided){
 		//プレイヤーと接触した
+		//現状とくに処理は無し
+		
+	}
+	if(disablement){
+		//無効化された
+		//現状とくに処理は無し
+		
 	}
 	
 	hSpeed = -global.flySpeed - swimSpeed;

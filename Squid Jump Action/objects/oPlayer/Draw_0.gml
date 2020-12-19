@@ -37,6 +37,17 @@ for(var i=0; i<remainDashCount; i++){
 	
 }
 
+//残りドッジ回数
+var _spriteX = bbox_left + 8;
+var _spriteY = bbox_top - 24;
+for(var i=0; i<remainDodgeCount; i++){
+	
+	draw_sprite_ext(sRemainDodge, 0, _spriteX, _spriteY, 1, 1, 0, c_white, 1);
+	_spriteX += 16;
+	
+}
+
+
 //ジャンプ回数の最大値は1だけどいちおうforで処理
 for(var i=0; i<remainJumpCount; i++){
 	

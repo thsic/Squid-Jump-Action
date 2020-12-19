@@ -30,6 +30,41 @@ function gravityManage(){
 	}
 }
 
+function dodgeManage(){
+	var _dodgeFrame = false
+	if(prevTapTime < 10){//タップされてから10f以内にもう一回タップすると回避コマンド
+		prevTapTime++
+		if(mouse_check_button_pressed(mb_left)
+		and point_distance(window_mouse_get_x(), window_mouse_get_y(), 
+		prevTapPointX, prevTapPointY) < 64
+		and remainDodgeCount > 0){
+			//前回タップされた座標に近くないと回避が発動しない
+			playerDodgeStart();
+			var _dodgeFrame = true
+			prevTapTime = 1000;
+		}
+		
+	}
+	
+	//一回目タップ ドッジが発動したフレームでは一回目としてカウントしない
+	if(mouse_check_button_pressed(mb_left)
+	and !_dodgeFrame){
+		prevTapTime = 0;
+		prevTapPointX = window_mouse_get_x();
+		prevTapPointY = window_mouse_get_y();
+	}
+	
+	
+	//ドッジ中の処理
+	if(dodgeEnable){
+		dodgeTime--;
+		invinsibleCount = 0;//ドッジ中はinvinsibleCountが上昇しない
+		if(dodgeTime <= 0){
+			dodgeEnable = false;
+		}
+	}
+}
+
 function executionMove(){
 	//hSpeedTemp *= hSpeedAcceleration;
 	
@@ -292,16 +327,22 @@ function playerHpManage(){
 		if(_enemyDis < playerCollisionSize){
 			//いる
 			_enemyId = ds_grid_get(dsEnemyParam, ENEMYPARAM.ID, i);
-			if(_enemyId.spike = true){
-				//敵に攻撃判定がある
+			if(_enemyId.spike == true
+			and _enemyId.disablement == false){
+				
+				//敵に攻撃判定がある かつ 一度も接触してない
 				if(!invinsibleEnable){
 					//無敵時間でないならプレイヤーにダメージ
 					damageToPlayer(1);
 				}
+				if(dodgeEnable){
+					//ドッジ中に回避するとエフェクトがでる
+					createRiseEffect(oPlayer.x, oPlayer.y-32, 70, 40, "DODGE!", 0);
+				}
 				
 				//無敵時間にする
 				setPlayerInvinsibleTime(invinsibleTimeBase);
-				
+				_enemyId.disablement = true;//無力化
 			}
 		}
 		else{
@@ -316,7 +357,7 @@ function playerHpManage(){
 	}
 	else{
 		invinsibleEnable = false;
-		invinsibleCount = 0;
+		invinsibleCount = 0;                         
 	}
 
 }
@@ -365,9 +406,12 @@ if(!global.gameStop){
 	collisionEnemy();
 	dashManage();
 	flightPlayer();
-
+	
 	//ライフ
 	playerHpManage();
+	
+	//回避
+	dodgeManage();
 
 	//ゲームシステム関連
 	fellIntoTheSea();

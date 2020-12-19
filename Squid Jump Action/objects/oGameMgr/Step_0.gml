@@ -38,6 +38,9 @@ function levelManage(){
 		//アイテム生成
 		createItem(oInfiniteJumpItem, false);
 		createItem(oSpeedUpItem, true);
+		
+		//ドッジ回復
+		addDodgeCount(1);
 	}
 }
 
