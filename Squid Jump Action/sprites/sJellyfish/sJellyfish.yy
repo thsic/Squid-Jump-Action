@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 1,
-  "bbox_right": 30,
-  "bbox_top": 1,
-  "bbox_bottom": 28,
+  "bbox_left": 7,
+  "bbox_right": 23,
+  "bbox_top": 6,
+  "bbox_bottom": 25,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"3c92a8e4-abf1-42e6-9f98-39dd04c1a222","path":"sprites/sUrchin/sUrchin.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3c92a8e4-abf1-42e6-9f98-39dd04c1a222","path":"sprites/sUrchin/sUrchin.yy",},"LayerId":{"name":"f2751845-f344-4445-aadf-06214a989c44","path":"sprites/sUrchin/sUrchin.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sUrchin","path":"sprites/sUrchin/sUrchin.yy",},"resourceVersion":"1.0","name":"3c92a8e4-abf1-42e6-9f98-39dd04c1a222","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"5ed164af-0959-42f4-8800-0134aca28e49","path":"sprites/sJellyfish/sJellyfish.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"5ed164af-0959-42f4-8800-0134aca28e49","path":"sprites/sJellyfish/sJellyfish.yy",},"LayerId":{"name":"2c2d8fb9-afda-41ad-9fa0-83c1bc8526bd","path":"sprites/sJellyfish/sJellyfish.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sJellyfish","path":"sprites/sJellyfish/sJellyfish.yy",},"resourceVersion":"1.0","name":"5ed164af-0959-42f4-8800-0134aca28e49","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sUrchin","path":"sprites/sUrchin/sUrchin.yy",},
+    "spriteId": {"name":"sJellyfish","path":"sprites/sJellyfish/sJellyfish.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f9ad026c-58fd-47c8-bf3d-1f46d6db8e0e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3c92a8e4-abf1-42e6-9f98-39dd04c1a222","path":"sprites/sUrchin/sUrchin.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9f173dbd-4ce8-4ef4-98cb-a9f83ec44da2","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5ed164af-0959-42f4-8800-0134aca28e49","path":"sprites/sJellyfish/sJellyfish.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sUrchin","path":"sprites/sUrchin/sUrchin.yy",},
+    "parent": {"name":"sJellyfish","path":"sprites/sJellyfish/sJellyfish.yy",},
     "resourceVersion": "1.3",
-    "name": "sUrchin",
+    "name": "sJellyfish",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f2751845-f344-4445-aadf-06214a989c44","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2c2d8fb9-afda-41ad-9fa0-83c1bc8526bd","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Sprites",
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sUrchin",
+  "name": "sJellyfish",
   "tags": [],
   "resourceType": "GMSprite",
 }

@@ -1,10 +1,16 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sJellyfish",
+    "path": "sprites/sJellyfish/sJellyfish.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oEnemy",
+    "path": "objects/oEnemy/oEnemy.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -25,7 +31,7 @@
     "path": "folders/Objects/enemy.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oOctopus",
+  "name": "oJellyfish",
   "tags": [],
   "resourceType": "GMObject",
 }

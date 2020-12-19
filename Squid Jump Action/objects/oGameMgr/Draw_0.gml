@@ -41,7 +41,7 @@ function drawHeightLimit(){
 
 function drawGround(){
 	var _spriteWidth = sprite_get_width(sGround);
-	var _spriteQuantity = ceil(room_height/_spriteWidth)+1;
+	var _spriteQuantity = ceil(room_width/_spriteWidth)+1;
 	var _spriteY = room_height - sprite_get_height(sGround);
 	var _leftX = global.swimLength mod _spriteWidth;
 	

@@ -19,12 +19,12 @@ function generateEnemyRightside(_enemy, _minY, _maxY){
 }
 
 function octopusGenerateManage(){
-	//たこ
+	//くらげ
 	if(octopusGenerateTime <= 0){
 		
-		var _spriteHeight = sprite_get_height(object_get_sprite(oOctopus));
+		var _spriteHeight = sprite_get_height(object_get_sprite(oJellyfish));
 		octopusGenerateTime = octopusGenerateSpan + octopusGenerateTime;
-		generateEnemyRightside(oOctopus, heightLimit, GROUNDPOS - _spriteHeight/2);
+		generateEnemyRightside(oJellyfish, heightLimit, GROUNDPOS - _spriteHeight/2);
 	}
 }
 
