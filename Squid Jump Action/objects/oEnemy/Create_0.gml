@@ -1,4 +1,5 @@
 
 hSpeed = 0;
 vSpeed = 0;
-zapped = false
+zapped = false;
+collided = false;

@@ -6,7 +6,7 @@
     "path": "folders/Scripts/enemy.yy",
   },
   "resourceVersion": "1.0",
-  "name": "zapToEnemy",
+  "name": "collisionToEnemy",
   "tags": [],
   "resourceType": "GMScript",
 }

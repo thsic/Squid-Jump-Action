@@ -10,6 +10,9 @@ if(!global.gameStop){
 		//踏まれるなどして攻撃された
 		instance_destroy();
 	}
+	if(collided){
+		//プレイヤーと接触した
+	}
 	
 	hSpeed = -global.flySpeed - swimSpeed;
 	

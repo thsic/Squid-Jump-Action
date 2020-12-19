@@ -96,7 +96,7 @@ function lengthForEnemyList(){
 	ds_grid_sort(dsEnemyParam, ENEMYPARAM.DISTANCE, true);
 }
 
-function stompEnemy(){
+function collisionEnemy(){
 	//一番近い敵が踏める範囲に居るかどうか
 	
 	var _enemyDis, _enemyId;
@@ -106,25 +106,28 @@ function stompEnemy(){
 		if(_enemyDis <= stompRange){
 			_enemyId = ds_grid_get(dsEnemyParam, ENEMYPARAM.ID, i);
 			
-			//敵が踏みつけ可能か確認
-			if(_enemyId.canStomp){
-				//踏む
-				zapToEnemy(_enemyId);
-				//バリアカウント減少
-				decreaseBarrierCount(1);
-				//レベルポイント上昇
-				addLevelPoint(3);
+			if(!_enemyId.collided){
+				//ダッシュカウント回復
+				addDashCount(_enemyId.addDashCount)
 				//スコア上昇
-				gainScore(1000);
+				gainScore(_enemyId.collisionScore);
+				//バリアカウント減少
+				decreaseBarrierCount(_enemyId.collisionBarrierCount);
+				//レベルポイント上昇
+				addLevelPoint(_enemyId.collisionLevelPoint*oGameMgr.levelUpPoint);
+				//接触
+				collisionToEnemy(_enemyId);
+			
+				//敵が踏みつけ可能か確認
+				if(_enemyId.canStomp){
+					//踏む
+					zapToEnemy(_enemyId);
+					//上昇
+					vSpeed = -5;
 				
-				//上昇
-				vSpeed = -5;
-		
-				//いろいろ回復
-				remainJumpCount = jumpCountBase;
-				remainDashCount = dashCountBase;
-				//敵を踏むとhSpeedはもとに戻る
-				hSpeed = 0;
+					//敵を踏むとhSpeedはもとに戻る
+					hSpeed = 0;
+				}
 			}
 		}
 	}
@@ -202,27 +205,7 @@ function dashManage(){
 				_dashDir = _drawDashDirMax;
 			}
 			drawDashDirection = _dashDir;
-			/*var _dashDir = (_swipeDir+180) mod 360;
-			var _dashHspeed = lengthdir_x(dashSpeed, _dashDir);
 			
-			if(_dashHspeed < hSpeed){
-				//ダッシュのhspeedがダッシュしてないときのhspeedより遅い場合はその方向にダッシュできない
-				var _vSpeed = hSpeed/dashSpeed;
-				var _dir = point_direction(0, 0, hSpeed, _vSpeed);
-				
-				_dir = 60
-				if(isInRange(_dir, 180, _dashDir)){
-					_dashDir = _dir;
-				}
-				if(isInRange(180, 360-_dir, _dashDir)){
-					_dashDir = 360-_dir;
-				}
-			}
-			drawDashDirection = _dashDir;*/
-			
-			
-			
-			//drawDashDirection = point_direction(0, 0, _lendirX+flightSpeed, _lendirY);
 			subimage = 2;
 		}
 		
@@ -379,7 +362,7 @@ if(!global.gameStop){
 	//移動関連
 	jumpManage();
 	gravityManage();
-	stompEnemy();
+	collisionEnemy();
 	dashManage();
 	flightPlayer();
 

@@ -26,3 +26,4 @@ shader_set_uniform_f(shOutlineColorHandle, _r, _g, _b, _a);
 draw_sprite(sprite_index, image_index, x, y);
 
 shader_reset();
+
