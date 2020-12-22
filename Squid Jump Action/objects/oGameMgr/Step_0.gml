@@ -99,6 +99,7 @@ function manageGameState(){
 		global.flySpeed = 0;
 		global.speedLevel = 1;
 		global.throughSpeedUpCount = 0;
+		global.scoreRatio = 1;
 		
 		sharkPoint = sharkPointBase;
 		playerYPrev = oPlayer.y;

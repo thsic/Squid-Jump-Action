@@ -23,7 +23,9 @@ if(global.playerHp == 2){
 
 if(chargeingDash){
 	
-	draw_sprite_ext(sArrow, 0, x+40, y, 1, 1, dashDirection, c_white, 1);
+	var _arrowX = lengthdir_x(16, drawDashDirection) + x;
+	var _arrowY = lengthdir_y(16, drawDashDirection) + y;
+	draw_sprite_ext(sDashDirArrow, 0, _arrowX, _arrowY, 1, 1, drawDashDirection, c_white, 1);
 	
 }
 

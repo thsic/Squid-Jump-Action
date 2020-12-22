@@ -1,13 +1,18 @@
 
+setEnemyGenerateSpan();
+
+/*
 octopusGenerateSpan = octopusGenerateSpanBase;
 insideUrchinGenerateSpan = insideUrchinGenerateSpanBase;
 outsideUrchinGenerateSpan = outsideUrchinGenerateSpanBase;
 jellyfishGenerateSpan = jellyfishGenerateSpanBase;
+//sharkGenerateSpan = sharkGenerateSpanBase;
+*/
+jellyfishGenerateCount = jellyfishGenerateSpan;
+octopusGenerateCount = octopusGenerateSpan;
+insideUrchinGenerateCount = insideUrchinGenerateSpan;
+outsideUrchinGenerateCount = outsideUrchinGenerateSpan;
+sharkGenerateCount = sharkGenerateSpan;
 
-
-jellyfishGenerateCount = jellyfishGenerateSpanBase;
-octopusGenerateCount = octopusGenerateSpanBase;
-insideUrchinGenerateCount = insideUrchinGenerateSpanBase;
-outsideUrchinGenerateCount = outsideUrchinGenerateSpanBase;
 
 heightLimit = 16;//oGameMgr.heightLimit;

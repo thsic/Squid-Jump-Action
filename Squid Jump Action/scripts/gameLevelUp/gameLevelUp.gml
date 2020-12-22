@@ -4,4 +4,6 @@ function gameLevelUp(){
 	global.nowLevel++;
 	levelUpPoint *= levelUpPointScale;//レベル上昇ごとにレベルアップまでの必要ポイントが上昇していく
 	createLevelUpTextEffect(120, global.nowLevel);
+	setEnemyGenerateSpan();
+	global.scoreRatio += SCORERATIOPERLEVEL;
 }

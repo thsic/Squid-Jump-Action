@@ -7,6 +7,8 @@
 #macro GAMEHEIGHT WINDOWHEIGHT/CAMERASCALE
 #macro SEALEVEL 100
 #macro GROUNDPOS (room_height-32)
+#macro MAXLEVEL 50
+#macro SCORERATIOPERLEVEL 0.1
 
 #macro MAINROOM rMain
 #macro TITLEROOM rTitle

@@ -10,7 +10,7 @@ function jumpManage(){
 	if(mouse_check_button_pressed(mb_left)
 	and remainDashCount = 0
 	and sign(vSpeed) = 1){
-		vSpeed *= 0.7;
+		vSpeed *= 0.65;
 	}
 	
 }
@@ -81,6 +81,7 @@ function executionMove(){
 	else{
 		global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
 	}
+	
 	
 	//地面についた
 	if(GROUNDPOS-1 < y){
@@ -205,7 +206,7 @@ function dashManage(){
 			
 			
 			var _dirMax = 90;
-			var _dirMin = 180;
+			var _dirMin = 270;
 			
 			//逆方向には進めない
 			if(isInRange(_dirMax, 180, _dashDir)){
@@ -220,27 +221,33 @@ function dashManage(){
 			
 			dashDirection = _dashDir;
 			
-			//横移動スピードがダッシュスピードより早い場合ダッシュスピードを横移動スピードと同速に
-			
 			
 			//描画関連
 			var _dx = lengthdir_x(dashSpeed, 90);
 			var _dy = lengthdir_y(dashSpeed, 90);
 			var _drawDashDirMin = abs(angle_difference(point_direction(0, 0, _dx+hSpeed, _dy), 0));
 			var _drawDashDirMax = 360 - _drawDashDirMin;
-			
+			var _drawDashDir = _dashDir;
 			//var _dx = hSpeed;
 			//var _dy = sqrt(power(dashSpeed, 2) - power(hSpeed, 2));//三平方の定理をつかうらしい
 			//var _drawDashDirMin = abs(angle_difference(point_direction(0, 0, _dx, _dy), 0));//角度の差をもとめる
 			
-			if(isInRange(_drawDashDirMin, 180, _dashDir)){
-				_dashDir = _drawDashDirMin;
+			if(isInRange(_drawDashDirMin, 180, _drawDashDir)){
+				_drawDashDir = _drawDashDirMin;
 			}
-			if(isInRange(180, _drawDashDirMax, _dashDir)){
-				_dashDir = _drawDashDirMax;
+			if(isInRange(180, _drawDashDirMax, _drawDashDir)){
+				_drawDashDir = _drawDashDirMax;
 			}
-			drawDashDirection = _dashDir;
+			drawDashDirection = _drawDashDir;
 			
+			
+			//ダッシュ角度計算
+			var _dx2 = lengthdir_x(dashSpeed, _dashDir);
+			var _dy2 = lengthdir_y(dashSpeed, _dashDir);
+			_dx2 -= dashHspeedBase;
+			
+			//dashDirection = point_direction(0, 0, _dx2, _dy2);
+			//sdm(dashDirection)
 			subimage = 2;
 		}
 		
@@ -256,7 +263,6 @@ function dashManage(){
 			
 			//vspeedはダッシュ時にはリセット
 			vSpeed = 0;
-			//vSpeed = lengthdir_y(dashSpeed, dashDirection);
 			
 			//加速
 			var _dirRatio = (dashDirection-90)/180;

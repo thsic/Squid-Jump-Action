@@ -7,7 +7,6 @@ global.nextState = noone;
 global.gameStop = true;
 
 
-
 overHeightLimitTime = 0;
 levelUpSequenceElement = noone;
 

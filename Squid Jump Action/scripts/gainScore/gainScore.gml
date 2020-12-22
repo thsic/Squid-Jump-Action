@@ -1,6 +1,7 @@
 
-function gainScore(_score){
-	if(_score > 0){
+function gainScore(_scoreBase){
+	if(_scoreBase > 0){
+		var _score = floor(_scoreBase *global.scoreRatio);
 		global.gameScore += _score;
 	
 		var _x = oPlayer.x;

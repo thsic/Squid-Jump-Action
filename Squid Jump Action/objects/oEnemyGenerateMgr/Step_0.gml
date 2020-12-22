@@ -8,6 +8,7 @@ function generateTimeManage(){
 	insideUrchinGenerateCount -= global.flySpeed;
 	outsideUrchinGenerateCount -= global.flySpeed;
 	jellyfishGenerateCount -= global.flySpeed;
+	sharkGenerateCount -= global.flySpeed;
 }
 
 function generateEnemyRightside(_enemy, _minY, _maxY, _layer){
@@ -20,25 +21,36 @@ function generateEnemyRightside(_enemy, _minY, _maxY, _layer){
 
 function jellyfishGenerateManage(){
 	//くらげ
-	if(jellyfishGenerateCount <= 0){
+	if(jellyfishGenerateCount <= 0 and jellyfishGenerateSpan != -1){
 		
 		jellyfishGenerateCount = jellyfishGenerateSpan + jellyfishGenerateCount;
 		generateEnemyRightside(oJellyfish, heightLimit, GROUNDPOS, "GameObjects");
+		
 	}
 }
 
 function octopusGenerateManage(){
 	//たこ
-	if(octopusGenerateCount <= 0){
+	if(octopusGenerateCount <= 0 and octopusGenerateSpan != -1){
 		
 		octopusGenerateCount = octopusGenerateSpan + octopusGenerateCount;
 		generateEnemyRightside(oOctopus, heightLimit, GROUNDPOS, "GameObjects");
 	}
 }
 
+function sharkRandomGenerateManage(){
+	//さめ
+	if(sharkGenerateCount <= 0 and sharkGenerateSpan != -1){
+		
+		sharkGenerateCount = sharkGenerateSpan + sharkGenerateCount;
+		generateEnemyRightside(oShark, heightLimit, GROUNDPOS, "GameObjects");
+		
+	}
+}
+
 function urchinGenerateManage(){
 	//うに
-	if(insideUrchinGenerateCount <= 0){
+	if(insideUrchinGenerateCount <= 0 and insideUrchinGenerateSpan != -1){
 		//中央らへんのうに生成
 		insideUrchinGenerateCount = insideUrchinGenerateSpan;
 		
@@ -49,7 +61,7 @@ function urchinGenerateManage(){
 		generateEnemyRightside(oUrchin, _minY, _maxY, "SpikeObjects");
 	}
 	
-	if(outsideUrchinGenerateCount <= 0){
+	if(outsideUrchinGenerateCount <= 0 and outsideUrchinGenerateSpan != -1){
 		//外側らへんのうに生成
 		outsideUrchinGenerateCount = outsideUrchinGenerateSpan;
 		var _insideArea = insideLineMax - insideLineMin;
@@ -72,7 +84,7 @@ function urchinGenerateManage(){
 			var _sprHeightHalf = sprite_get_height(object_get_sprite(oUrchin))/2;
 			generateEnemyRightside(oUrchin, _insideLineMin+_insideArea+_sprHeightHalf, GROUNDPOS+_sprHeightHalf, "SpikeObjects");
 		}
-		sdm(_generatePosition)
+		
 	}
 }
 
@@ -82,5 +94,6 @@ if(!global.gameStop){
 	octopusGenerateManage();
 	urchinGenerateManage();
 	generateTimeManage();
+	sharkRandomGenerateManage();
 }
 
