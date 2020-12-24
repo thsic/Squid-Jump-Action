@@ -9,6 +9,8 @@ global.gameStop = true;
 
 overHeightLimitTime = 0;
 levelUpSequenceElement = noone;
+damagedTime = 0;
+damagedTimeSlowRatio = 1;
 
 //usefulwindow
 global.usefulwindow_surface[0] = noone

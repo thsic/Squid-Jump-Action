@@ -21,7 +21,12 @@ if(!global.gameStop){
 		
 	}
 	
-	hSpeed = -global.flySpeed - swimSpeed;
+	var _swimSpeed = swimSpeed;
+	if(oGameMgr.damagedTime > 0){
+		var _swimSpeed = swimSpeed * oGameMgr.damagedTimeSlowRatio;
+	}
+	
+	hSpeed = -global.flySpeed - _swimSpeed;
 	
 	executionEnemyMove();
 	

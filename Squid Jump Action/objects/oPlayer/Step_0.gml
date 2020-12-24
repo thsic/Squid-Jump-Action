@@ -15,19 +15,38 @@ function jumpManage(){
 	
 }
 function gravityManage(){
-	if(vSpeed < 0){
-		//上昇中
-		vSpeed *= 0.95;
-		vSpeed += 0.05;
-	}
-	else{
-		//下降中
-		vSpeed *= 1.05;
-		vSpeed += 0.05;
-		if(vSpeed > 8){
-			vSpeed = 8;
+	
+	if(oGameMgr.damagedTime > 0){
+		if(vSpeed < 0){
+			//上昇中
+			vSpeed *= 0.975;
+			vSpeed += 0.025;
+		}
+		else{
+			//下降中
+			vSpeed *= 1.025;
+			vSpeed += 0.025;
+			if(vSpeed > 4){
+				vSpeed = 4;
+			}
 		}
 	}
+	else{
+		if(vSpeed < 0){
+			//上昇中
+			vSpeed *= 0.95;
+			vSpeed += 0.05;
+		}
+		else{
+			//下降中
+			vSpeed *= 1.05;
+			vSpeed += 0.05;
+			if(vSpeed > 8){
+				vSpeed = 8;
+			}
+		}
+	}
+	
 }
 
 function dodgeManage(){
@@ -73,18 +92,25 @@ function executionMove(){
 		hSpeed = hSpeedTemp;
 	}
 	
-	
-	y += vSpeed;
-	if(dashEnable){
-		global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
+	//ダメージくらったあとの場合スピードがおそく
+	if(oGameMgr.damagedTime > 0){
+		var _slowRatio = oGameMgr.damagedTimeSlowRatio;
+		var _hSpeed = hSpeed * _slowRatio;
+		var _vSpeed = vSpeed * _slowRatio;
+		var _dashHspeed = dashHspeed * _slowRatio;
 	}
 	else{
-		global.flySpeed = hSpeed + dashHspeed;//ダッシュ中はダッシュの加速も追加
+		var _hSpeed = hSpeed;
+		var _vSpeed = vSpeed;
+		var _dashHspeed = dashHspeed;
 	}
+	
+	y += vSpeed;
+	global.flySpeed = _hSpeed + _dashHspeed;//ダッシュ中はダッシュの加速も追加
 	
 	
 	//地面についた
-	if(GROUNDPOS-1 < y){
+	if(GROUNDPOS-1 < y and GROUNDENABLE){
 		y = GROUNDPOS;
 		grounded = true;
 		global.flySpeed /= 2;
@@ -97,6 +123,7 @@ function executionMove(){
 	else{
 		graunded = false;
 	}
+
 	
 	//画面より上へはいけない
 	if(0 > y){
@@ -106,7 +133,7 @@ function executionMove(){
 	
 	global.swimLength += global.flySpeed;//泳いだ距離
 	addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算
-	playerDirection = point_direction(0, 0, hSpeed + dashHspeed, vSpeed);
+	playerDirection = point_direction(0, 0, _hSpeed + _dashHspeed, _vSpeed);
 }
 
 function lengthForEnemyList(){
@@ -163,6 +190,11 @@ function collisionEnemy(){
 				
 					//敵を踏むとhSpeedはもとに戻る
 					hSpeed = 0;
+					//ダッシュ消す
+					dashEnable = false;
+					dashHspeed = 0;
+					dashVspeed = 0;
+					subimage = 0;
 				}
 			}
 		}
@@ -369,8 +401,17 @@ function playerHpManage(){
 }
 function fellIntoTheSea(){
 	//海に落ちた
-	if(y > room_height){
-		gameoverScript();
+	var _spriteHeight = sprite_get_height(sprite_index);
+	if(y - _spriteHeight/2 > room_height){
+		if(global.playerHp > 0){
+		//海に落ちると1ダメージくらって大ジャンプ 無敵時間無し
+			damageToPlayer(1);
+			vSpeed = -11;
+		}
+		else{
+			//hpが無いなら無敵時間でも死亡
+			gameoverScript();
+		}
 	}
 }
 
@@ -385,9 +426,6 @@ function playerParamManage(){
 	}
 	
 }
-
-#endregion
-
 function infiniteJumpManage(){
 	if(infiniteJumpTime > 0){
 		remainDashCount = dashCountBase;
@@ -398,6 +436,11 @@ function infiniteJumpManage(){
 		infiniteJumpEnable = false;
 	}
 }
+
+
+#endregion
+
+
 
 if(!global.gameStop){
 	resetPlayerParam();

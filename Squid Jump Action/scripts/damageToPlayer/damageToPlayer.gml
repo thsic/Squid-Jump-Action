@@ -7,6 +7,9 @@ function damageToPlayer(_damage){
 	//スピードアップを落とす
 	decreaseSpeedLevel(DECREASESPEEDLEVEL);
 	
+	//ダメージ食らった時にゲームスピード落ちるやつ
+	//oGameMgr.damagedTime = DAMAGEDTIMEBASE;
+	
 	if(global.playerHp <= 0){
 		gameoverScript();
 	}

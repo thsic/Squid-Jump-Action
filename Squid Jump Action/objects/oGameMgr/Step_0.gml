@@ -84,6 +84,25 @@ function createBubble(){
 	}
 }
 
+function drawSwipeSprite(){
+	//一定時間スワイプされないとswipe!って表示する
+	
+	/*if(swipeSpriteTime = 0){
+		swipeSpriteEnable = true;
+		swipeSpriteTime = -1;
+		swipeSequence = layer_sequence_create("UI", oPlayer.x+100, oPlayer.y, sqSwipe);
+	}
+	else{
+		swipeSpriteTime--;
+		swipeSpriteEnable = false
+	}
+	if(swipeSpriteEnable){
+		if(mouse_check_button_pressed(mb_left)){
+			layer_sequence_destroy(swipeSequence);
+		}
+	}*/
+}
+
 function manageGameState(){
 	switch(global.gameState){
 	case GAMESTATE.STAGESTART:
@@ -104,6 +123,7 @@ function manageGameState(){
 		sharkPoint = sharkPointBase;
 		playerYPrev = oPlayer.y;
 		levelUpPoint = levelUpPointBase;
+		swipeSpriteTime = 120;
 		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
@@ -118,8 +138,16 @@ function manageGameState(){
 		scoreManage();
 		createBubble();
 		sharkGenerateManage()
+		drawSwipeSprite();
 		if(keyboard_check_pressed(vk_space)){
 			changeGameState(GAMESTATE.PAUSE);
+		}
+		
+		//プレイヤーがダメージくらったあとゲームスピードが遅くなる時間
+		if(damagedTime > 0){
+			damagedTime--;
+			var _channel = animcurve_get_channel(acGameSpeedAfterDamage, 0);
+			damagedTimeSlowRatio = animcurve_channel_evaluate(_channel, 1-damagedTime / DAMAGEDTIMEBASE);
 		}
 		
 	break
@@ -131,6 +159,7 @@ function manageGameState(){
 	break
 	case GAMESTATE.GAMEOVER:
 		global.gameStop = true;
+		global.flySpeed = 0;
 		if(!instance_exists(oGameoverMgr)){
 			instance_create_layer(0, 0, "UI", oGameoverMgr);
 		}

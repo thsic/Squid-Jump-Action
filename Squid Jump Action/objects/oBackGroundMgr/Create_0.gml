@@ -2,20 +2,25 @@
 
 
 //バックグラウンドオブジェクトのステータス
-function backgroundObjectSetStats(_num, _spr, _ground, _spdMin, _spdMax, _spawnRatio){
+function backgroundObjectSetStats(_num, _spr, _ground, _spdMin, _spdMax, _spawnRatio, _depthMin, _depthMax){
 	bgObjStats[# BGOBJSTATS.SPRITE, _num] = _spr;
 	bgObjStats[# BGOBJSTATS.GROUND, _num] = _ground;
 	bgObjStats[# BGOBJSTATS.SPEEDMIN, _num] = _spdMin;
 	bgObjStats[# BGOBJSTATS.SPEEDMAX, _num] = _spdMax;
 	bgObjStats[# BGOBJSTATS.SPAWNRATIO, _num] = _spawnRatio;
+	bgObjStats[# BGOBJSTATS.DEPTHMIN, _num] = _depthMin;
+	bgObjStats[# BGOBJSTATS.DEPTHMAX, _num] = _depthMax;
 }
+maxDepth = 100;
+bgObjStats = ds_grid_create(10, 10);
+bgObjParam = ds_grid_create(10, 50);
 
-bgObjStats = ds_grid_create(6, 10);
-bgObjParam = ds_grid_create(6, 50);
 
-backgroundObjectSetStats(0, sCoral, true, 0, 0, 0.002);
-backgroundObjectSetStats(1, sSeaweed, true, 0, 0, 0.002);
-backgroundObjectSetStats(2, sBackgroundFish, false, 1, 2, 0.05);
+backgroundObjectSetStats(0, sCoral, true, 0, 0, 0.002, 0, maxDepth);
+backgroundObjectSetStats(1, sSeaweed, true, 0, 0, 0.002, 0, maxDepth);
+backgroundObjectSetStats(2, sBackgroundFish, false, 1, 2, 0.02, 0, 1);
+backgroundObjectSetStats(3, sBackGroundRock, true, 0, 0, 0.002, 0, maxDepth);
+backgroundObjectSetStats(4, sSeaMount, true, 0, 0, 0.003, 0, maxDepth);
 
 /*background_showcolor = true;
 background_color = backGroundColor;
@@ -30,6 +35,9 @@ enum BGOBJSTATS{
 	SPEEDMIN,
 	SPEEDMAX,
 	SPAWNRATIO,
+	DEPTHMIN,
+	DEPTHMAX,
+	
 }
 
 enum BGOBJPARAM{
@@ -38,4 +46,6 @@ enum BGOBJPARAM{
 	Y,
 	SPEED,
 	ENABLED,
+	DEPTH,
+	SCALE,
 }

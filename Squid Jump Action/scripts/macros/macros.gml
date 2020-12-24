@@ -7,8 +7,9 @@
 #macro GAMEHEIGHT WINDOWHEIGHT/CAMERASCALE
 #macro SEALEVEL 100
 #macro GROUNDPOS (room_height-32)
-#macro MAXLEVEL 50
-#macro SCORERATIOPERLEVEL 0.1
+
+
+
 
 #macro MAINROOM rMain
 #macro TITLEROOM rTitle
@@ -20,7 +21,11 @@
 #macro DECREASESPEEDLEVEL 2//ダメージを受けた時に減るスピードレベル
 #macro THROUGHSPEEDUPCOUNTLIMIT 3//スピードアップアイテムをスルーできる回数 これを超えてスルーするとスピードが減る
 
-//
+//バランス
+#macro MAXLEVEL 50
+#macro SCORERATIOPERLEVEL 0.1
+#macro GROUNDENABLE false
+#macro DAMAGEDTIMEBASE 120
 
 enum DRAWEVENT{
 	DRAWBEGIN,

@@ -33,13 +33,21 @@ function generateBgObj(){
 				var _spdMin = bgObjStats[# BGOBJSTATS.SPEEDMIN, i];
 				var _spdMax = bgObjStats[# BGOBJSTATS.SPEEDMAX, i];
 				var _grounded = bgObjStats[# BGOBJSTATS.GROUND, i];
-				
+				var _depthMin = bgObjStats[# BGOBJSTATS.DEPTHMIN, i];
+				var _depthMax = bgObjStats[# BGOBJSTATS.DEPTHMAX, i];
+								
+				var _depth = irandom_range(_depthMin, _depthMax);
 				var _x = room_width+sprite_get_width(_sprite);
 				if(_grounded){
-					var _y = GROUNDPOS - sprite_get_height(_sprite)/2;
+					var _y = GROUNDPOS - _depth;
+					
+					//depth関連
+					var _channel = animcurve_get_channel(acBackGroundDepthScale, 0);
+					var _scale = animcurve_channel_evaluate(_channel, _depth / maxDepth);
 				}
 				else{
 					var _y = random_range(0, GROUNDPOS - 32);
+					var _scale = 1;
 				}
 				var _speed = random_range(_spdMin, _spdMax);
 				
@@ -48,7 +56,8 @@ function generateBgObj(){
 				bgObjParam[# BGOBJPARAM.SPEED, _objectNumber] = _speed;
 				bgObjParam[# BGOBJPARAM.SPRITE, _objectNumber] = _sprite;
 				bgObjParam[# BGOBJPARAM.ENABLED, _objectNumber] = true;
-				
+				bgObjParam[# BGOBJPARAM.DEPTH, _objectNumber] = _depth;
+				bgObjParam[# BGOBJPARAM.SCALE, _objectNumber] = _scale;
 			}
 		}
 	}

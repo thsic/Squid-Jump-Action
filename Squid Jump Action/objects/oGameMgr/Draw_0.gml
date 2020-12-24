@@ -54,4 +54,6 @@ function drawGround(){
 	
 }
 
-drawGround();
+if(GROUNDENABLE){
+	drawGround();
+}
