@@ -72,3 +72,65 @@ case noone:
 break
 }
 
+
+
+//バックグラウンド
+function generateTitleBgObj(){
+	var _bgobjNum = ds_grid_height(bgObjStats);
+	
+	for(var i=0; i<_bgobjNum; i++){
+		
+		var _random = random(1);
+		var _spawnRatio = bgObjStats[# TITLEBGSTATS.SPAWNRATIO, i]*bgScrollSpeed;
+		sdm(_spawnRatio)
+		if(_random < _spawnRatio){
+			
+			//生成処理
+			var _objectNumber = -1;
+			//空いている所さがす
+			for(var j=0; j<ds_grid_height(bgObjParam); j++){
+				if(!bgObjParam[# TITLEBGPARAM.ENABLED, j]){
+					_objectNumber = j;
+					break;
+				}
+			}
+			
+			//パラメータ入れる
+			if(_objectNumber != -1){
+				sdm(_objectNumber)
+				var _sprite = bgObjStats[# TITLEBGSTATS.SPRITE, i];
+				var _spd = bgObjStats[# TITLEBGSTATS.SPEED, i];
+				var _spawnRatio = bgObjStats[# TITLEBGSTATS.SPAWNRATIO, i];
+				var _depth = bgObjStats[# TITLEBGSTATS.DEPTH, i];
+
+				var _x = room_width+sprite_get_width(_sprite);
+				var _y = random_range(0,room_height);
+								
+				bgObjParam[# TITLEBGPARAM.X, _objectNumber] = _x;
+				bgObjParam[# TITLEBGPARAM.Y, _objectNumber] = _y;
+				bgObjParam[# TITLEBGPARAM.SPEED, _objectNumber] = _spd;
+				bgObjParam[# TITLEBGPARAM.SPRITE, _objectNumber] = _sprite;
+				bgObjParam[# TITLEBGPARAM.ENABLED, _objectNumber] = true;
+				bgObjParam[# TITLEBGPARAM.DEPTH, _objectNumber] = _depth;
+			}
+		}
+	}
+}
+
+function moveTitleBgObj(){
+	for(var i=0; i<ds_grid_height(bgObjParam); i++){
+		if(bgObjParam[# TITLEBGPARAM.ENABLED, i]){
+			//移動させる
+			bgObjParam[# TITLEBGPARAM.X, i] -= bgScrollSpeed;
+			bgObjParam[# TITLEBGPARAM.X, i] -= bgObjParam[# TITLEBGPARAM.SPEED, i];
+			
+			//端に到達したら消える
+			if(bgObjParam[# TITLEBGPARAM.X, i] < -sprite_get_width((bgObjParam[# TITLEBGPARAM.SPRITE, i]))){
+				bgObjParam[# TITLEBGPARAM.ENABLED, i] = false;
+			}
+		}
+	}
+}
+
+generateTitleBgObj();
+moveTitleBgObj()

@@ -400,13 +400,15 @@ function playerHpManage(){
 
 }
 function fellIntoTheSea(){
+	
 	//海に落ちた
 	var _spriteHeight = sprite_get_height(sprite_index);
-	if(y - _spriteHeight/2 > room_height){
+	if(y - _spriteHeight > room_height){
 		if(global.playerHp > 0){
-		//海に落ちると1ダメージくらって大ジャンプ 無敵時間無し
+		//海に落ちると1ダメージくらって大ジャンプ
 			damageToPlayer(1);
 			vSpeed = -11;
+			setPlayerInvinsibleTime(invinsibleTimeBase);
 		}
 		else{
 			//hpが無いなら無敵時間でも死亡

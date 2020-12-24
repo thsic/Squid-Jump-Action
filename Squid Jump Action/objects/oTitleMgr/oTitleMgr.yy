@@ -23,7 +23,11 @@
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"oTitleMgr","path":"objects/oTitleMgr/oTitleMgr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":75,"eventType":8,"collisionObjectId":null,"parent":{"name":"oTitleMgr","path":"objects/oTitleMgr/oTitleMgr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
-  "properties": [],
+  "properties": [
+    {"varType":0,"value":"1.2","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bgScrollSpeed","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":7,"value":"$FF4C3D2D","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bgColor1","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":7,"value":"$FF19130C","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bgColor2","tags":[],"resourceType":"GMObjectProperty",},
+  ],
   "overriddenProperties": [],
   "parent": {
     "name": "system",
