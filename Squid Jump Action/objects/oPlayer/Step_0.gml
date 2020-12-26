@@ -132,7 +132,7 @@ function executionMove(){
 
 	
 	global.swimLength += global.flySpeed;//泳いだ距離
-	addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算
+	//addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算(今はプランクトンの役目)
 	playerDirection = point_direction(0, 0, _hSpeed + _dashHspeed, _vSpeed);
 }
 
@@ -176,8 +176,10 @@ function collisionEnemy(){
 				gainScore(_enemyId.collisionScore);
 				//バリアカウント減少
 				decreaseBarrierCount(_enemyId.collisionBarrierCount);
-				//レベルポイント上昇
-				addLevelPoint(_enemyId.collisionLevelPoint*oGameMgr.levelUpPoint);
+				//レベルポイント上昇 割合と固定値大きい方
+				var _p1 = _enemyId.collisionLevelPoint*oGameMgr.levelUpPoint;
+				var _p2 = 10;
+				addLevelPoint(max(_p1, _p2));
 				//接触
 				collisionToEnemy(_enemyId);
 			
@@ -188,8 +190,6 @@ function collisionEnemy(){
 					//上昇
 					vSpeed = -5;
 				
-					//敵を踏むとhSpeedはもとに戻る
-					hSpeed = 0;
 					//ダッシュ消す
 					dashEnable = false;
 					dashHspeed = 0;

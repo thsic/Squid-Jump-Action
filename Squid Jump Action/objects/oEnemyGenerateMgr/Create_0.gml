@@ -13,6 +13,6 @@ octopusGenerateCount = octopusGenerateSpan;
 insideUrchinGenerateCount = insideUrchinGenerateSpan;
 outsideUrchinGenerateCount = outsideUrchinGenerateSpan;
 sharkGenerateCount = sharkGenerateSpan;
-
+planktonGenerateCount = planktonGenerateSpan;
 
 heightLimit = 16;//oGameMgr.heightLimit;

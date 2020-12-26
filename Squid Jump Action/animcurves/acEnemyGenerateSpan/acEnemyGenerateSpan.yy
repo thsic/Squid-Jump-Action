@@ -23,14 +23,18 @@
       ],"resourceVersion":"1.0","name":"octopus","tags":[],"resourceType":"GMAnimCurveChannel",},
     {"colour":4279015665,"visible":true,"points":[
         {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":0.0,"y":-1.0,},
-        {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.6,"y":-1.0,},
-        {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.6,"y":3000.0,},
+        {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.61,"y":-1.0,},
+        {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.61,"y":3000.0,},
         {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.8,"y":3000.0,},
         {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.8,"y":1500.0,},
         {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.99,"y":1500.0,},
         {"th0":1.0,"th1":-1.0,"tv0":0.0,"tv1":0.0,"x":0.99,"y":750.0,},
         {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":1.0,"y":750.0,},
       ],"resourceVersion":"1.0","name":"shark","tags":[],"resourceType":"GMAnimCurveChannel",},
+    {"colour":4293463281,"visible":true,"points":[
+        {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":0.0,"y":45.0,},
+        {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":1.0,"y":30.0,},
+      ],"resourceVersion":"1.0","name":"plankton","tags":[],"resourceType":"GMAnimCurveChannel",},
   ],
   "parent": {
     "name": "Animation Curves",

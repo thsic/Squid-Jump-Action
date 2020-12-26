@@ -9,6 +9,7 @@ function generateTimeManage(){
 	outsideUrchinGenerateCount -= global.flySpeed;
 	jellyfishGenerateCount -= global.flySpeed;
 	sharkGenerateCount -= global.flySpeed;
+	planktonGenerateCount -= global.flySpeed;
 }
 
 function generateEnemyRightside(_enemy, _minY, _maxY, _layer){
@@ -88,6 +89,15 @@ function urchinGenerateManage(){
 	}
 }
 
+function planktonGenerateManage(){
+	//プランクトン
+	if(planktonGenerateCount <= 0 and planktonGenerateSpan != -1){
+		
+		planktonGenerateCount = planktonGenerateSpan + planktonGenerateCount;
+		generateEnemyRightside(oPlankton, heightLimit, GROUNDPOS, "GameObjects");
+	}
+}
+
 
 if(!global.gameStop){
 	jellyfishGenerateManage();
@@ -95,5 +105,6 @@ if(!global.gameStop){
 	urchinGenerateManage();
 	generateTimeManage();
 	sharkRandomGenerateManage();
+	planktonGenerateManage()
 }
 
