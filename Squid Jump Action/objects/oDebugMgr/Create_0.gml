@@ -4,3 +4,4 @@ alarm[0] = 1;
 
 debugInfinityJump = false;
 debugInvinsible = false;
+

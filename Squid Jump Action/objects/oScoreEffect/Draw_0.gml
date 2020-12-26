@@ -35,7 +35,7 @@ function drawSurfaceScoreText(){
 
 if(!surface_exists(global.scoreSurface[surfaceNumber])){
 	//サーフェス存在しないとき
-	global.scoreSurface[surfaceNumber] = surface_create(120, 40);
+	global.scoreSurface[surfaceNumber] = surface_create(surfWidth, surfHeight);
 
 	drawSurfaceScoreText();
 }
@@ -63,9 +63,12 @@ var _height = surfHeight * _hScale;
 var _x1 = x - _width/2;
 var _y1 = y - _height/2 - _yPos * riseLength;
 
-/*draw_circle(x, y, 10, false)
-draw_surface(global.scoreSurface[surfaceNumber], _x1, y)*/
+//スコアが見きれないように
+if(_y1-_height/2 < 0){
+	_y1 = 0;
+}
 
+//draw_rectangle(_x1, _y1, _x1+_width, _y1+_height, false);
 draw_surface_stretched_ext(global.scoreSurface[surfaceNumber],
 _x1, _y1, _width, _height, c_white, _alpha);
 

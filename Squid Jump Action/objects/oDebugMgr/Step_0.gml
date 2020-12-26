@@ -17,6 +17,9 @@ if(keyboard_check_pressed(ord("W"))){
 if(keyboard_check_pressed(ord("Q"))){
 	debugInvinsible = !debugInvinsible;
 }
+if(keyboard_check_pressed(ord("E")) and room == rMain){
+	gameLevelUp()
+}
 
 if(instance_exists(oPlayer)){
 	if(debugInfinityJump){

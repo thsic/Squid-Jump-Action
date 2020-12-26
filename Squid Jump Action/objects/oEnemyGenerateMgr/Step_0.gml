@@ -8,8 +8,11 @@ function generateTimeManage(){
 	insideUrchinGenerateCount -= global.flySpeed;
 	outsideUrchinGenerateCount -= global.flySpeed;
 	jellyfishGenerateCount -= global.flySpeed;
-	sharkGenerateCount -= global.flySpeed;
 	planktonGenerateCount -= global.flySpeed;
+	
+	if(global.nowLevel >= sharkGenerateLevel){//サメは一定レベル以上じゃないと普通にはでない
+		sharkGenerateCount -= global.flySpeed;
+	}
 }
 
 function generateEnemyRightside(_enemy, _minY, _maxY, _layer){
@@ -44,7 +47,12 @@ function sharkRandomGenerateManage(){
 	if(sharkGenerateCount <= 0 and sharkGenerateSpan != -1){
 		
 		sharkGenerateCount = sharkGenerateSpan + sharkGenerateCount;
-		generateEnemyRightside(oShark, heightLimit, GROUNDPOS, "GameObjects");
+		
+		var _sprHeight = sprite_get_height(object_get_sprite(oCaution));
+		var _sprWidth = sprite_get_width(object_get_sprite(oCaution));
+		
+		var _y = irandom_range(_sprHeight/2, room_height-_sprHeight/2);
+		instance_create_layer(room_width - _sprWidth/2, _y, "GameObjects", oCaution);
 		
 	}
 }

@@ -55,7 +55,7 @@ function sharkGenerateManage(){//サメ生成
 	if(sharkPoint <= 0){
 		sharkPoint = sharkPointBase;
 		var _sprWidth = sprite_get_width(object_get_sprite(oCaution));
-		instance_create_layer(room_width - _sprWidth/2, oPlayer.y, "GameObjects", oCaution)
+		instance_create_layer(room_width - _sprWidth/2, oPlayer.y, "GameObjects", oCaution);
 	}
 	playerYPrev = _playerY;
 }

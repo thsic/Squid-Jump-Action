@@ -172,8 +172,18 @@ function collisionEnemy(){
 			if(!_enemyId.collided){
 				//ダッシュカウント回復
 				addDashCount(_enemyId.addDashCount)
+				//描画するスコアの色決め
+				switch(_enemyId.object_index){
+				case oOctopus:
+					var _scoreColor = $FFFFFA0A;
+					sdm("dawggggggggggggwagseg")
+				break;
+				default:
+					var _scoreColor = $FFFF4B23;
+				break
+				}
 				//スコア上昇
-				gainScore(_enemyId.collisionScore);
+				gainScore(_enemyId.collisionScore, _scoreColor);
 				//バリアカウント減少
 				decreaseBarrierCount(_enemyId.collisionBarrierCount);
 				//レベルポイント上昇 割合と固定値大きい方

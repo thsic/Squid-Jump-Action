@@ -82,7 +82,6 @@ function generateTitleBgObj(){
 		
 		var _random = random(1);
 		var _spawnRatio = bgObjStats[# TITLEBGSTATS.SPAWNRATIO, i]*bgScrollSpeed;
-		sdm(_spawnRatio)
 		if(_random < _spawnRatio){
 			
 			//生成処理
@@ -97,7 +96,6 @@ function generateTitleBgObj(){
 			
 			//パラメータ入れる
 			if(_objectNumber != -1){
-				sdm(_objectNumber)
 				var _sprite = bgObjStats[# TITLEBGSTATS.SPRITE, i];
 				var _spd = bgObjStats[# TITLEBGSTATS.SPEED, i];
 				var _spawnRatio = bgObjStats[# TITLEBGSTATS.SPAWNRATIO, i];
