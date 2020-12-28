@@ -24,7 +24,7 @@
   ],
   "properties": [
     {"varType":1,"value":"60","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"effectTotalTime","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"32","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"riseLength","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"48","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"riseLength","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"100","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"surfWidth","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"24","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"surfHeight","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":7,"value":"$FFFFFFFF","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"outlineColor","tags":[],"resourceType":"GMObjectProperty",},

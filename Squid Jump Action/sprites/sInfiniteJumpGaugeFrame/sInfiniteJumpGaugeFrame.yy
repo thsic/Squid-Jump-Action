@@ -8,13 +8,13 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 11,
+  "bbox_right": 47,
   "bbox_top": 0,
   "bbox_bottom": 7,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 12,
+  "width": 48,
   "height": 8,
   "textureGroupId": {
     "name": "Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"8b14b2af-dd02-4b57-ab28-a3544f4173b3","path":"sprites/sRemainDash/sRemainDash.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8b14b2af-dd02-4b57-ab28-a3544f4173b3","path":"sprites/sRemainDash/sRemainDash.yy",},"LayerId":{"name":"8e8562c6-8a62-4f4d-a99e-a7c44cc9dfea","path":"sprites/sRemainDash/sRemainDash.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sRemainDash","path":"sprites/sRemainDash/sRemainDash.yy",},"resourceVersion":"1.0","name":"8b14b2af-dd02-4b57-ab28-a3544f4173b3","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ba192335-0b40-4e57-99e1-c6163460faac","path":"sprites/sInfiniteJumpGaugeFrame/sInfiniteJumpGaugeFrame.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ba192335-0b40-4e57-99e1-c6163460faac","path":"sprites/sInfiniteJumpGaugeFrame/sInfiniteJumpGaugeFrame.yy",},"LayerId":{"name":"a7829a48-76e9-45fb-8c99-de0df5ee8919","path":"sprites/sInfiniteJumpGaugeFrame/sInfiniteJumpGaugeFrame.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sInfiniteJumpGaugeFrame","path":"sprites/sInfiniteJumpGaugeFrame/sInfiniteJumpGaugeFrame.yy",},"resourceVersion":"1.0","name":"ba192335-0b40-4e57-99e1-c6163460faac","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sRemainDash","path":"sprites/sRemainDash/sRemainDash.yy",},
+    "spriteId": {"name":"sInfiniteJumpGaugeFrame","path":"sprites/sInfiniteJumpGaugeFrame/sInfiniteJumpGaugeFrame.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ba537f8a-c948-4577-a617-6d6e5f793250","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8b14b2af-dd02-4b57-ab28-a3544f4173b3","path":"sprites/sRemainDash/sRemainDash.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e1c9bc42-97ab-41ee-bd66-c5c8275cc73f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ba192335-0b40-4e57-99e1-c6163460faac","path":"sprites/sInfiniteJumpGaugeFrame/sInfiniteJumpGaugeFrame.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sRemainDash","path":"sprites/sRemainDash/sRemainDash.yy",},
+    "parent": {"name":"sInfiniteJumpGaugeFrame","path":"sprites/sInfiniteJumpGaugeFrame/sInfiniteJumpGaugeFrame.yy",},
     "resourceVersion": "1.3",
-    "name": "sRemainDash",
+    "name": "sInfiniteJumpGaugeFrame",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8e8562c6-8a62-4f4d-a99e-a7c44cc9dfea","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a7829a48-76e9-45fb-8c99-de0df5ee8919","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "player",
     "path": "folders/Sprites/player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sRemainDash",
+  "name": "sInfiniteJumpGaugeFrame",
   "tags": [],
   "resourceType": "GMSprite",
 }

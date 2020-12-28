@@ -30,12 +30,33 @@ if(chargeingDash){
 }
 
 //残りダッシュ回数など描画
-var _spriteX = bbox_left + 8;
-var _spriteY = bbox_top - 8;
-for(var i=0; i<remainDashCount; i++){
+var _spriteX = bbox_left - 6;
+var _spriteY = bbox_top - 16;
+var _sprW = sprite_get_width(sRemainDash);
+
+
+if(!infiniteJumpEnable){
+	var _lc = merge_color($ee8d00, c_white, 0.5);
+	for(var i=0; i<remainDashCount; i++){
+		if(i=remainDashCount-1 and chargeingDash){
+			var _col = _lc;
+		}
+		else{
+			var _col = $ee8d00;
+		}
+		
+		draw_sprite_ext(sRemainDash, 0, _spriteX, _spriteY, 1, 1, 0, _col, 1);
+		_spriteX += _sprW;
 	
-	draw_sprite_ext(sRemainDash, 0, _spriteX, _spriteY, 1, 1, 0, c_white, 1);
-	_spriteX += 16;
+	}
+}
+else{
+	//無限ジャンプ中
+	var _lighting = sin(current_time/200)/2 + 0.5;
+	var _lc = merge_color($eedc00, c_white, _lighting);
+	var _wScale = infiniteJumpTime / MAXINFINITEJUMPTIME;
+	draw_sprite_ext(sInfiniteJumpGauge, 0, _spriteX, _spriteY, _wScale, 1, 0, _lc, 1);
+	draw_sprite_ext(sInfiniteJumpGaugeFrame, 0, _spriteX-1, _spriteY, 1, 1, 0, c_white, 1);
 	
 }
 

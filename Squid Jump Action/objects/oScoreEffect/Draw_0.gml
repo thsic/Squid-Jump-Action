@@ -64,7 +64,7 @@ var _x1 = x - _width/2;
 var _y1 = y - _height/2 - _yPos * riseLength;
 
 //スコアが見きれないように
-if(_y1-_height/2 < 0){
+if(_y1 < 0){
 	_y1 = 0;
 }
 
