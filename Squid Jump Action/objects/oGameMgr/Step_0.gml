@@ -124,6 +124,7 @@ function manageGameState(){
 		playerYPrev = oPlayer.y;
 		levelUpPoint = levelUpPointBase;
 		swipeSpriteTime = 120;
+		makeBarrierCountBase = makeBarrierCountDefault;
 		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);

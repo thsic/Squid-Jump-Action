@@ -72,7 +72,55 @@ function drawLevelBar(){
 	drawSetDefault();
 }
 
+function drawBarrierBar(){
+	var _squareW = 12;
+	var _squareH = 2;
+	var _betweenW = 1;
+	var _barX = 10;
+	var _barY = 30;
+	var _os = 1;
+	var _colBack = $6a4c32;
+	var _colSquare = $d6c421;
+	var _colLightOff = $8a8571;
+	
+	//何個光らせるか
+	var _lightSquareNum = makeBarrierCountBase - global.makeBarrierCount -1;
+	
+	if(global.playerHp < 2){//シールドがついてるときはalpha値がかわる
+		draw_set_alpha(0.7);
+	}
+	else{
+		draw_set_alpha(0.3);
+		_lightSquareNum = makeBarrierCountBase -1;//シールドある時は全部光る
+	}
+	
+	if(global.makeBarrierCount = 1){
+		_colSquare = $4dec36;//次でバリあ出るときは色が変わる
+	}
+	
+	
+	for(var i=0; i<makeBarrierCountBase-1; i++){
+		
+		var _x = _barX+(_squareW+_betweenW)*i;
+		draw_set_color(_colBack);
+		if(_lightSquareNum < i){
+			draw_rectangle(_x-_os, _barY-_os, _x+_squareW+_os, _barY+_squareH+_os, false);
+			draw_set_color(_colLightOff)
+			draw_rectangle(_x, _barY, _x+_squareW, _barY+_squareH, false);
+		}
+		else{
+			draw_rectangle(_x-_os, _barY-_os, _x+_squareW+_os, _barY+_squareH+_os, false);
+			draw_set_color(_colSquare);
+			draw_rectangle(_x, _barY, _x+_squareW, _barY+_squareH, false);
+		}
+		
+		
+	}
+	drawSetDefault();
+}
+
 drawScoreUi()
 drawSpeedLevel();
 drawLevelBar();
+drawBarrierBar();
 drawOutOfScreenItem()

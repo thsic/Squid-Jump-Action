@@ -7,9 +7,11 @@ function gameLevelUp(){
 		createLevelUpTextEffect(120, global.nowLevel);
 		setEnemyGenerateSpan();
 		
-		//現在レベルが5で割り切れる場合にスコアレシオ上昇
+		//現在レベルが5で割り切れる場合に難易度上昇
 		if(global.nowLevel mod 5 == 0){
-			global.scoreRatio += SCORERATIOPERLEVEL*5;
+			global.scoreRatio += SCORERATIOPERLEVEL*5;//スコアレシオ上昇
+			oGameMgr.makeBarrierCountBase++;//バリア生成までのカウント上昇
+			global.makeBarrierCount++;//レベル上昇時にバリアカウントも上げる、ちょっとだけやさしくない感じ
 		}
 		
 	}

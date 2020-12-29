@@ -5,7 +5,8 @@ function itemGetBarrier(){
 	if(global.playerHp < 2){
 		//プレイヤーのhpが最大では無い場合のみ取得できる
 		global.playerHp++;
-		
+		//バリアカウントを初期値に
+		global.makeBarrierCount = oGameMgr.makeBarrierCountBase;
 	}
 	
 }
