@@ -15,9 +15,11 @@ if(gameoverTime = 60){
 }
 
 //スコア表示をいい感じにスロットっぽく(????)表示するやつ
-var _scoreDrawStart = 150;
-var _scoreDrawEnd = 210;
-var _scoreDrawTime = _scoreDrawEnd - _scoreDrawStart;
+var _scoreDrawStart = 100;
+var _scoreDrawTimeRatio = clamp(power(4, floor(log10(gameScore)) - 4), 0, 4);
+var _scoreDrawTime = 30 * _scoreDrawTimeRatio;//桁数が多いほどスコアの描画に時間がかかる
+var _scoreDrawEnd = _scoreDrawStart + _scoreDrawTime;
+
 
 //最初は表示スコア0
 if(gameoverTime < _scoreDrawStart){

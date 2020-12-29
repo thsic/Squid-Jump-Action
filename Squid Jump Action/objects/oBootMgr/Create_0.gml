@@ -9,6 +9,11 @@ if(debug_mode){
 }
 
 global.drawingFade = false;
+global.language = LANGUAGE.JAPANESE;
 
 room_goto(FIRSTROOM);
 
+enum LANGUAGE{
+	JAPANESE,
+	ENGLISH,
+}

@@ -8,25 +8,8 @@ function drawSurfaceScoreText(){
 	draw_set_valign(fa_middle);
 	draw_set_font(foMplus16);
 	
-	var _tx = surfWidth/2;
-	var _ty = surfHeight/2;
-	var _str = string(drawScore)
-	var _os = 1;//outline size;
 	
-	draw_set_color(outlineColor);
-	//アウトライン ごりおし
-	draw_text(_tx+_os, _ty, string(_str));
-	draw_text(_tx-_os, _ty, string(_str));
-	draw_text(_tx+_os, _ty+_os, string(_str));
-	draw_text(_tx+_os, _ty-_os, string(_str));
-	draw_text(_tx-_os, _ty+_os, string(_str));
-	draw_text(_tx-_os, _ty-_os, string(_str));
-	draw_text(_tx, _ty+_os, string(_str));
-	draw_text(_tx, _ty-_os, string(_str));
-	
-	//中心
-	draw_set_color(textColor);
-	draw_text(_tx, _ty, string(_str));
+	drawTextOutline(surfWidth/2, surfHeight/2, string(drawScore), textColor, outlineColor, 1);
 	drawSetDefault();
 	
 	surface_reset_target();

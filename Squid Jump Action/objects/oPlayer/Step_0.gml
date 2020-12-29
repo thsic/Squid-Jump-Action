@@ -258,8 +258,6 @@ function dashManage(){
 				_dashDir = 270;
 			}
 			
-			var _lendirX = lengthdir_x(_swipeDis, dashDirection);
-			var _lendirY = lengthdir_y(_swipeDis, dashDirection);
 			
 			dashDirection = _dashDir;
 			
