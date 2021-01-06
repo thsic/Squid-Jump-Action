@@ -21,7 +21,7 @@ if(keyboard_check_pressed(ord("E")) and room == rMain){
 	gameLevelUp()
 }
 if(keyboard_check(ord("S")) and room == rMain){
-	gainScore(10000, c_white)
+	gainScore(10000, c_white, true, false)
 }
 
 if(instance_exists(oPlayer)){

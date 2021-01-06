@@ -176,14 +176,13 @@ function collisionEnemy(){
 				switch(_enemyId.object_index){
 				case oOctopus:
 					var _scoreColor = $FFFFFA0A;
-					sdm("dawggggggggggggwagseg")
 				break;
 				default:
 					var _scoreColor = $FFFF4B23;
 				break
 				}
 				//スコア上昇
-				gainScore(_enemyId.collisionScore, _scoreColor);
+				gainScore(_enemyId.collisionScore, _scoreColor, true, true);
 				//バリアカウント減少
 				decreaseBarrierCount(_enemyId.collisionBarrierCount);
 				//レベルポイント上昇 割合と固定値大きい方
@@ -415,6 +414,7 @@ function fellIntoTheSea(){
 		if(global.playerHp > 0){
 		//海に落ちると1ダメージくらって大ジャンプ
 			damageToPlayer(1);
+			addDashCount(4);
 			vSpeed = -11;
 			setPlayerInvinsibleTime(invinsibleTimeBase);
 		}

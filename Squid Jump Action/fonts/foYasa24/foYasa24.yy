@@ -127,8 +127,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "Fonts",
-    "path": "folders/Fonts.yy",
+    "name": "yasa",
+    "path": "folders/Fonts/yasa.yy",
   },
   "resourceVersion": "1.0",
   "name": "foYasa24",

@@ -8,7 +8,7 @@ function decreaseBarrierCount(_decrease){
 			
 			if(global.makeBarrierCount > 0){//0の時は減少しない
 				global.makeBarrierCount -= 1;
-				createRiseEffect(oPlayer.x, (oPlayer.y-32)-(16*i), 70, 40, global.makeBarrierCount, 0);
+				//createRiseEffect(oPlayer.x, (oPlayer.y-32)-(16*i), 70, 40, global.makeBarrierCount, 0);
 			}
 			
 		}

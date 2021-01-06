@@ -36,7 +36,7 @@ function levelManage(){
 		gameLevelUp();
 		
 		//アイテム生成
-		createItem(oInfiniteJumpItem, false);
+		//createItem(oInfiniteJumpItem, false);
 		createItem(oSpeedUpItem, true);
 		
 		//ドッジ回復

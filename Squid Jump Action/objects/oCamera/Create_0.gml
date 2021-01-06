@@ -24,6 +24,7 @@ window_set_size(resWidth, resHeight);
 //ピクセルパーフェクト(cameraをどの解像度で表示するか)
 surface_resize(application_surface, resWidth/resScale, resHeight/resScale);
 
+//drawguiの解像度は高く
 display_set_gui_size(resWidth, resHeight);
 
 //ウィンドウの位置をセンターに

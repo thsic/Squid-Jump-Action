@@ -4,8 +4,9 @@ case PRESSEDTITLEBUTTON.PLAYGAME:
 	
 	var _camera = oCamera.camera;
 	if(!buttonActive){
+		var _s = oCamera.resScale;
 		createFade(MAINROOM, 30, 30, 2, 3, 4, acFadeIn, 0, 
-		camera_get_view_height(_camera), 0, camera_get_view_width(_camera), c_black);
+		camera_get_view_height(_camera)*_s, 0, camera_get_view_width(_camera)*_s, c_black);
 	}
 	buttonActive = true;
 	

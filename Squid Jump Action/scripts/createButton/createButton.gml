@@ -3,8 +3,24 @@
 function createButton(_sprite, _x, _y, _script, _number, _drawEvent){
 	
 	//中心座標を左上座標に直す
-	var _xx = _x - sprite_get_width(_sprite)/2;
-	var _yy = _y - sprite_get_height(_sprite)/2;
+	switch(_drawEvent){
+	case DRAWEVENT.DRAW:
+	case DRAWEVENT.DRAWBEGIN:
+	case DRAWEVENT.DRAWEND:
+	
+		var _xx = _x - sprite_get_width(_sprite)/2;
+		var _yy = _y - sprite_get_height(_sprite)/2;
+	break
+	
+	case DRAWEVENT.DRAWGUI:
+	case DRAWEVENT.DRAWGUIBEGIN:
+	case DRAWEVENT.DRAWGUIEND:
+	
+		var _s = oCamera.resScale;
+		var _xx = _x - sprite_get_width(_sprite)/2*_s;
+		var _yy = _y - sprite_get_height(_sprite)/2*_s;
+	break
+	}
 	
 	//ボタン生成
 	with(instance_create_layer(_xx, _yy, "UI", oButton)){

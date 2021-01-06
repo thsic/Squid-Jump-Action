@@ -127,8 +127,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "Fonts",
-    "path": "folders/Fonts.yy",
+    "name": "mplus",
+    "path": "folders/Fonts/mplus.yy",
   },
   "resourceVersion": "1.0",
   "name": "foMplus12",

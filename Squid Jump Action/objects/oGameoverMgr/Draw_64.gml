@@ -3,24 +3,25 @@ function drawResultText(_winX, _winWidth, _winY){
 	//resultの文字
 	draw_set_halign(fa_middle);
 	draw_set_valign(fa_middle);
-	draw_set_font(foMplus32);
-	drawTextOutline(_winX+_winWidth/2, _winY, "RESULT", $b0a645, $292e34, 2);
+	draw_set_font(foMplus64);
+	drawTextOutline(_winX+_winWidth/2, _winY, "RESULT", $b0a645, $292e34, 4);
 	drawSetDefault();
 }
-var _cameraW = camera_get_view_width(oCamera.camera);
-var _cameraH = camera_get_view_height(oCamera.camera);
+var _s = oCamera.resScale;
+var _cameraW = camera_get_view_width(oCamera.camera) * _s;
+var _cameraH = camera_get_view_height(oCamera.camera) * _s;
 
 var _winWidth = _cameraW*0.66;
 var _winHeight = _cameraH*0.7;
-var _winX = _cameraW/2-_winWidth/2;
+var _winX = (_cameraW/2-_winWidth/2);
 var _winYFinally = _cameraH*0.15;
 var _winYDefault = _cameraH;
 var _winY = _winYDefault;
-var _fontMain = foYasa16;
-var _fontSub = foYasa12;
+var _fontMain = foYasa32;
+var _fontSub = foYasa24;
 var _colT = $f7eae8;
 var _colO = $5f5453;
-var _os = 1;
+var _os = 1*_s;
 
 var _gameoverWindowRiseStartTime = 60;
 var _gameoverWindowRiseStopTime = 70;
@@ -58,16 +59,6 @@ and gameoverTime < _gameoverWindowRiseStopTime){
 	drawTextOutline(_winWidth*0.9, _winHeight*0.33, drawHighScore, _colT, _colO, _os);
 	
 	
-	drawSetDefault();
-	surface_reset_target();
-	
-	draw_surface(gameoverWindowTextSurf, _winX, _winY);
-	
-	var _buttonY = _winY + _winHeight - 70;
-	buttonChangeParam(0, noone, _buttonY, noone, false, noone);
-	buttonChangeParam(1, noone, _buttonY, noone, false, noone);
-	
-	
 	//距離
 	switch(global.language){
 	case LANGUAGE.ENGLISH:
@@ -84,6 +75,15 @@ and gameoverTime < _gameoverWindowRiseStopTime){
 	
 	//level
 	drawTextOutline(_winWidth*0.8, _winHeight*0.5, "LEVEL "+string(global.nowLevel), _colT, _colO, _os);
+	
+	drawSetDefault();
+	surface_reset_target();
+	
+	draw_surface(gameoverWindowTextSurf, _winX, _winY);
+	
+	var _buttonY = _winY + _winHeight - 70 * _s;
+	buttonChangeParam(0, noone, _buttonY, noone, false, noone);
+	buttonChangeParam(1, noone, _buttonY, noone, false, noone);
 	
 	drawResultText(_winX, _winWidth, _winY);
 }
@@ -124,7 +124,7 @@ else if(gameoverTime >= _gameoverWindowRiseStopTime){
 	
 	
 	if(newRecord){
-		draw_set_font(foMplus12);
+		draw_set_font(foMplus24);
 		var _r = sin(gameoverTime/3) / 10 + 0.25;
 		var _nrCol = merge_color($ff9c24, $FFFFFF, _r);
 		draw_set_color(_nrCol);
@@ -142,9 +142,10 @@ else if(gameoverTime >= _gameoverWindowRiseStopTime){
 	
 	drawResultText(_winX, _winWidth, _winY)
 }
+
 //ボタン位置調整
 if(gameoverTime = _gameoverWindowRiseStopTime){
-	var _buttonY = _winY + _winHeight - 70;
+	var _buttonY = _winY + _winHeight - 70 * _s;
 	buttonChangeParam(0, noone, _buttonY, noone, false, noone);
 	buttonChangeParam(1, noone, _buttonY, noone, false, noone);
 }

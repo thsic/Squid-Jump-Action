@@ -1,24 +1,26 @@
 
 function drawScoreUi(_alpha){
+	var _s = oCamera.resScale;
 	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
-	draw_set_font(foYasa48);
+	draw_set_font(foYasa24A);
 	draw_set_alpha(_alpha);
 	//drawTextOutline(10, 20, "Score "+string(global.gameScore), c_white, c_black, 1);
-	draw_text(10, 20, "Score "+string(global.gameScore));
+	draw_text(10*_s, 20*_s, "Score "+string(global.gameScore));
 }
 function drawSpeedLevel(_alpha){
+	var _s = oCamera.resScale;
 	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
-	draw_set_font(foYasa48);
+	draw_set_font(foYasa24A);
 	draw_set_alpha(_alpha);
 	//drawTextOutline(250, 20, "Speed", c_white, c_black, 1);
-	draw_text(250, 20, "Speed");
+	draw_text(250*_s, 20*_s, "Speed");
 	
-	var _sprWidth = sprite_get_width(sSpeedLevelIcon);
+	var _sprWidth = sprite_get_width(sSpeedLevelIcon)*_s;
 	for(var i=0; i<global.speedLevel; i++){
-		var _x = 310 + _sprWidth*i;
-		draw_sprite(sSpeedLevelIcon, 0, _x, 10);
+		var _x = 310*_s + _sprWidth*i;
+		draw_sprite_ext(sSpeedLevelIcon, 0*_s, _x, 10*_s, _s, _s, 0, c_white, 1);
 	}
 }
 function drawOutOfScreenItem(){
@@ -65,12 +67,13 @@ function drawOutOfScreenItem(){
 }
 function drawLevelBar(_alpha){
 	
+	var _s = oCamera.resScale;
 	draw_set_valign(fa_middle);
-	var _barTotalW = 80;
-	var _barH = 2;
-	var _barX = 140;
-	var _barY = 30;
-	var _os = 1;
+	var _barTotalW = 80*_s;
+	var _barH = 2*_s;
+	var _barX = 140*_s;
+	var _barY = 30*_s;
+	var _os = 1*_s;
 	var _barCol1 = 9233706;
 	var _barCol2 = $bcf23f;
 	
@@ -79,7 +82,7 @@ function drawLevelBar(_alpha){
 	
 	draw_set_color(c_white);
 	draw_set_alpha(_alpha);
-	draw_text(140, 20, "Level "+string(global.nowLevel));
+	draw_text(140*_s, 20*_s, "Level "+string(global.nowLevel));
 	draw_set_color($635242);
 	draw_rectangle(_barX-_os, _barY-_os, _barX+_barTotalW+_os, _barY+_barH+_os, false);
 	draw_set_color(_barCol);
@@ -89,12 +92,13 @@ function drawLevelBar(_alpha){
 }
 
 function drawBarrierBar(_alpha){
-	var _squareW = 12;
-	var _squareH = 2;
-	var _betweenW = 1;
-	var _barX = 10;
-	var _barY = 30;
-	var _os = 1;
+	var _s = oCamera.resScale;
+	var _squareW = 12*_s;
+	var _squareH = 2*_s;
+	var _betweenW = 1*_s;
+	var _barX = 10*_s;
+	var _barY = 30*_s;
+	var _os = 1*_s;
 	var _colBack = $6a4c32;
 	var _colSquare = $d6c421;
 	var _colLightOff = $8a8571;
@@ -136,7 +140,8 @@ function drawBarrierBar(_alpha){
 }
 
 //プレイヤーがUIとかぶさるとalpha値がかわる
-var _yPos = oPlayer.y - 50;
+var _s = oCamera.resScale;
+var _yPos = oPlayer.y - 30*_s;
 var _ratio = clamp(_yPos / 70, 0, 1);
 var _uiAlpha = lerp(0.2, 1, _ratio);
 

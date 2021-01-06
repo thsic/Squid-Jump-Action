@@ -22,9 +22,10 @@ if(gravitateEnable){
 	x += _hSpeed;
 	y += _vSpeed;
 	
-	
+	//衝突
 	if(_distanceForPlayer < collisionRange){
 		addLevelPoint(levelPoint);
+		gainScore(10, c_white, false, false);
 		instance_destroy();
 	}
 }

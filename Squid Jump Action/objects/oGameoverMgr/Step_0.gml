@@ -5,9 +5,10 @@ var _cameraW = camera_get_view_width(oCamera.camera);
 var _cameraH = camera_get_view_height(oCamera.camera);
 
 if(gameoverTime = 60){
-	var _buttonY = 500;
-	var _titleButtonX = _cameraW*0.35;
-	var _retryButtonX = _cameraW*0.65;
+	var _s = oCamera.resScale;
+	var _buttonY = 500 * _s;
+	var _titleButtonX = _cameraW*0.35 * _s;
+	var _retryButtonX = _cameraW*0.65 * _s;
 	
 	createButton(sTitleButton, _titleButtonX, _buttonY, backToTitle, 0, DRAWEVENT.DRAWGUIEND);
 	createButton(sRetryButton, _retryButtonX, _buttonY, doRetry, 1, DRAWEVENT.DRAWGUIEND);

@@ -4,8 +4,10 @@ drawString = "Level "+string(drawLevel);
 
 var _cameraW = camera_get_view_width(oCamera.camera);
 var _strW = string_width(drawString);
-var _startPos = _cameraW + _strW;
-var _endPos = -_strW;
+var _s = oCamera.resScale;
+
+var _startPos = (_cameraW + _strW) * _s;
+var _endPos = -_strW * _s;
 var _length = abs(_startPos) + abs(_endPos);
 var _channel = animcurve_get_channel(acLevelUpText, 0);
 var _percentage = animcurve_channel_evaluate(_channel, 1-time/timeBase);
