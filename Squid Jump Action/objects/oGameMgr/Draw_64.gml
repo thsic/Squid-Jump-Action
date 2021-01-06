@@ -1,12 +1,18 @@
 
-function drawScoreUi(){
+function drawScoreUi(_alpha){
 	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
+	draw_set_font(foYasa48);
+	draw_set_alpha(_alpha);
+	//drawTextOutline(10, 20, "Score "+string(global.gameScore), c_white, c_black, 1);
 	draw_text(10, 20, "Score "+string(global.gameScore));
 }
-function drawSpeedLevel(){
+function drawSpeedLevel(_alpha){
 	draw_set_valign(fa_middle);
 	draw_set_color(c_white);
+	draw_set_font(foYasa48);
+	draw_set_alpha(_alpha);
+	//drawTextOutline(250, 20, "Speed", c_white, c_black, 1);
 	draw_text(250, 20, "Speed");
 	
 	var _sprWidth = sprite_get_width(sSpeedLevelIcon);
@@ -57,22 +63,32 @@ function drawOutOfScreenItem(){
 		}
 	}
 }
-function drawLevelBar(){
-	draw_set_valign(fa_middle);
-	var _barTotalW = 60;
-	var _barH = 8;
-	var _barX = 170;
-	var _barY = 20;
+function drawLevelBar(_alpha){
 	
-	var _barW = _barTotalW * (global.levelPoint / levelUpPoint);
+	draw_set_valign(fa_middle);
+	var _barTotalW = 80;
+	var _barH = 2;
+	var _barX = 140;
+	var _barY = 30;
+	var _os = 1;
+	var _barCol1 = 9233706;
+	var _barCol2 = $bcf23f;
+	
+	var _barW = clamp(_barTotalW * (global.levelPoint / levelUpPoint), 0, _barTotalW);
+	var _barCol = merge_color(_barCol1, _barCol2, sin(current_time/300)/2*0.5);
+	
 	draw_set_color(c_white);
-	draw_text(140, 20, "Exp ")
-	draw_set_color(c_lime);
+	draw_set_alpha(_alpha);
+	draw_text(140, 20, "Level "+string(global.nowLevel));
+	draw_set_color($635242);
+	draw_rectangle(_barX-_os, _barY-_os, _barX+_barTotalW+_os, _barY+_barH+_os, false);
+	draw_set_color(_barCol);
 	draw_rectangle(_barX, _barY, _barX+_barW, _barY+_barH, false);
+	
 	drawSetDefault();
 }
 
-function drawBarrierBar(){
+function drawBarrierBar(_alpha){
 	var _squareW = 12;
 	var _squareH = 2;
 	var _betweenW = 1;
@@ -86,11 +102,11 @@ function drawBarrierBar(){
 	//何個光らせるか
 	var _lightSquareNum = makeBarrierCountBase - global.makeBarrierCount -1;
 	
-	if(global.playerHp < 2){//シールドがついてるときはalpha値がかわる
-		draw_set_alpha(0.7);
+	if(global.playerHp < 2){
+		draw_set_alpha(0.7 * _alpha);
 	}
 	else{
-		draw_set_alpha(0.3);
+		draw_set_alpha(0.3 * _alpha);//シールドがついてるときはalpha値がかわる
 		_lightSquareNum = makeBarrierCountBase -1;//シールドある時は全部光る
 	}
 	
@@ -119,8 +135,13 @@ function drawBarrierBar(){
 	drawSetDefault();
 }
 
-drawScoreUi()
-drawSpeedLevel();
-drawLevelBar();
-drawBarrierBar();
-drawOutOfScreenItem()
+//プレイヤーがUIとかぶさるとalpha値がかわる
+var _yPos = oPlayer.y - 50;
+var _ratio = clamp(_yPos / 70, 0, 1);
+var _uiAlpha = lerp(0.2, 1, _ratio);
+
+drawScoreUi(_uiAlpha);
+drawSpeedLevel(_uiAlpha);
+drawLevelBar(_uiAlpha);
+drawBarrierBar(_uiAlpha);
+//drawOutOfScreenItem()

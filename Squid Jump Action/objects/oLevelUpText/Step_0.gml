@@ -1,6 +1,6 @@
 
 time--;
-drawString = "Level "+string(drawLevel)+"!"
+drawString = "Level "+string(drawLevel);
 
 var _cameraW = camera_get_view_width(oCamera.camera);
 var _strW = string_width(drawString);
