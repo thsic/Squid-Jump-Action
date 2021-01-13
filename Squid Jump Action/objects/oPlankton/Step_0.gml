@@ -9,7 +9,7 @@ if(_distanceForPlayer < gravitateRange){
 }
 
 //引き寄せ
-if(gravitateEnable){
+if(gravitateEnable and !leaveEnable){
 	gravitateTime++;
 	gravitateSpeed += 0.1;
 	gravitateSpeed *= 1.02;
@@ -42,3 +42,27 @@ lightAlpha = _lightRatio/10 + 0.2;
 if(!gravitateEnable and x < -gravitateRange){
 	instance_destroy();
 }
+
+if(leaveEnable){
+	
+	var _posx = 1-leaveToPlayerTime/leaveToPlayerTimeBase;
+	var _channel = animcurve_get_channel(acPlanktonLeaveSpeed, 0);
+	var _leaveSpeed = animcurve_channel_evaluate(_channel, _posx)*leaveSpeedBase;
+	
+	var _hSpeed = lengthdir_x(_leaveSpeed, leaveDirection);
+	var _vSpeed = lengthdir_y(_leaveSpeed, leaveDirection);
+	
+	x += _hSpeed;
+	y += _vSpeed;
+	if(leaveToPlayerTime > 0){
+		leaveToPlayerTime--;
+	}
+	else{
+		leaveEnable = false;
+	}
+	
+}
+
+
+
+

@@ -87,10 +87,10 @@ function dodgeManage(){
 function executionMove(){
 	//hSpeedTemp *= hSpeedAcceleration;
 	
-	if(hSpeed < hSpeedTemp){
-		//高い方が優先
+	//if(hSpeed < hSpeedTemp){//if文を入れるとスピードがダメージ食らってもおちなくなるので一旦コメントアウト
+		
 		hSpeed = hSpeedTemp;
-	}
+	//}
 	
 	//ダメージくらったあとの場合スピードがおそく
 	if(oGameMgr.damagedTime > 0){
@@ -107,7 +107,7 @@ function executionMove(){
 	
 	y += vSpeed;
 	global.flySpeed = _hSpeed + _dashHspeed;//ダッシュ中はダッシュの加速も追加
-	
+	sdm(hSpeed)
 	
 	//地面についた
 	if(GROUNDPOS-1 < y and GROUNDENABLE){
@@ -130,7 +130,6 @@ function executionMove(){
 		y = 0;
 	}
 
-	
 	global.swimLength += global.flySpeed;//泳いだ距離
 	//addLevelPoint(global.flySpeed * flightLevelPoint);//レベルポイント加算(今はプランクトンの役目)
 	playerDirection = point_direction(0, 0, _hSpeed + _dashHspeed, _vSpeed);
@@ -188,7 +187,8 @@ function collisionEnemy(){
 				//レベルポイント上昇 割合と固定値大きい方
 				var _p1 = _enemyId.collisionLevelPoint*oGameMgr.levelUpPoint;
 				var _p2 = 10;
-				addLevelPoint(max(_p1, _p2));
+				generatePlankton(max(_p1, _p2), _enemyId.x, _enemyId.y);
+				//addLevelPoint(max(_p1, _p2));
 				//接触
 				collisionToEnemy(_enemyId);
 			
