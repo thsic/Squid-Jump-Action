@@ -84,6 +84,7 @@
     {"id":{"name":"addDashCount","path":"scripts/addDashCount/addDashCount.yy",},"order":2,},
     {"id":{"name":"sInfiniteJumpItem","path":"sprites/sInfiniteJumpItem/sInfiniteJumpItem.yy",},"order":21,},
     {"id":{"name":"isInPlace","path":"scripts/isInPlace/isInPlace.yy",},"order":3,},
+    {"id":{"name":"sDodgeButton","path":"sprites/sDodgeButton/sDodgeButton.yy",},"order":32,},
     {"id":{"name":"isInRange","path":"scripts/isInRange/isInRange.yy",},"order":1,},
     {"id":{"name":"createLevelUpTextEffect","path":"scripts/createLevelUpTextEffect/createLevelUpTextEffect.yy",},"order":1,},
     {"id":{"name":"oBootMgr","path":"objects/oBootMgr/oBootMgr.yy",},"order":4,},

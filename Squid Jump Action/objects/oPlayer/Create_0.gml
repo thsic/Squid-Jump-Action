@@ -18,6 +18,8 @@ chargeingDash = false;
 drawDashDirection = 0;
 dashSpeed = dashSpeedBase;
 
+
+
 //移動
 playerDirection = 0;
 grounded = false;
@@ -46,9 +48,36 @@ infiniteJumpEnable = false;
 
 dsEnemyParam = ds_grid_create(10, 99);
 
+//残像
+dsTrailGrid = ds_grid_create(10, 7);
+
+var _gridHeight = ds_grid_height(dsTrailGrid);
+for(var i=0; i<_gridHeight; i++){
+	dsTrailGrid[# TRAILPARAM.ENABLE, i] = false;
+}
+
+trailPartSystem = part_system_create();
+
+trailPartType = part_type_create();
+part_type_sprite(trailPartType, sPlayer, 0, 0, 1);
+part_type_size(trailPartType, 1, 1, 0, 0);
+part_type_life(trailPartType, 20, 20);
+part_type_alpha3(trailPartType, 0.5, 0.3, 0.1);
+part_type_color1(trailPartType, c_aqua);
+
 enum ENEMYPARAM{
 	ID,
 	DISTANCE,
 	DIRECTION,
 	
 }
+
+enum TRAILPARAM{
+	X,
+	Y,
+	LIFETIME,
+	ALPHA,
+	DIRECTION,
+	ENABLE,
+}
+

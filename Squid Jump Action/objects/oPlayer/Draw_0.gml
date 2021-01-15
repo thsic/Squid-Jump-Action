@@ -1,3 +1,15 @@
+//残像
+var _trailGridHeight = ds_grid_height(dsTrailGrid)-1;
+for(var i=0; i<_trailGridHeight; i++){
+	
+	var _x = dsTrailGrid[# TRAILPARAM.X, i];
+	var _y = dsTrailGrid[# TRAILPARAM.Y, i];
+	var _alpha = dsTrailGrid[# TRAILPARAM.ALPHA, i];
+	var _dir = dsTrailGrid[# TRAILPARAM.DIRECTION, i];
+	var _enable = dsTrailGrid[# TRAILPARAM.ENABLE, i];
+	
+	draw_sprite_ext(sprite_index, 3, _x, _y, 1, 1, _dir, trailColor, _alpha);
+}
 
 //プレーヤー描画
 if(invinsibleEnable){
@@ -78,3 +90,4 @@ for(var i=0; i<remainJumpCount; i++){
 	_spriteX += 16;
 	
 }
+

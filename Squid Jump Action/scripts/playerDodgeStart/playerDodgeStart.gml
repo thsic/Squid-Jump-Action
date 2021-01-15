@@ -2,10 +2,10 @@
 function playerDodgeStart(){
 	if(oPlayer.dodgeEnable){
 		//ドッジ中にもう一回ドッジするとドッジ時間が伸びる
-		oPlayer.dodgeTime += dodgeTimeBase
+		oPlayer.dodgeTime += oPlayer.dodgeTimeBase
 	}
 	else{
-		oPlayer.dodgeTime = dodgeTimeBase;
+		oPlayer.dodgeTime = oPlayer.dodgeTimeBase;
 	}
 	oPlayer.dodgeEnable = true;
 	oPlayer.remainDodgeCount--;
@@ -13,7 +13,7 @@ function playerDodgeStart(){
 	
 	//プランクトン全部あつめる
 	with(oPlankton){
-		gravitateEnable = true;
+		oPlayer.gravitateEnable = true;
 	}
 }
 

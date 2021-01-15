@@ -128,7 +128,7 @@ function manageGameState(){
 		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
-		
+		createButton(sDodgeButton, 36, room_height-36, playerDodgeStart, 3, DRAWEVENT.DRAW);
 		
 		
 	break

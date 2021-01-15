@@ -107,7 +107,6 @@ function executionMove(){
 	
 	y += vSpeed;
 	global.flySpeed = _hSpeed + _dashHspeed;//ダッシュ中はダッシュの加速も追加
-	sdm(hSpeed)
 	
 	//地面についた
 	if(GROUNDPOS-1 < y and GROUNDENABLE){
@@ -349,6 +348,7 @@ function dashManage(){
 			else{
 				vSpeed = dashVspeedBase*_dashRatio;
 			}
+			
 		}
 	}
 }
@@ -447,7 +447,53 @@ function infiniteJumpManage(){
 	}
 }
 
-
+function playerTrailManage(){
+	var _lifeTimeBase = 30;
+	var _gridHeight = ds_grid_height(dsTrailGrid)-1;
+	
+	if(dashEnable and dashTime mod 3 = 0){
+		//いっこずつずらす
+		
+		var _i = _gridHeight;
+		repeat(_gridHeight){
+			_i--;
+			if(_gridHeight != _i){
+				dsTrailGrid[# TRAILPARAM.X, _i+1] = dsTrailGrid[# TRAILPARAM.X, _i];
+				dsTrailGrid[# TRAILPARAM.Y, _i+1] = dsTrailGrid[# TRAILPARAM.Y, _i];
+				dsTrailGrid[# TRAILPARAM.LIFETIME, _i+1] = dsTrailGrid[# TRAILPARAM.LIFETIME, _i];
+				dsTrailGrid[# TRAILPARAM.DIRECTION, _i+1] = dsTrailGrid[# TRAILPARAM.DIRECTION, _i];
+				dsTrailGrid[# TRAILPARAM.ENABLE, _i+1] = dsTrailGrid[# TRAILPARAM.ENABLE, _i];
+			}
+		}
+		
+		//残像生成
+		dsTrailGrid[# TRAILPARAM.X, 0] = x;
+		dsTrailGrid[# TRAILPARAM.Y, 0] = y;
+		dsTrailGrid[# TRAILPARAM.LIFETIME, 0] = _lifeTimeBase;
+		dsTrailGrid[# TRAILPARAM.ALPHA, 0] = 1;
+		dsTrailGrid[# TRAILPARAM.DIRECTION, 0] = drawDashDirection;
+		dsTrailGrid[# TRAILPARAM.ENABLE, 0] = true;
+		
+		
+	}
+	//残像制御
+	for(var i=0; i<_gridHeight; i++){
+		if(dsTrailGrid[# TRAILPARAM.ENABLE, i] == true){
+			
+			dsTrailGrid[# TRAILPARAM.X, i] -= global.flySpeed;
+			
+			var _alpha =  dsTrailGrid[# TRAILPARAM.LIFETIME, i] / _lifeTimeBase;
+			dsTrailGrid[# TRAILPARAM.ALPHA, i] = _alpha;
+			
+			if(dsTrailGrid[# TRAILPARAM.LIFETIME, i] <= 0){
+				dsTrailGrid[# TRAILPARAM.ENABLE, i] = false;
+			}
+			else{
+				dsTrailGrid[# TRAILPARAM.LIFETIME, i] -= 1;
+			}
+		}
+	}
+}
 #endregion
 
 
@@ -476,6 +522,8 @@ if(!global.gameStop){
 	fellIntoTheSea();
 	playerParamManage();
 	
+	//残像
+	playerTrailManage()
 
 	//移動の実行
 	executionMove();
