@@ -4,11 +4,12 @@ function usefulWindow(_spritePath, _windowNumber, _winX, _winY, _width, _height,
 	3の倍数のスプライトでないとバグるかも 
 	drawイベントの中に置きましょう
 	surfaceを使っている
-	createイベントで先に "global.usefulwindow_surface[0] = noone" と書いておく必要がある
-	要らなくなったら "surface_free(global.usefulwindow_surface[0])" と書いておく
+	createイベントで先に "global.usefulwindow_surface[0] = noone;" と書いておく必要がある
+	要らなくなったら "surface_free(global.usefulwindow_surface[0]);" と書いておく
 	------------------------------*/
 	/*_windowNumberメモ
 	0 gameoverWindow
+	1 randomEvent
 	*/
 
 

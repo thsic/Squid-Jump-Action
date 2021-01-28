@@ -27,6 +27,11 @@
 #macro GROUNDENABLE false
 #macro DAMAGEDTIMEBASE 120
 
+
+//ランダムイベント
+
+
+
 enum DRAWEVENT{
 	DRAWBEGIN,
 	DRAW,

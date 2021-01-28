@@ -203,6 +203,9 @@ function collisionEnemy(){
 					dashHspeed = 0;
 					dashVspeed = 0;
 					subimage = 0;
+					
+					//残像消す
+					trailTime = 0;
 				}
 			}
 		}
@@ -291,6 +294,8 @@ function dashManage(){
 		
 		//手を離すとダッシュ
 		if(mouse_check_button_released(mb_left)){
+			//ダッシュ開始
+			
 			dashTime = dashTimeBase;
 			dashEnable = true;
 			remainDashCount--;
@@ -307,6 +312,8 @@ function dashManage(){
 			var _channel = animcurve_get_channel(acAcceleration, 0);
 			//hSpeedAcceleration = animcurve_channel_evaluate(_channel, _dirRatio);
 			
+			//残像
+			trailTime = trailTimeBase;
 		}
 	}
 	else{
@@ -451,9 +458,10 @@ function playerTrailManage(){
 	var _lifeTimeBase = 30;
 	var _gridHeight = ds_grid_height(dsTrailGrid)-1;
 	
-	if(dashEnable and dashTime mod 3 = 0){
-		//いっこずつずらす
+	if(trailTime > 0 and trailTime mod 3 = 0){
+		//残像生成処理
 		
+		//いっこずつずらす
 		var _i = _gridHeight;
 		repeat(_gridHeight){
 			_i--;
@@ -492,6 +500,10 @@ function playerTrailManage(){
 				dsTrailGrid[# TRAILPARAM.LIFETIME, i] -= 1;
 			}
 		}
+	}
+	
+	if(trailTime > 0){
+		trailTime--
 	}
 }
 #endregion
