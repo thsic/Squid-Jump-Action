@@ -17,7 +17,7 @@ dashVspeedBase = 0;
 chargeingDash = false;
 drawDashDirection = 0;
 dashSpeed = dashSpeedBase;
-
+dashTimeBase = dashTimeDefault;
 
 
 //移動

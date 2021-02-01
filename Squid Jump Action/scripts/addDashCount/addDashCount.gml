@@ -4,6 +4,13 @@ function addDashCount(_dashCount){
 	if(_dashCount > 0){
 		
 		oPlayer.remainDashCount += _dashCount;
-		oPlayer.remainDashCount = clamp(oPlayer.remainDashCount, 0, oPlayer.dashCountBase)
+		if(global.randomEventId == RANDOMEVENT.DOUBLEDASHCOUNT){
+			//ダブルダッシュイベント中
+			oPlayer.remainDashCount = clamp(oPlayer.remainDashCount, 0, oPlayer.dashCountBase*2);
+		}
+		else{
+			//通常
+			oPlayer.remainDashCount = clamp(oPlayer.remainDashCount, 0, oPlayer.dashCountBase);
+		}
 	}
 }

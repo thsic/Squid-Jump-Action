@@ -119,6 +119,7 @@ function manageGameState(){
 		global.speedLevel = 1;
 		global.throughSpeedUpCount = 0;
 		global.scoreRatio = 1;
+		global.randomEventId = noone;
 		
 		sharkPoint = sharkPointBase;
 		playerYPrev = oPlayer.y;

@@ -169,7 +169,7 @@ function collisionEnemy(){
 			
 			if(!_enemyId.collided){
 				//ダッシュカウント回復
-				addDashCount(_enemyId.addDashCount)
+				addDashCount(_enemyId.addDashCount);
 				//描画するスコアの色決め
 				switch(_enemyId.object_index){
 				case oOctopus:
@@ -362,6 +362,9 @@ function dashManage(){
 function flightPlayer(){
 	//飛ぶ スピードアップが乗ってるときはそれも加算
 	var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, global.speedLevel-1);
+	if(global.randomEventId == RANDOMEVENT.SPEEDUP){
+		var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, 10);
+	}
 	hSpeedTemp += flightSpeed * _speedUpRatio;
 	
 }

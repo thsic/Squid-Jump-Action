@@ -11,6 +11,40 @@ for(var i=0; i<_trailGridHeight; i++){
 	draw_sprite_ext(sprite_index, 3, _x, _y, 1, 1, _dir, trailColor, _alpha);
 }
 
+//アウトライン
+shTexelHandle = shader_get_uniform(shOutline, "inTexel");
+shOutlineColorHandle = shader_get_uniform(shOutline, "outlineColor");
+
+shader_set(shOutline);
+
+var _tex = sprite_get_texture(sprite_index, image_index);
+var _tWidth = texture_get_texel_width(_tex)
+var _tHeight = texture_get_texel_height(_tex)
+
+if(dashEnable){
+	
+	//プレイヤーのいろ変える
+	var _dashTimePer = dashTime/dashTimeBase;
+	var _sprCol = merge_color(c_white, dashingSpriteColor, _dashTimePer*0.5);//プレイヤースプライトの色
+	
+	var _r = 0.1;
+	var _g = 0.2;
+	var _b = 0.9;
+	var _a = _dashTimePer*0.4;
+
+}
+else{
+	var _r = 0.0;
+	var _g = 0.0;
+	var _b = 0.0;
+	var _a = 0;
+	var _sprCol = c_white;
+}
+
+shader_set_uniform_f(shTexelHandle, _tWidth, _tHeight);
+shader_set_uniform_f(shOutlineColorHandle, _r, _g, _b, _a);
+
+
 //プレーヤー描画
 if(invinsibleEnable){
 	var _channel = animcurve_get_channel(acInvinsibleAlpha, 0);
@@ -26,7 +60,11 @@ if(chargeingDash){
 	_drawDirection = drawDashDirection;
 }
 
-draw_sprite_ext(sprite_index, subimage, x, y, 1, 1, _drawDirection, c_white, _alpha);
+
+
+draw_sprite_ext(sprite_index, subimage, x, y, 1, 1, _drawDirection, _sprCol, _alpha);
+
+shader_reset();
 
 if(global.playerHp == 2){
 	//バリアがある場合はバリアを描画
@@ -59,7 +97,6 @@ if(!infiniteJumpEnable){
 		
 		draw_sprite_ext(sRemainDash, 0, _spriteX, _spriteY, 1, 1, 0, _col, 1);
 		_spriteX += _sprW;
-	
 	}
 }
 else{
