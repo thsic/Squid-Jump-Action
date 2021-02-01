@@ -46,6 +46,7 @@ dodgeTime = 0;
 infiniteJumpTime = 0;
 infiniteJumpEnable = false;
 
+
 dsEnemyParam = ds_grid_create(10, 99);
 
 //残像

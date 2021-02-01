@@ -120,12 +120,14 @@ function manageGameState(){
 		global.throughSpeedUpCount = 0;
 		global.scoreRatio = 1;
 		global.randomEventId = noone;
+		global.tempSpeedLevel = 0;
 		
 		sharkPoint = sharkPointBase;
 		playerYPrev = oPlayer.y;
 		levelUpPoint = levelUpPointBase;
 		swipeSpriteTime = 120;
 		makeBarrierCountBase = makeBarrierCountDefault;
+		decreaseTempSpeedTime = DECREASETEMPSPEEDTIME;
 		
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
@@ -152,6 +154,16 @@ function manageGameState(){
 			damagedTime--;
 			var _channel = animcurve_get_channel(acGameSpeedAfterDamage, 0);
 			damagedTimeSlowRatio = animcurve_channel_evaluate(_channel, 1-damagedTime / DAMAGEDTIMEBASE);
+		}
+		
+		//仮スピードの減少 (一定時間ごとに仮スピードは減少していく)
+		if(global.tempSpeedLevel > 0){
+			decreaseTempSpeedTime--;
+			if(decreaseTempSpeedTime <= 0){
+				//仮スピードレベルの減少
+				global.tempSpeedLevel--;
+				decreaseTempSpeedTime = DECREASETEMPSPEEDTIME;
+			}
 		}
 		
 	break

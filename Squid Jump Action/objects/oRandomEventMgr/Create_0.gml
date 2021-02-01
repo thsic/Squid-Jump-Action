@@ -23,7 +23,7 @@ dsSetEventParam(4, "無敵モード", "敵からダメージを受けなくな�
 dsSetEventParam(5, "倍ダッシュ", "ダッシュ回数が2倍になります。", 1200);
 
 enum RANDOMEVENT{
-	SPEEDUP,
+	DASHACCELERATION,
 	URCHINWALL,
 	URCHINONLY,
 	SHARKONLY,

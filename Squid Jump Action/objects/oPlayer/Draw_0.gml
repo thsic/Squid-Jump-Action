@@ -7,8 +7,11 @@ for(var i=0; i<_trailGridHeight; i++){
 	var _alpha = dsTrailGrid[# TRAILPARAM.ALPHA, i];
 	var _dir = dsTrailGrid[# TRAILPARAM.DIRECTION, i];
 	var _enable = dsTrailGrid[# TRAILPARAM.ENABLE, i];
-	
-	draw_sprite_ext(sprite_index, 3, _x, _y, 1, 1, _dir, trailColor, _alpha);
+	var _trailColor = trailColor;
+	if(global.randomEventId == RANDOMEVENT.INBINCIBLE){
+		_trailColor = invincibleModeColor;//無敵モード中のみ色がかわる
+	}
+	draw_sprite_ext(sprite_index, 3, _x, _y, 1, 1, _dir, _trailColor, _alpha);
 }
 
 //アウトライン
@@ -38,6 +41,14 @@ else{
 	var _g = 0.0;
 	var _b = 0.0;
 	var _a = 0;
+	var _sprCol = c_white;
+}
+
+if(global.randomEventId == RANDOMEVENT.INBINCIBLE){
+	var _r = 0.1;
+	var _g = 0.8;
+	var _b = 0.3;
+	var _a = 0.6;
 	var _sprCol = c_white;
 }
 

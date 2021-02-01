@@ -20,8 +20,27 @@ function drawSpeedLevel(_alpha){
 	var _sprWidth = sprite_get_width(sSpeedLevelIcon)*_s;
 	for(var i=0; i<global.speedLevel; i++){
 		var _x = 310*_s + _sprWidth*i;
-		draw_sprite_ext(sSpeedLevelIcon, 0*_s, _x, 10*_s, _s, _s, 0, c_white, 1);
+		draw_sprite_ext(sSpeedLevelIcon, 0, _x, 10*_s, _s, _s, 0, c_white, _alpha);
 	}
+	
+	//仮スピードの描画
+	if(global.tempSpeedLevel > 0){
+		for(var i=0; i<global.tempSpeedLevel; i++){
+			var _arrowNum = global.speedLevel+i;
+			if(_arrowNum > 10){
+				//10番目は列を変えて表示
+				var _x = 310*_s + _sprWidth*(_arrowNum-11);
+				var _y = (10 + 10) * _s;
+			}
+			else{
+				var _x = 310*_s + _sprWidth*_arrowNum;
+				var _y = 10*_s;
+			}
+			draw_sprite_ext(sSpeedLevelIcon, 1, _x, _y, _s, _s, 0, c_white, _alpha);
+			
+		}
+	}
+	
 }
 function drawOutOfScreenItem(){
 	//画面外にあるアイテムの位置表示

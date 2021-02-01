@@ -1,5 +1,6 @@
 
 #region function
+
 function jumpManage(){
 	/*if(mouse_check_button_pressed(mb_left) and remainJumpCount > 0){
 		//ジャンプの実行
@@ -14,6 +15,7 @@ function jumpManage(){
 	}
 	
 }
+
 function gravityManage(){
 	
 	if(oGameMgr.damagedTime > 0){
@@ -212,6 +214,7 @@ function collisionEnemy(){
 	}
 
 }
+	
 function dashManage(){
 	
 	subimage = 0;
@@ -314,6 +317,11 @@ function dashManage(){
 			
 			//残像
 			trailTime = trailTimeBase;
+			
+			//ダッシュ加速イベント中はダッシュするたびに仮スピードが増える
+			if(global.randomEventId == RANDOMEVENT.DASHACCELERATION){
+				gainTempSpeed(1);
+			}
 		}
 	}
 	else{
@@ -359,18 +367,19 @@ function dashManage(){
 		}
 	}
 }
+	
 function flightPlayer(){
 	//飛ぶ スピードアップが乗ってるときはそれも加算
-	var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, global.speedLevel-1);
-	if(global.randomEventId == RANDOMEVENT.SPEEDUP){
-		var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, 10);
-	}
+	var _speedLevel = (global.speedLevel-1)+global.tempSpeedLevel;
+	var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, _speedLevel);
+
 	hSpeedTemp += flightSpeed * _speedUpRatio;
-	
 }
+	
 function resetPlayerParam(){
 	hSpeedTemp = 0;
 }
+	
 function playerHpManage(){
 	//hp管理
 	var _enemyId, _enemyDis;
@@ -384,9 +393,9 @@ function playerHpManage(){
 			_enemyId = ds_grid_get(dsEnemyParam, ENEMYPARAM.ID, i);
 			if(_enemyId.spike == true
 			and _enemyId.disablement == false){
-				
 				//敵に攻撃判定がある かつ 一度も接触してない
-				if(!invinsibleEnable){
+				
+				if(!invinsibleEnable and global.randomEventId != RANDOMEVENT.INBINCIBLE){
 					//無敵時間でないならプレイヤーにダメージ
 					damageToPlayer(1);
 				}
@@ -416,6 +425,7 @@ function playerHpManage(){
 	}
 
 }
+	
 function fellIntoTheSea(){
 	
 	//海に落ちた
@@ -446,6 +456,7 @@ function playerParamManage(){
 	}
 	
 }
+	
 function infiniteJumpManage(){
 	if(infiniteJumpTime > 0){
 		remainDashCount = dashCountBase;
@@ -531,7 +542,7 @@ if(!global.gameStop){
 	playerHpManage();
 	
 	//回避
-	dodgeManage();
+	//dodgeManage();
 
 	//ゲームシステム関連
 	fellIntoTheSea();

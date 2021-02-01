@@ -101,6 +101,7 @@
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":0,},
     {"id":{"name":"sSquidCoin","path":"sprites/sSquidCoin/sSquidCoin.yy",},"order":19,},
     {"id":{"name":"acScoreEffect","path":"animcurves/acScoreEffect/acScoreEffect.yy",},"order":14,},
+    {"id":{"name":"gainTempSpeed","path":"scripts/gainTempSpeed/gainTempSpeed.yy",},"order":10,},
     {"id":{"name":"sItemBalloon","path":"sprites/sItemBalloon/sItemBalloon.yy",},"order":23,},
     {"id":{"name":"sSpeedUpItem","path":"sprites/sSpeedUpItem/sSpeedUpItem.yy",},"order":20,},
     {"id":{"name":"playerDodgeStart","path":"scripts/playerDodgeStart/playerDodgeStart.yy",},"order":3,},

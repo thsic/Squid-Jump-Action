@@ -41,6 +41,7 @@
     {"varType":1,"value":"2","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"dodgeCountBase","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":7,"value":"$FF997924","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"trailColor","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":7,"value":"$FFDB3A00","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"dashingSpriteColor","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":7,"value":"$FF77ED17","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"invincibleModeColor","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {
