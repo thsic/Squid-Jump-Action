@@ -16,3 +16,7 @@ sharkGenerateCount = sharkGenerateSpan;
 planktonGenerateCount = planktonGenerateSpan;
 
 heightLimit = 16;//oGameMgr.heightLimit;
+
+
+//ランダムイベント
+

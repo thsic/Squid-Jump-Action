@@ -88,8 +88,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0544e7b2-28c9-4ca8-bd92-b6c30c5d6b7c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Squid Jump Action",
-    "path": "Squid Jump Action.yyp",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sRandomEventIcon",

@@ -20,7 +20,7 @@
 #macro SPEEDUPRATIOPERLEVEL 1.15
 #macro DECREASESPEEDLEVEL 3//ダメージを受けた時に減るスピードレベル
 #macro THROUGHSPEEDUPCOUNTLIMIT 3//スピードアップアイテムをスルーできる回数 これを超えてスルーするとスピードが減る
-#macro DECREASETEMPSPEEDTIME 60//仮スピードの減少時間
+#macro DECREASETEMPSPEEDTIME 180//仮スピードの減少時間
 #macro TEMPSPEEDMAX 20//仮スピード値上限
 
 //バランス

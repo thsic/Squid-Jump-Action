@@ -4,6 +4,21 @@ if(eventRoulette){
 		//アイテム取った瞬間にイベント決める
 		eventId = irandom(eventNumber-1);
 		rouletteView = irandom(eventNumber-1);
+		
+		//バグ防止にダッシュをここでも戻す
+		oPlayer.dashTimeBase = oPlayer.dashTimeDefault;
+		
+		if(eventId == RANDOMEVENT.URCHINWALL){
+			var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, global.speedLevel-1);
+			var _playerSpeed = oPlayer.flightSpeed * _speedUpRatio;
+			
+			//一定間隔で壁が出現するように
+			var _urchinWallGenSpan = oEnemyGenerateMgr.urchinWallGenSpanBase*_playerSpeed;
+			oEnemyGenerateMgr.urchinWallGenSpan = _urchinWallGenSpan;
+			oEnemyGenerateMgr.urchinWallGenCount = _urchinWallGenSpan;
+			
+			
+		}
 	}
 	
 	rouletteTime--;
@@ -24,19 +39,16 @@ if(eventRoulette){
 	if(rouletteTime <= 0){
 		randomEventEnable = true;
 		eventRoulette = false;
+		
 		//ランダムイベントの初期設定
 		randomEventTime = dsEventParam[# RANDOMEVENTPARAM.TIME, eventId];
 		
 		switch(eventId){
 			//生成率変更、無限ジャンプ時間設定
 		case RANDOMEVENT.URCHINWALL:
-			oEnemyGenerateMgr.insideUrchinGenerateSpan = 120;
-			oEnemyGenerateMgr.outsideUrchinGenerateSpan = 90;
-			
-			oEnemyGenerateMgr.insideUrchinGenerateCount = 120;
-			oEnemyGenerateMgr.outsideUrchinGenerateCount = 90;
-			
+		
 			oPlayer.infiniteJumpTime = randomEventTime+120;
+			oPlayer.infiniteJumpTimeDefault = randomEventTime+120;
 			
 		break
 		case RANDOMEVENT.URCHINONLY:
@@ -47,15 +59,16 @@ if(eventRoulette){
 			oEnemyGenerateMgr.outsideUrchinGenerateCount = 90;
 			
 			oPlayer.infiniteJumpTime = randomEventTime+120;
-			
+			oPlayer.infiniteJumpTimeDefault = randomEventTime+120;
 		break
 		case RANDOMEVENT.SHARKONLY:
 			oEnemyGenerateMgr.sharkGenerateSpan = 240;
 			oEnemyGenerateMgr.sharkGenerateCount = 240;
-			oPlayer.infiniteJumpTime = randomEventTime+120;
 		break
 		case RANDOMEVENT.DOUBLEDASHCOUNT:
-			oPlayer.dashTimeBase = oPlayer.dashTimeDefault/2;//ダッシュ速度半減
+			oPlayer.dashTimeBase = oPlayer.dashTimeDefault*0.75;//ダッシュ速度半減
+			addDashCount(8);
+			global.randomEventId = eventId;
 		break
 		}
 		
@@ -84,11 +97,9 @@ else{
 	break
 	}
 	
-	
 	global.randomEventId = noone;
 	setEnemyGenerateSpan();
-	
-	
+
 }
 
 

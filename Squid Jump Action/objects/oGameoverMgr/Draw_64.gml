@@ -37,7 +37,7 @@ and gameoverTime < _gameoverWindowRiseStopTime){
 	//_winY = _winYDefault - (_winYDefault - _winYFinally) * _riseTimePercent;
 	_winY = _winYDefault + (_gameoverWindowRiseStartTime - gameoverTime)*_risePixelPerSecond;
 	
-	usefulWindow(sGameoverWindow, 0, _winX, _winY, _winWidth, _winHeight, 1, 1);
+	usefulWindow(sGameoverWindow, 0, _winX, _winY, _winWidth, _winHeight, 1, 1, 1);
 	
 	//スコアとか描画
 	if(!surface_exists(gameoverWindowTextSurf)){
@@ -92,7 +92,7 @@ else if(gameoverTime >= _gameoverWindowRiseStopTime){
 	//ウィンドウ停止
 	_winY = _winYFinally;
 	
-	usefulWindow(sGameoverWindow, 0, _winX, _winY, _winWidth, _winHeight, 1, 1);
+	usefulWindow(sGameoverWindow, 0, _winX, _winY, _winWidth, _winHeight, 1, 1, 1);
 	
 	surface_set_target(gameoverWindowTextSurf);
 	draw_clear_alpha(c_black, 0);

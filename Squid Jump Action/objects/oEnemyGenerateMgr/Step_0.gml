@@ -4,28 +4,31 @@ function generateEnemy(_enemy, _x, _y, _layer){
 }
 
 function generateTimeManage(){
-	switch(global.randomEventId){
-	case RANDOMEVENT.URCHINWALL:
-		insideUrchinGenerateCount -= global.flySpeed;
-		outsideUrchinGenerateCount -= global.flySpeed;
-	break
-	case RANDOMEVENT.URCHINONLY:
-		insideUrchinGenerateCount -= global.flySpeed;
-		outsideUrchinGenerateCount -= global.flySpeed;
-	break
-	case RANDOMEVENT.SHARKONLY:
-		sharkGenerateCount -= global.flySpeed;
-	break
-	default://通常時
-		octopusGenerateCount -= global.flySpeed;
-		insideUrchinGenerateCount -= global.flySpeed;
-		outsideUrchinGenerateCount -= global.flySpeed;
-		jellyfishGenerateCount -= global.flySpeed;
-		
-		if(global.nowLevel >= sharkGenerateLevel){//サメは一定レベル以上じゃないと普通にはでない
+	if(global.randomEventId != RANDOMEVENT.URCHINWALL){
+		switch(global.randomEventId){
+		case RANDOMEVENT.URCHINWALL:
+			insideUrchinGenerateCount -= global.flySpeed;
+			outsideUrchinGenerateCount -= global.flySpeed;
+		break
+		case RANDOMEVENT.URCHINONLY:
+			insideUrchinGenerateCount -= global.flySpeed;
+			outsideUrchinGenerateCount -= global.flySpeed;
+		break
+		case RANDOMEVENT.SHARKONLY:
 			sharkGenerateCount -= global.flySpeed;
+			octopusGenerateCount -= global.flySpeed;
+		break
+		default://通常時
+			octopusGenerateCount -= global.flySpeed;
+			insideUrchinGenerateCount -= global.flySpeed;
+			outsideUrchinGenerateCount -= global.flySpeed;
+			jellyfishGenerateCount -= global.flySpeed;
+		
+			if(global.nowLevel >= sharkGenerateLevel){//サメは一定レベル以上じゃないと普通にはでない
+				sharkGenerateCount -= global.flySpeed;
+			}
+		break
 		}
-	break
 	}
 	//プランクトンは常に出る
 	planktonGenerateCount -= global.flySpeed;
@@ -125,13 +128,55 @@ function planktonGenerateManage(){
 	}
 }
 
+function urchinWallGenerateManage(){
+	//うにの壁
+	urchinWallGenCount -= global.flySpeed;
+	if(urchinWallGenCount <= 0){
+		urchinWallGenCount = urchinWallGenSpan;
+		
+		//壁生成
+		var _difficulty = global.nowLevel/MAXLEVEL;
+		var _betweenSize = lerp(150, 90, _difficulty);
+		var _betweenYpos = irandom_range(_betweenSize/2, room_height-_betweenSize/2);
+		var _betweenUpSide = _betweenYpos - _betweenSize/2;
+		var _betweenDownSide = _betweenYpos + _betweenSize/2;
+		
+		//うに何個生成するか
+		var _urchinSize = sprite_get_height(sUrchin);
+		var _upSideUrchinNumber = _betweenUpSide/_urchinSize+1;
+		var _downSideUrchinNumber = (room_height-_betweenDownSide)/_urchinSize+1;
+		
+		
+		//生成
+		for(var i=0; i<_upSideUrchinNumber; i++){
+			var _y = _betweenUpSide - i*_urchinSize;
+			generateEnemy(oUrchin, room_width+_urchinSize, _y, "SpikeObjects");
+		}
+		
+		for(var i=0; i<_downSideUrchinNumber; i++){
+			var _y = _betweenDownSide + i*_urchinSize;
+			generateEnemy(oUrchin, room_width+_urchinSize, _y, "SpikeObjects");
+		}
+		
+	}
+}
 
 if(!global.gameStop){
-	jellyfishGenerateManage();
-	octopusGenerateManage();
-	urchinGenerateManage();
 	generateTimeManage();
-	sharkRandomGenerateManage();
 	planktonGenerateManage()
+	
+	if(global.randomEventId != RANDOMEVENT.URCHINWALL){
+		//通常時
+		jellyfishGenerateManage();
+		octopusGenerateManage();
+		urchinGenerateManage();
+		sharkRandomGenerateManage();
+	}
+	else{
+		//うにかべ
+		urchinWallGenerateManage();
+	}
+	
+	
 }
 

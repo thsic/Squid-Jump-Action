@@ -5,5 +5,7 @@ function itemGetSpeedUp(){
 	global.throughSpeedUpCount = 0;//スルー回数をリセット
 	if(global.speedLevel > MAXSPEEDLEVEL){
 		global.speedLevel = MAXSPEEDLEVEL;
+		//スピードレベルが最大値なら代わりに仮スピードを獲得
+		gainTempSpeed(2);
 	}
 }

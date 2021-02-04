@@ -45,19 +45,20 @@ function levelManage(){
 }
 
 function sharkGenerateManage(){//サメ生成
+	if(global.randomEventId == noone){
+		var _playerY = oPlayer.y;
+		sharkPoint += abs(_playerY - playerYPrev);//まえのフレームと比較して違いが大きいほどサメがでにくい
+		sharkPoint -= sharkPointPerFrame;
+		sharkPoint = clamp(sharkPoint, -100, sharkPointBase)
 	
-	var _playerY = oPlayer.y;
-	sharkPoint += abs(_playerY - playerYPrev);//まえのフレームと比較して違いが大きいほどサメがでにくい
-	sharkPoint -= sharkPointPerFrame;
-	sharkPoint = clamp(sharkPoint, -100, sharkPointBase)
 	
-	
-	if(sharkPoint <= 0){
-		sharkPoint = sharkPointBase;
-		var _sprWidth = sprite_get_width(object_get_sprite(oCaution));
-		instance_create_layer(room_width - _sprWidth/2, oPlayer.y, "GameObjects", oCaution);
+		if(sharkPoint <= 0){
+			sharkPoint = sharkPointBase;
+			var _sprWidth = sprite_get_width(object_get_sprite(oCaution));
+			instance_create_layer(room_width - _sprWidth/2, oPlayer.y, "GameObjects", oCaution);
+		}
+		playerYPrev = _playerY;
 	}
-	playerYPrev = _playerY;
 }
 
 function scoreManage(){

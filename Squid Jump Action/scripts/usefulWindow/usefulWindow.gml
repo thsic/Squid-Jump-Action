@@ -1,4 +1,4 @@
-function usefulWindow(_spritePath, _windowNumber, _winX, _winY, _width, _height, _sprScale, _sprAlpha) {
+function usefulWindow(_spritePath, _windowNumber, _winX, _winY, _width, _height, _sprScale, _sprAlpha, _surfAlpha) {
 	/*ウディタの万能ウィンドウっぽいやつ
 	-------------注意-------------
 	3の倍数のスプライトでないとバグるかも 
@@ -46,6 +46,9 @@ function usefulWindow(_spritePath, _windowNumber, _winX, _winY, _width, _height,
 	}
 	else//既に作られているなら
 	{
+		var _alphaTemp = draw_get_alpha();
+		draw_set_alpha(_surfAlpha);
 		draw_surface(global.usefulwindow_surface[_windowNumber],_winX,_winY);
+		draw_set_alpha(_alphaTemp);
 	}
 }

@@ -22,8 +22,8 @@ if(gravitateEnable and !leaveEnable){
 	x += _hSpeed;
 	y += _vSpeed;
 	
-	//衝突
-	if(_distanceForPlayer < collisionRange){
+	//衝突 or 一定時間経過すると勝手に取得扱いに
+	if(_distanceForPlayer < collisionRange or gravitateTime >= gravitateTimeLimit){
 		addLevelPoint(levelPoint);
 		gainScore(10, c_white, false, false);
 		instance_destroy();

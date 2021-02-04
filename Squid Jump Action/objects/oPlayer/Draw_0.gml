@@ -97,13 +97,20 @@ var _sprW = sprite_get_width(sRemainDash);
 
 
 if(!infiniteJumpEnable){
-	var _lc = merge_color($ee8d00, c_white, 0.5);
+	
+	if(global.randomEventId == RANDOMEVENT.DOUBLEDASHCOUNT){
+		var _dashArrowColor = doubleDashArrowColor;
+	}
+	else{
+		var _dashArrowColor = dashArrowColor;
+	}
+	var _lc = merge_color(_dashArrowColor, c_white, 0.5);
 	for(var i=0; i<remainDashCount; i++){
 		if(i=remainDashCount-1 and chargeingDash){
 			var _col = _lc;
 		}
 		else{
-			var _col = $ee8d00;
+			var _col = _dashArrowColor;
 		}
 		
 		draw_sprite_ext(sRemainDash, 0, _spriteX, _spriteY, 1, 1, 0, _col, 1);
@@ -114,7 +121,7 @@ else{
 	//無限ジャンプ中
 	var _lighting = sin(current_time/200)/2 + 0.5;
 	var _lc = merge_color($eedc00, c_white, _lighting);
-	var _wScale = infiniteJumpTime / MAXINFINITEJUMPTIME;
+	var _wScale = infiniteJumpTime / infiniteJumpTimeDefault;
 	draw_sprite_ext(sInfiniteJumpGauge, 0, _spriteX, _spriteY, _wScale, 1, 0, _lc, 1);
 	draw_sprite_ext(sInfiniteJumpGaugeFrame, 0, _spriteX-1, _spriteY, 1, 1, 0, c_white, 1);
 	

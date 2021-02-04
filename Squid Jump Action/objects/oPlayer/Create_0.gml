@@ -47,7 +47,7 @@ infiniteJumpTime = 0;
 infiniteJumpEnable = false;
 
 
-dsEnemyParam = ds_grid_create(10, 99);
+dsEnemyParam = ds_grid_create(10, 1000);
 
 //残像
 dsTrailGrid = ds_grid_create(10, 7);
