@@ -9,6 +9,7 @@
     {"id":{"name":"oPlankton","path":"objects/oPlankton/oPlankton.yy",},"order":5,},
     {"id":{"name":"sSeaMount","path":"sprites/sSeaMount/sSeaMount.yy",},"order":1,},
     {"id":{"name":"acLevelUpText","path":"animcurves/acLevelUpText/acLevelUpText.yy",},"order":9,},
+    {"id":{"name":"sDashingEffect","path":"sprites/sDashingEffect/sDashingEffect.yy",},"order":34,},
     {"id":{"name":"generatePlankton","path":"scripts/generatePlankton/generatePlankton.yy",},"order":8,},
     {"id":{"name":"backToTitle","path":"scripts/backToTitle/backToTitle.yy",},"order":0,},
     {"id":{"name":"gameLevelUp","path":"scripts/gameLevelUp/gameLevelUp.yy",},"order":6,},

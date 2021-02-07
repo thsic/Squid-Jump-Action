@@ -291,8 +291,11 @@ function dashManage(){
 			_dx2 -= dashHspeedBase;
 			
 			//dashDirection = point_direction(0, 0, _dx2, _dy2);
-			//sdm(dashDirection)
 			subimage = 2;
+			var _x = lengthdir_x(dashSpeed, dashDirection)+global.flySpeed;
+			var _y = lengthdir_y(dashSpeed, dashDirection);
+			drawDashDirection = point_direction(x, y, x+_x, y+_y);
+			
 		}
 		
 		//手を離すとダッシュ
@@ -398,15 +401,16 @@ function playerHpManage(){
 				if(!invinsibleEnable and global.randomEventId != RANDOMEVENT.INBINCIBLE){
 					//無敵時間でないならプレイヤーにダメージ
 					damageToPlayer(1);
+					//無敵時間にする
+					setPlayerInvinsibleTime(invinsibleTimeBase);
+					_enemyId.disablement = true;//無力化
 				}
 				if(dodgeEnable){
 					//ドッジ中に回避するとエフェクトがでる
 					createRiseEffect(oPlayer.x, oPlayer.y-32, 70, 40, "DODGE!", 0);
 				}
 				
-				//無敵時間にする
-				setPlayerInvinsibleTime(invinsibleTimeBase);
-				_enemyId.disablement = true;//無力化
+				
 			}
 		}
 		else{
@@ -428,15 +432,18 @@ function playerHpManage(){
 	
 function fellIntoTheSea(){
 	
-	//海に落ちた
+	//落ちた
 	var _spriteHeight = sprite_get_height(sprite_index);
 	if(y - _spriteHeight > room_height){
 		if(global.playerHp > 0){
-		//海に落ちると1ダメージくらって大ジャンプ
-			damageToPlayer(1);
-			addDashCount(4);
+		//落ちると1ダメージくらって大ジャンプ(無敵イベント中以外)
+			if(global.randomEventId != RANDOMEVENT.INBINCIBLE){
+				damageToPlayer(1);
+				addDashCount(4);
+				setPlayerInvinsibleTime(invinsibleTimeBase);
+			}
 			vSpeed = -11;
-			setPlayerInvinsibleTime(invinsibleTimeBase);
+			
 		}
 		else{
 			//hpが無いなら無敵時間でも死亡

@@ -38,4 +38,14 @@ for(var i=0; i<ds_grid_height(bgObjParam); i++){
 	}
 }
 
+//速度が早いときにでるエフェクト
+for(var i=0; i<ds_grid_height(dsDashEffect); i++){
+	if(dsDashEffect[# DASHEFFECTPARAM.ENABLE, i]){
+		var _sprite = dsDashEffect[# DASHEFFECTPARAM.SPRITE, i];
+		var _x = dsDashEffect[# DASHEFFECTPARAM.X, i];
+		var _y = dsDashEffect[# DASHEFFECTPARAM.Y, i];
+		
+		draw_sprite_ext(_sprite, 0, _x, _y, 1, 1, 0, c_white, dashEffectAlpha);
+	}
+}
 

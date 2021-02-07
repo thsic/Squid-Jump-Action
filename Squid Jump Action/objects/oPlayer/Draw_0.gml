@@ -14,6 +14,7 @@ for(var i=0; i<_trailGridHeight; i++){
 	draw_sprite_ext(sprite_index, 3, _x, _y, 1, 1, _dir, _trailColor, _alpha);
 }
 
+
 //アウトライン
 shTexelHandle = shader_get_uniform(shOutline, "inTexel");
 shOutlineColorHandle = shader_get_uniform(shOutline, "outlineColor");
@@ -34,7 +35,8 @@ if(dashEnable){
 	var _g = 0.2;
 	var _b = 0.9;
 	var _a = _dashTimePer*0.4;
-
+	
+	
 }
 else{
 	var _r = 0.0;

@@ -28,6 +28,10 @@ bgId = layer_background_get_id(layer_get_id("BackGround"))
 layer_background_blend(bgId, backGroundColor)
 */
 
+//ダッシュ時の線
+dsDashEffect = ds_grid_create(7, 50);
+dashEffectCount = dashEffectSpan;
+dashEffectAlpha = 0;
 
 enum BGOBJSTATS{
 	SPRITE,
@@ -48,4 +52,12 @@ enum BGOBJPARAM{
 	ENABLED,
 	DEPTH,
 	SCALE,
+}
+
+enum DASHEFFECTPARAM{
+	ENABLE,
+	X,
+	Y,
+	SPEED,
+	SPRITE,
 }

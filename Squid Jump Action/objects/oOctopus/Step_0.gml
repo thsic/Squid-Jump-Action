@@ -16,7 +16,7 @@ if(lifeTime mod swimSpan = 0){
 	image_speed = imageSpeedBase;
 	image_index = 0;
 }
-
+subimage = image_index;
 
 event_inherited();
 

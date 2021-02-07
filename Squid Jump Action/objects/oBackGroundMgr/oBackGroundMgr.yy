@@ -27,6 +27,9 @@
     {"varType":7,"value":"$FF4C3313","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"backGroundColor2","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":7,"value":"$FF7F7C43","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"groundColor","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":7,"value":"$FF261C13","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"seaMountColor","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"dashEffectSpan","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"20","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"dashEffectCreateRange","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":0,"value":"5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"dashEffectSpeedBase","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

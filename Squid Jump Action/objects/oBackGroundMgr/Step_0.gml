@@ -1,4 +1,64 @@
 
+function dashEffectManage(){
+	dashEffectCount--;
+	var _dsHeight = ds_grid_height(dsDashEffect);
+	
+	if(dashEffectCount <= 0){
+		
+		dashEffectCount = dashEffectSpan;
+		//開いてるところ探す
+		for(var i=0; i<_dsHeight; i++){
+			
+			var _enable = dsDashEffect[# DASHEFFECTPARAM.ENABLE, i];
+			if(!_enable){
+				//あいているところにいれる
+				var _rnd = irandom_range(-dashEffectCreateRange, dashEffectCreateRange);
+				if(sign(_rnd)){
+					var _y = _rnd;
+				}
+				else{
+					var _y = room_height-abs(_rnd);
+				}
+				
+								
+				dsDashEffect[# DASHEFFECTPARAM.ENABLE, i] = true;
+				dsDashEffect[# DASHEFFECTPARAM.X, i] = room_width;
+				dsDashEffect[# DASHEFFECTPARAM.Y, i] = _y;
+				dsDashEffect[# DASHEFFECTPARAM.SPEED, i] = random_range(4, 6);
+				dsDashEffect[# DASHEFFECTPARAM.SPRITE, i] = sDashingEffect;
+				break;
+				
+			}
+		}	
+	}
+	
+	//移動処理
+	for(var i=0; i<_dsHeight; i++){
+		if(dsDashEffect[# DASHEFFECTPARAM.ENABLE, i]){
+			var _speed = dsDashEffect[# DASHEFFECTPARAM.SPEED, i] + global.speedLevel;
+			
+			dsDashEffect[# DASHEFFECTPARAM.X, i] -= _speed;
+			var _spriteWidth = sprite_get_width(dsDashEffect[# DASHEFFECTPARAM.SPRITE, i]);
+			var _x = dsDashEffect[# DASHEFFECTPARAM.X, i];
+		
+			//画面外に出たら消す
+			if(_x + _spriteWidth < 0){
+				dsDashEffect[# DASHEFFECTPARAM.ENABLE, i] = false;
+			}
+		}
+	}
+	
+	//透明度設定
+	if(oPlayer.dashEnable){
+		dashEffectAlpha += 0.02;
+	}
+	else{ 
+		dashEffectAlpha -= 0.03;
+	}
+	dashEffectAlpha = clamp(dashEffectAlpha, 0.1, 0.6);
+	
+}
+
 function generateSeaMount(){
 	var _sprite = sSeaMount;
 	var _sprW = sprite_get_width(_sprite);
@@ -81,4 +141,7 @@ function moveBgObj(){
 if(!global.gameStop){
 	generateBgObj();
 	moveBgObj();
+	dashEffectManage();
 }
+
+

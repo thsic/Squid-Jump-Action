@@ -16,6 +16,10 @@ damagedTimeSlowRatio = 1;
 global.usefulwindow_surface[0] = noone
 
 
+
+
+
+
 enum GAMESTATE{
 	MAIN,
 	STAGESTART,

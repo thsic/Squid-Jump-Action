@@ -16,7 +16,7 @@ function generateTimeManage(){
 		break
 		case RANDOMEVENT.SHARKONLY:
 			sharkGenerateCount -= global.flySpeed;
-			octopusGenerateCount -= global.flySpeed;
+			jellyfishGenerateCount -= global.flySpeed;
 		break
 		default://通常時
 			octopusGenerateCount -= global.flySpeed;

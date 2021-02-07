@@ -109,7 +109,6 @@ function drawLevelBar(_alpha){
 	
 	drawSetDefault();
 }
-
 function drawBarrierBar(_alpha){
 	var _s = oCamera.resScale;
 	var _squareW = 12*_s;
@@ -157,6 +156,15 @@ function drawBarrierBar(_alpha){
 	}
 	drawSetDefault();
 }
+/*function drawFog(){
+	var _fogMaxSize = 60;
+	var _fogColor = c_black;
+	//ue
+	var _fogUpsideY = _fogMaxSize;
+	
+	draw_rectangle_color(0, 0, window_get_width(), _fogUpsideY,
+	_fogColor, _fogColor, );
+}*/
 
 //プレイヤーがUIとかぶさるとalpha値がかわる
 var _s = oCamera.resScale;
@@ -164,7 +172,7 @@ var _yPos = oPlayer.y - 30*_s;
 var _ratio = clamp(_yPos / 70, 0, 1);
 var _uiAlpha = lerp(0.2, 1, _ratio);
 
-drawScoreUi(_uiAlpha);
+drawScoreUi(_uiAlpha);                                                                    
 drawSpeedLevel(_uiAlpha);
 drawLevelBar(_uiAlpha);
 drawBarrierBar(_uiAlpha);
