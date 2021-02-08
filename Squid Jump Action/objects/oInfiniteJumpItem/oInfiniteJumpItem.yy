@@ -27,6 +27,7 @@
   "properties": [],
   "overriddenProperties": [
     {"propertyId":{"name":"effectScript","path":"objects/oItem/oItem.yy",},"objectId":{"name":"oItem","path":"objects/oItem/oItem.yy",},"value":"itemGetInfiniteJump","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"throughScript","path":"objects/oItem/oItem.yy",},"objectId":{"name":"oItem","path":"objects/oItem/oItem.yy",},"value":"gainOtherItemThrough","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "item",

@@ -3,5 +3,5 @@
 function itemGetRandomEvent(){
 	oRandomEventMgr.eventRoulette = true;
 	oRandomEventMgr.rouletteTime = oRandomEventMgr.rouletteTimeBase;
-	
+	oGameMgr.otherItemThroughCount = 0;
 }

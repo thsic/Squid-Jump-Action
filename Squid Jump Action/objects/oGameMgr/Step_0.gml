@@ -6,6 +6,19 @@ function itemManage(){
 		setBarrierCount();
 	}
 	
+	//その他アイテム
+	if(otherItemGenerateCount <= 0){
+		//生成
+		setOtherItemGenerateCount();
+		createOtherItem();
+	}
+	else{
+		//ランダムイベント中はカウントストップ
+		if(global.randomEventId == noone){
+			otherItemGenerateCount -= global.flySpeed;
+		}
+	}
+	
 }
 
 /*function heightLimitManage(){
@@ -129,7 +142,11 @@ function manageGameState(){
 		swipeSpriteTime = 120;
 		makeBarrierCountBase = makeBarrierCountDefault;
 		decreaseTempSpeedTime = DECREASETEMPSPEEDTIME;
+		//アイテム
+		prevOtherItem = noone;
+		otherItemThroughCount = 0;
 		
+		setOtherItemGenerateCount();
 		setBarrierCount();
 		instance_create_layer(0, 0, "Instances", oEnemyGenerateMgr);
 		instance_create_layer(0, 0, "Instances", oRandomEventMgr);

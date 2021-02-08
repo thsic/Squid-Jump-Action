@@ -21,6 +21,9 @@ if(!global.gameStop){
 	
 	//画面端に行くと消える
 	if(-sprite_width > x){
+		if(throughScript != noone){
+			script_execute(throughScript);
+		}
 		instance_destroy();
 	}
 	

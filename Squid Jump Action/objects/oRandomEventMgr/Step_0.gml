@@ -5,9 +5,13 @@ if(eventRoulette){
 		eventId = irandom(eventNumber-1);
 		rouletteView = irandom(eventNumber-1);
 		
+		//ランダムイベント中にアイテムを取るとランダムイベント中断
+		global.randomEventId = noone;
+		
 		//バグ防止にダッシュをここでも戻す
 		oPlayer.dashTimeBase = oPlayer.dashTimeDefault;
 		
+		//うにの壁用
 		if(eventId == RANDOMEVENT.URCHINWALL){
 			var _speedUpRatio = power(SPEEDUPRATIOPERLEVEL, global.speedLevel-1);
 			var _playerSpeed = oPlayer.flightSpeed * _speedUpRatio;
