@@ -24,7 +24,7 @@ function dashEffectManage(){
 				dsDashEffect[# DASHEFFECTPARAM.ENABLE, i] = true;
 				dsDashEffect[# DASHEFFECTPARAM.X, i] = room_width;
 				dsDashEffect[# DASHEFFECTPARAM.Y, i] = _y;
-				dsDashEffect[# DASHEFFECTPARAM.SPEED, i] = random_range(4, 6);
+				dsDashEffect[# DASHEFFECTPARAM.SPEED, i] = random_range(7, 9);
 				dsDashEffect[# DASHEFFECTPARAM.SPRITE, i] = sDashingEffect;
 				break;
 				
@@ -50,12 +50,14 @@ function dashEffectManage(){
 	
 	//透明度設定
 	if(oPlayer.dashEnable){
-		dashEffectAlpha += 0.02;
+		dashEffectAlpha += 0.005;
 	}
 	else{ 
-		dashEffectAlpha -= 0.03;
+		dashEffectAlpha -= 0.008;
 	}
-	dashEffectAlpha = clamp(dashEffectAlpha, 0.1, 0.6);
+	var _totalSpeedLevel = global.speedLevel + global.tempSpeedLevel;
+	var _plusAlpha = 0.015*_totalSpeedLevel;
+	dashEffectAlpha = clamp(dashEffectAlpha, -0.05+_plusAlpha*0.75, 0.1+_plusAlpha);
 	
 }
 

@@ -8,4 +8,5 @@ function itemGetSpeedUp(){
 		//スピードレベルが最大値なら代わりに仮スピードを獲得
 		gainTempSpeed(2);
 	}
+	gainScore(ITEMGETSCOREBASE, ITEMGETSCORECOLOR, true, true);
 }

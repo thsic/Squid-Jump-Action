@@ -50,8 +50,6 @@ function drawGround(){
 		draw_sprite(sGround, 0, _spriteX, _spriteY);
 		
 	}
-	
-	
 }
 
 if(GROUNDENABLE){

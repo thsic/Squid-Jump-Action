@@ -22,6 +22,8 @@
 #macro THROUGHSPEEDUPCOUNTLIMIT 3//スピードアップアイテムをスルーできる回数 これを超えてスルーするとスピードが減る
 #macro DECREASETEMPSPEEDTIME 180//仮スピードの減少時間
 #macro TEMPSPEEDMAX 20//仮スピード値上限
+#macro ITEMGETSCOREBASE 20000//アイテム取得ボーナススコア
+#macro ITEMGETSCORECOLOR $34df45//アイテム取得時のスコアの色
 
 //バランス
 #macro MAXLEVEL 50
